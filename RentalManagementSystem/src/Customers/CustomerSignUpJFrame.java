@@ -5,6 +5,9 @@
 package Customers;
 
 import MySQLConnection.MySQLConnection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 
@@ -258,13 +261,76 @@ public class CustomerSignUpJFrame extends javax.swing.JFrame {
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
 
         try{
-
+             int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(txtName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Name cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(txtAddress.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Address cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(txtEmail.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Email cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(txtSSN.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Goverment cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                    if(txtPassword.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                    
+                String email1 = txtEmail.getText();
+                Pattern pattern1 = Pattern.compile("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+                Matcher matcher1 = pattern1.matcher(email1);
+                if(!matcher1.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Email Address!");
+                    flag = 1;
+                    txtEmail.setText("");
+                    
+                }
+                
+                String employeeId2 = txtSSN.getText();
+                Pattern pattern2 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher2 =pattern2.matcher(employeeId2);
+                if(!matcher2.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Valid Goverment ID!");
+                    flag = 1;
+                    txtSSN.setText("");
+                    
+                    
+                    
+                }
+                
+            if(flag == 0){
             String sql="INSERT INTO customers (customerid, customername, password, address,email)" +
-            " VALUES( '"+txtSSN.getText()+"','"+txtName.getText()+"','"+txtPassword.getText()+"','"+txtAddress.getText()+"' ,'"+txtEmail.getText()+"')";
+              " VALUES( '"+txtSSN.getText()+"','"+txtName.getText()+"','"+txtPassword.getText()+"','"+txtAddress.getText()+"' ,'"+txtEmail.getText()+"')";
             c.insertDatabase(sql);
             JOptionPane.showMessageDialog(this,"Account has been Created");
             Reset();
-
+                }
         }
         catch(Exception e){
             e.printStackTrace();

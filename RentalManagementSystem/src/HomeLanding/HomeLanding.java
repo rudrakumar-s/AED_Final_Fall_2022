@@ -4,6 +4,7 @@
  */
 package HomeLanding;
 
+import Admin.AdminLandingJFrame;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -176,6 +177,11 @@ public class HomeLanding extends javax.swing.JFrame {
         BtnSysLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnSysLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnSysLogin.setText("Login");
+        BtnSysLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSysLoginActionPerformed(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(223, 207, 213));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -1171,6 +1177,15 @@ public class HomeLanding extends javax.swing.JFrame {
                 Logger.getLogger(HomeLanding.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_BtnGadAdLoginActionPerformed
+
+    private void BtnSysLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSysLoginActionPerformed
+        // TODO add your handling code here:
+        if(TxtSysUID.getText() == "SystemAdmin" && TxtSysPwd.getText() == "Password"){
+            AdminLandingJFrame al = new AdminLandingJFrame();
+            al.setVisible(true);
+            al.dispose();
+        }
+    }//GEN-LAST:event_BtnSysLoginActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,8 @@
  */
 package Admin;
 
+import HomeLanding.HomeLanding;
+
 /**
  *
  * @author sunilrudrakumar
@@ -34,6 +36,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
         btnGadgetAdmin = new javax.swing.JButton();
         btnVehicleServicesAdmin = new javax.swing.JButton();
         btnGadgetServicesAdmin = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,6 +71,13 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -86,6 +96,10 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(53, 53, 53))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +114,9 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
                 .addComponent(btnVehicleServicesAdmin)
                 .addGap(78, 78, 78)
                 .addComponent(btnGadgetServicesAdmin)
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(btnLogout)
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         jSplitPane2.setLeftComponent(jPanel3);
@@ -109,7 +125,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
+            .addGap(0, 662, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,6 +171,13 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
             jSplitPane2.setRightComponent(view);// TODO add your handling code here:
     }//GEN-LAST:event_btnGadgetServicesAdminActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        HomeLanding lr = new HomeLanding();
+                lr.setVisible(true);
+                this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -194,6 +217,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGadgetAdmin;
     private javax.swing.JButton btnGadgetServicesAdmin;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnVehicleAdmin;
     private javax.swing.JButton btnVehicleServicesAdmin;
     private javax.swing.JLabel jLabel2;

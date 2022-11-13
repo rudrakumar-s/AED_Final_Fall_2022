@@ -331,6 +331,8 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here: 
         try {
+            
+            
             DefaultTableModel model = (DefaultTableModel) TblManageBikes.getModel();
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent", "root", "12345678");
             PreparedStatement add = con.prepareStatement("insert into carslist values(?,?,?,?,?)");

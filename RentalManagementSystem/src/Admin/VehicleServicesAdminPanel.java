@@ -47,6 +47,7 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         tblVehicleServicesAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +91,13 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -101,7 +109,9 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addGap(206, 206, 206)
+                            .addGap(77, 77, 77)
+                            .addComponent(btnBack)
+                            .addGap(57, 57, 57)
                             .addComponent(btnSave)
                             .addGap(66, 66, 66)
                             .addComponent(btnEdit)
@@ -146,7 +156,8 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnEdit)
-                    .addComponent(btnDelete))
+                    .addComponent(btnDelete)
+                    .addComponent(btnBack))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
@@ -254,8 +265,15 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
                 // TODO add your handling code here:
     }//GEN-LAST:event_tblVehicleServicesAdminMouseClicked
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        AdminLandingJFrame al = new AdminLandingJFrame();
+        al.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;

@@ -13,6 +13,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HomeLanding.HomeLanding;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
 
 /**
  *
@@ -27,7 +30,11 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
     Email e = new Email();
     public LaptopRentJFrame() {
         initComponents();
-
+        txtProductId.setEditable(false);
+        txtCustomerId.setEditable(false);
+        txtRentDate.setEditable(false);
+        txtReturnDate.setEditable(false);
+        txtPrice.setEditable(false);
         DisplayLaptopOnRent();
         DisplayLaptopRentalRequest();
     }
@@ -402,6 +409,30 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try{
+            int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                 if(txtRentID.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Rent ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String cellPhoneNumber3 = txtRentID.getText();
+                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Rent ID!");
+                    flag = 1;
+                    txtPrice.setText("");
+                    
+                    
+                }
+                 
+             if(flag == 0)
+             {   
             String sql="UPDATE laptop SET customerid = '"+txtCustomerId.getText()+"', rentid = '"+txtRentID.getText()+"',status = 'Booked',rentdate = '"+txtRentDate.getText()+"' ,returndate = '"+txtReturnDate.getText()+"',price = '"+txtPrice.getText()+"' WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Request Aprooved");
@@ -426,6 +457,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
             DisplayLaptopOnRent();
             DisplayLaptopRentalRequest();
             Reset();
+             }
 
         }
         catch(Exception e)
@@ -437,8 +469,8 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
 
     private void btnManagelaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagelaptopActionPerformed
         // TODO add your handling code here:
-//        LaptopManageJFrame lm = new LaptopManageJFrame();
-//        lm.setVisible(true);
+        LaptopManageJFrame lm = new LaptopManageJFrame();
+        lm.setVisible(true);
         this.dispose();
 //        LaptopRentJFrame lr = new  LaptopRentJFrame();
 //        lr.setVisible(false);
@@ -446,8 +478,8 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
 
     private void btnReturnLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnLaptopActionPerformed
         // TODO add your handling code here:
-//        LaptopReturnJFrame lr = new LaptopReturnJFrame();
-//        lr.setVisible(true);
+        LaptopReturnJFrame lr = new LaptopReturnJFrame();
+        lr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReturnLaptopActionPerformed
 
@@ -517,44 +549,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
         });
     }
 
-    
-    
-//    private void DisplayLaptopList(){
-//        String reg,brand,carmodel,status,price;
-//        try{
-//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-//            st = con.createStatement();
-//            rs = st.executeQuery("select * from laptop");
-//            
-//            DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
-//            int rowCount = model.getRowCount();
-//            for (int i = rowCount - 1; i >= 0; i--) 
-//            {
-//            model.removeRow(i);
-//            }
-//
-//
-//            while (rs.next()) {
-//                 reg = rs.getString(1);
-//                 brand = rs.getString(2);
-//                 carmodel = rs.getString(3);
-//                  status = rs.getString(4);
-//                  price = rs.getString(5);
-//                  String[] row = {reg,brand,carmodel,status,price};
-//                  model.addRow(row);
-//                               
-//            }
-//        
-//        } catch (SQLException e)
-//        {
-//            e.printStackTrace();
-//            
-            
-//        }
-//        
-//        
-//        
-//    }
+
     private void DisplayLaptopOnRent(){
         String reg,brand,carmodel,status,price;
         try{
