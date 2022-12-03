@@ -9,5 +9,5 @@ package BikeRental;
  * @author sunilrudrakumar
  */
 public class Bike {
-    
+       
 }
