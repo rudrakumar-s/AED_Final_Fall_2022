@@ -296,7 +296,7 @@ public class ManageCarJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtPriceActionPerformed
 
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:   
     }//GEN-LAST:event_BtnSaveActionPerformed
 
     /**
