@@ -47,8 +47,8 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         lblDuration = new javax.swing.JLabel();
         txtDuration = new javax.swing.JTextField();
-        btnApprove = new javax.swing.JButton();
-        btnDecline = new javax.swing.JButton();
+        btApprove = new javax.swing.JButton();
+        btDecline = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(930, 690));
@@ -129,9 +129,9 @@ public class RentBikeJFrame extends javax.swing.JFrame {
 
         lblDuration.setText("Duration");
 
-        btnApprove.setText("Approve");
+        btApprove.setText("Approve");
 
-        btnDecline.setText("Decline");
+        btDecline.setText("Decline");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -175,8 +175,8 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDecline)
-                            .addComponent(btnApprove))
+                            .addComponent(btDecline)
+                            .addComponent(btApprove))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -209,11 +209,11 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                             .addComponent(lblDuration)
                             .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
-                        .addComponent(btnApprove)))
+                        .addComponent(btApprove)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRentalRequest)
-                    .addComponent(btnDecline))
+                    .addComponent(btDecline))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -276,11 +276,11 @@ public class RentBikeJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btApprove;
+    private javax.swing.JButton btDecline;
     private javax.swing.JButton btLogout;
     private javax.swing.JButton btRentBike;
     private javax.swing.JButton btReturnBike;
-    private javax.swing.JButton btnApprove;
-    private javax.swing.JButton btnDecline;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
