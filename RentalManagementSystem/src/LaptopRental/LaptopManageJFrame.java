@@ -84,7 +84,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                     .addComponent(btnLogout)
                     .addComponent(btnRentLaptop)
                     .addComponent(btnReturnLaptop))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +255,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                             .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
@@ -424,6 +424,8 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         } catch (SQLException e)
         {
             e.printStackTrace();
+            
+            
         }
         
         
