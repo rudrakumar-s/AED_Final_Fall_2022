@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package VehicleServiceManagement;
+package ElectricalServiceManagement;
 
 /**
  *
  * @author tejas
  */
-public class VehicleServiceLoginJFrame extends javax.swing.JFrame {
+public class ElectricServiceLoginJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form ServiceLoginJFrame
+     * Creates new form ElectricServiceLoginJFrame
      */
-    public VehicleServiceLoginJFrame() {
+    public ElectricServiceLoginJFrame() {
         initComponents();
     }
 
@@ -27,7 +27,7 @@ public class VehicleServiceLoginJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        LblVehicleServiceLogin = new javax.swing.JLabel();
+        LblElectricLogin = new javax.swing.JLabel();
         LblUserName = new javax.swing.JLabel();
         TxtUserName = new javax.swing.JTextField();
         LblPassword = new javax.swing.JLabel();
@@ -36,12 +36,12 @@ public class VehicleServiceLoginJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(132, 212, 252));
 
-        LblVehicleServiceLogin.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
-        LblVehicleServiceLogin.setForeground(new java.awt.Color(255, 255, 255));
-        LblVehicleServiceLogin.setText("Vehicle service Login");
-        LblVehicleServiceLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LblElectricLogin.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        LblElectricLogin.setForeground(new java.awt.Color(255, 255, 255));
+        LblElectricLogin.setText("Electric service Login");
+        LblElectricLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         LblUserName.setText("Service Manager Username :");
 
@@ -64,29 +64,28 @@ public class VehicleServiceLoginJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(292, Short.MAX_VALUE)
-                .addComponent(LblVehicleServiceLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(240, 240, 240))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(257, 257, 257)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TxtUserName)
-                        .addComponent(TxtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
-                    .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(LblElectricLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TxtUserName)
+                                .addComponent(TxtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                            .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(LblVehicleServiceLogin)
-                .addGap(93, 93, 93)
+                .addGap(74, 74, 74)
+                .addComponent(LblElectricLogin)
+                .addGap(92, 92, 92)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,30 +141,29 @@ public class VehicleServiceLoginJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VehicleServiceLoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ElectricServiceLoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VehicleServiceLoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ElectricServiceLoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VehicleServiceLoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ElectricServiceLoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VehicleServiceLoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ElectricServiceLoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VehicleServiceLoginJFrame().setVisible(true);
+                new ElectricServiceLoginJFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnLogin;
+    private javax.swing.JLabel LblElectricLogin;
     private javax.swing.JLabel LblPassword;
     private javax.swing.JLabel LblUserName;
-    private javax.swing.JLabel LblVehicleServiceLogin;
     private javax.swing.JTextField TxtPassword;
     private javax.swing.JTextField TxtUserName;
     private javax.swing.JPanel jPanel2;
