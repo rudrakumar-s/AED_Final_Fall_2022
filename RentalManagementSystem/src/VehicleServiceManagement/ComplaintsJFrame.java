@@ -86,7 +86,7 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Complaint ID", "Model", "Brand", "Vehicle Type"
+                "ID", "Model", "Brand", "Vehicle Type"
             }
         ));
         jScrollPane1.setViewportView(TblComplaints);
@@ -106,7 +106,7 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
         LblMechAssign.setForeground(new java.awt.Color(255, 255, 255));
         LblMechAssign.setText("Mechanic Assigned");
 
-        LblComplaintID.setText("Complaint ID :");
+        LblComplaintID.setText("ID :");
 
         TxtComplaintID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
