@@ -4,7 +4,7 @@
  */
 package LaptopRental;
 
-import PhoneRental.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -52,7 +52,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         lblModel = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
-        txtRentId = new javax.swing.JTextField();
+        txtProductId = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
@@ -68,9 +68,24 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
-        btnReturnLaptop.setText("Return Laptop");
+        btnReturnLaptop.setText("Manage Return");
+        btnReturnLaptop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnLaptopActionPerformed(evt);
+            }
+        });
 
-        btnRentLaptop.setText("Rent Laptop");
+        btnRentLaptop.setText("Manage Rents");
+        btnRentLaptop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRentLaptopMouseClicked(evt);
+            }
+        });
+        btnRentLaptop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRentLaptopActionPerformed(evt);
+            }
+        });
 
         btnLogout.setText("Logout");
 
@@ -98,14 +113,14 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 .addGap(131, 131, 131))
         );
 
-        lblRentId.setText("Rent Id");
+        lblRentId.setText("Product Id");
 
         tblLaptopList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Rent ID", "Brand", "Model", "Status", "Price"
+                "Product ID", "Brand", "Model", "Status", "Price"
             }
         ));
         tblLaptopList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -151,7 +166,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
             }
         });
 
-        lblHeading.setText("Manage Laptop");
+        lblHeading.setText("Manage Product");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -188,32 +203,24 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblBrand)
-                                            .addComponent(lblModel)
-                                            .addComponent(lblStatus)
-                                            .addComponent(lblPrice))
-                                        .addGap(50, 50, 50)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(83, 83, 83)
-                                                .addComponent(btnSave))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(88, 88, 88)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(btnUpdate)
-                                                    .addComponent(btnReset)
-                                                    .addComponent(btnDelete)))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblRentId)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(txtRentId, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(lblBrand)
+                                    .addComponent(lblModel)
+                                    .addComponent(lblStatus)
+                                    .addComponent(lblPrice)
+                                    .addComponent(lblRentId))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtPrice)
+                                    .addComponent(txtModel)
+                                    .addComponent(txtBrand)
+                                    .addComponent(txtProductId))
+                                .addGap(88, 88, 88)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSave)
+                                    .addComponent(btnUpdate)
+                                    .addComponent(btnReset)
+                                    .addComponent(btnDelete))))
                         .addContainerGap(73, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -225,12 +232,12 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRentId)
-                    .addComponent(txtRentId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addGap(16, 16, 16)
                         .addComponent(btnSave)
-                        .addGap(14, 14, 14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnUpdate)
                         .addGap(14, 14, 14)
                         .addComponent(btnReset)
@@ -264,40 +271,59 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         
-        try{
-            DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent" ,"root", "12345678");
-            PreparedStatement add = con.prepareStatement("insert into laptops values(?,?,?,?,?)");
-            add.setString(1,txtRentId.getText());
+        String sql="INSERT INTO laptop (productid,brand,model,status,price) VALUES (?,?,?,?,?)";
+    
+      try {
+        PreparedStatement add = con.prepareStatement(sql);
+            add.setString(1,txtProductId.getText());
             add.setString(2,txtBrand.getText());
             add.setString(3,txtModel.getText());
             add.setString(4,cbStatus.getSelectedItem().toString());
             add.setInt(5,Integer.valueOf(txtPrice.getText()));
-            int row = add.executeUpdate();
-            JOptionPane.showMessageDialog(this,"Laptop Added");
-
-        Display();
-
-        }
-        catch(Exception e)
-        {
-        e.printStackTrace();
-    }
+            
+        int n1=add.executeUpdate();
+      if(n1>0)
+      {
+      JOptionPane.showMessageDialog(null,"Record Added Successfully!");
+      Display();
+      Reset();
+      }
+      }catch (SQLException ex) { }
+//        
+//        try{
+//            DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent" ,"root", "12345678");
+//            PreparedStatement add = con.prepareStatement("insert into laptop(productid,brand,model,status,price) values( '"+txtProductId.getText()+"', '" +txtBrand.getText()+"', '"+txtModel.getText()+"',  '"+cbStatus.getSelectedItem()+"' "+txtPrice.getText()+")");
+//            add.setString(1,txtProductId.getText());
+//            add.setString(3,txtBrand.getText());
+//            add.setString(4,txtModel.getText());
+//            add.setString(4,cbStatus.getSelectedItem().toString());
+//            add.setInt(6,Integer.valueOf(txtPrice.getText()));
+//            int row = add.executeUpdate();
+//            JOptionPane.showMessageDialog(this,"Laptop Added");
+//
+//        Display();
+//
+//        }
+//        catch(Exception e)
+//        {
+//        e.printStackTrace();
+//    }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         
-        if(txtRentId.getText().isEmpty() )
+        if(txtProductId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
             
         }
         else {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-            String Req = txtRentId.getText();
-          String Query = "Delete from laptops where rentID ='"+Req+"'";
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+          String Req = txtProductId.getText();
+          String Query = "Delete from laptop where productid ='"+Req+"'";
             Statement Add = con.createStatement();
             Add.executeUpdate(Query);
             JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
@@ -315,7 +341,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) tblLaptopList.getModel();
         int MyIndex = tblLaptopList.getSelectedRow();
-        txtRentId.setText(model.getValueAt(MyIndex,0).toString());
+        txtProductId.setText(model.getValueAt(MyIndex,0).toString());
         txtBrand.setText(model.getValueAt(MyIndex,1).toString());
         txtModel.setText(model.getValueAt(MyIndex,2).toString());
         cbStatus.setSelectedItem(model.getValueAt(MyIndex,3).toString());
@@ -325,7 +351,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-          if(txtRentId.getText().isEmpty() )
+          if(txtProductId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record");
             
@@ -335,15 +361,15 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
     }
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-         if(txtRentId.getText().isEmpty() )
+         if(txtProductId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
             
         }else {
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-            String Req = txtRentId.getText();
-          String Query = "Update laptops set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', status = '"+cbStatus.getSelectedItem()+"', price = "+txtPrice.getText()+" where rentID = '"+Req+"'" ;
+            String Req = txtProductId.getText();
+            String Query = "Update laptop set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', status = '"+cbStatus.getSelectedItem()+"', price = "+txtPrice.getText()+" where productid = '"+Req+"'" ;
             Statement Add = con.createStatement();
             Add.executeUpdate(Query);
             JOptionPane.showMessageDialog(this,"Record Updated Successfully");
@@ -357,6 +383,24 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnRentLaptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRentLaptopMouseClicked
+        // TODO add your handling code here:
+        LaptopRentJFrame  lr = new LaptopRentJFrame();
+        lr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRentLaptopMouseClicked
+
+    private void btnRentLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentLaptopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRentLaptopActionPerformed
+
+    private void btnReturnLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnLaptopActionPerformed
+        // TODO add your handling code here:
+        LaptopReturnJFrame  lr = new LaptopReturnJFrame();
+        lr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnReturnLaptopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,7 +444,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         try{
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
             st = con.createStatement();
-            rs = st.executeQuery("select * from laptops");
+            rs = st.executeQuery("select * from laptop");
             
             DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
             int rowCount = model.getRowCount();
@@ -412,11 +456,11 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
 
             while (rs.next()) {
                 reg = rs.getString(1);
-                 brand = rs.getString(2);
-                 carmodel = rs.getString(3);
-                  status = rs.getString(4);
-                  price = rs.getString(5);
-                  String[] row = {reg,brand,carmodel,status,price};
+                brand = rs.getString(3);
+                carmodel = rs.getString(4);
+                status = rs.getString(5);
+                price = rs.getString(6);
+                String[] row = {reg,brand,carmodel,status,price};
                   model.addRow(row);
                                
             }
@@ -432,7 +476,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         
     }
         private void Reset(){
-        txtRentId.setText("");
+        txtProductId.setText("");
         txtModel.setText("");
         cbStatus.setSelectedIndex(0);
         txtPrice.setText("");
@@ -462,6 +506,6 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtBrand;
     private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtRentId;
+    private javax.swing.JTextField txtProductId;
     // End of variables declaration//GEN-END:variables
 }

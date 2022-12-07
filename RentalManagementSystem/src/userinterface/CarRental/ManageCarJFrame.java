@@ -2,7 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package CarRental;
+package userinterface.CarRental;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,7 +24,11 @@ public class ManageCarJFrame extends javax.swing.JFrame {
      */
     public ManageCarJFrame() {
         initComponents();
+        Display();
     }
+    Connection con = null;
+    Statement st = null;
+    ResultSet rs = null;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,6 +128,11 @@ public class ManageCarJFrame extends javax.swing.JFrame {
         ));
         TblManageCars.setRowHeight(25);
         TblManageCars.setSelectionBackground(new java.awt.Color(167, 221, 221));
+        TblManageCars.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblManageCarsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TblManageCars);
 
         LblRegNo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -169,10 +187,25 @@ public class ManageCarJFrame extends javax.swing.JFrame {
         });
 
         BtnUpdate.setText("Update");
+        BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdateActionPerformed(evt);
+            }
+        });
 
         BtnDelete.setText("Delete");
+        BtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDeleteActionPerformed(evt);
+            }
+        });
 
         BtnReset.setText("Reset");
+        BtnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnResetActionPerformed(evt);
+            }
+        });
 
         CBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "Available", "Booked", "In Service" }));
 
@@ -296,8 +329,101 @@ public class ManageCarJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtPriceActionPerformed
 
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
-        // TODO add your handling code here:   
+        // TODO add your handling code here: 
+        try {
+            DefaultTableModel model = (DefaultTableModel) TblManageCars.getModel();
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent", "root", "12345678");
+            PreparedStatement add = con.prepareStatement("insert into carslist values(?,?,?,?,?)");
+            add.setString(1, TxtRegNo.getText());
+            add.setString(2, TxtBrand.getText());
+            add.setString(3, TxtModel.getText());
+            add.setString(4, CBStatus.getSelectedItem().toString());
+            add.setInt(5, Integer.valueOf(TxtPrice.getText()));
+            int row = add.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Car Added");
+
+            Display();
+            Reset();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_BtnSaveActionPerformed
+
+    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
+        // TODO add your handling code here:
+        
+         if(TxtRegNo.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
+            
+        }else {
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+            String Req = TxtRegNo.getText();
+           String Query = "Update carslist set brand = '" +TxtBrand.getText()+"', model = '"+TxtModel.getText()+"', status = '"+CBStatus.getSelectedItem()+"', price = "+TxtPrice.getText()+" where regno = '"+Req+"'" ;
+            Statement Add = con.createStatement();
+            Add.executeUpdate(Query);
+            JOptionPane.showMessageDialog(this,"Record Updated Successfully");
+            Display();
+            Reset();
+        } catch (Exception e){
+            
+            e.printStackTrace();
+        }
+        
+        }
+    }//GEN-LAST:event_BtnUpdateActionPerformed
+
+    private void BtnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnResetActionPerformed
+        // TODO add your handling code here:
+        
+         if(TxtRegNo.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(this,"Select the Record");
+            
+        }else{
+        Reset();
+    }            
+    }//GEN-LAST:event_BtnResetActionPerformed
+
+    private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
+        // TODO add your handling code here:
+        if(TxtRegNo.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
+            
+        }
+        else {
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+            String Req = TxtRegNo.getText();
+          String Query = "Delete from carslist where regno ='"+Req+"'";
+            Statement Add = con.createStatement();
+            Add.executeUpdate(Query);
+            JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
+            Display();
+            Reset();
+        } catch (Exception e){
+            
+            e.printStackTrace();
+        }
+        
+        }
+    }//GEN-LAST:event_BtnDeleteActionPerformed
+
+    private void TblManageCarsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblManageCarsMouseClicked
+        // TODO add your handling code here:
+        
+        DefaultTableModel model = (DefaultTableModel) TblManageCars.getModel();
+        int MyIndex = TblManageCars.getSelectedRow();
+        TxtRegNo.setText(model.getValueAt(MyIndex,0).toString());
+        TxtBrand.setText(model.getValueAt(MyIndex,1).toString());
+        TxtModel.setText(model.getValueAt(MyIndex,2).toString());
+        CBStatus.setSelectedItem(model.getValueAt(MyIndex,3).toString());
+        TxtPrice.setText(model.getValueAt(MyIndex,4).toString());
+                
+    }//GEN-LAST:event_TblManageCarsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -357,4 +483,47 @@ public class ManageCarJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TxtRegNo;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void Display() {
+       String reg,brand,carmodel,status,price;
+        try{
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+            st = con.createStatement();
+            rs = st.executeQuery("select * from carslist");
+            
+            DefaultTableModel model =(DefaultTableModel) TblManageCars.getModel();
+            int rowCount = model.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) 
+            {
+            model.removeRow(i);
+            }
+
+
+            while (rs.next()) {
+                reg = rs.getString(1);
+                brand = rs.getString(2);
+                carmodel = rs.getString(3);
+                status = rs.getString(4);
+                price = rs.getString(5);
+                String[] row = {reg,brand,carmodel,status,price};
+                model.addRow(row);
+                               
+            }
+        
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            
+            
+        }
+        
+    }
+
+    private void Reset() {
+        TxtRegNo.setText("");
+        TxtModel.setText("");
+        CBStatus.setSelectedIndex(0);
+        TxtPrice.setText("");
+        TxtBrand.setText("");
+    }
 }
