@@ -119,11 +119,11 @@
                           </Group>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtCustomerID" max="32767" attributes="0"/>
-                              <Component id="txtBrand" max="32767" attributes="0"/>
-                              <Component id="txtModel" max="32767" attributes="0"/>
-                              <Component id="txtPrice" max="32767" attributes="0"/>
-                              <Component id="jTextField1" pref="120" max="32767" attributes="0"/>
+                              <Component id="txtRentId" max="32767" attributes="0"/>
+                              <Component id="txtBikeId" max="32767" attributes="0"/>
+                              <Component id="txtCustomerId" max="32767" attributes="0"/>
+                              <Component id="txtDelay" max="32767" attributes="0"/>
+                              <Component id="txtStatus" pref="120" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -137,7 +137,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnConfirm" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -156,30 +156,30 @@
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtRentId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblBrand" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtBikeId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblModel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtModel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCustomerId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDelay" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnConfirm" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="92" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -203,7 +203,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="tblRentalRequest">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="0">
@@ -249,21 +249,21 @@
             <Property name="text" type="java.lang.String" value="Rent ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtBrand">
+        <Component class="javax.swing.JTextField" name="txtBikeId">
         </Component>
         <Component class="javax.swing.JLabel" name="lblBrand">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bike ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCustomerID">
+        <Component class="javax.swing.JTextField" name="txtRentId">
         </Component>
         <Component class="javax.swing.JLabel" name="lblModel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cusotmer ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtModel">
+        <Component class="javax.swing.JTextField" name="txtCustomerId">
         </Component>
         <Component class="javax.swing.JLabel" name="lblStatus">
           <Properties>
@@ -275,14 +275,14 @@
             <Property name="text" type="java.lang.String" value="Delay"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPrice">
+        <Component class="javax.swing.JTextField" name="txtDelay">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPriceActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDelayActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txtStatus">
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnConfirm">
           <Properties>
             <Property name="text" type="java.lang.String" value="Confirm"/>
           </Properties>

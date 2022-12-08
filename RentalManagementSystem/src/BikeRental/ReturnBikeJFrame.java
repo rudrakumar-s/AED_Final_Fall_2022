@@ -34,18 +34,18 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
         lblReturnBikes = new javax.swing.JLabel();
         lblRentalRequest = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblRentalRequest = new javax.swing.JTable();
         lblCustomerID = new javax.swing.JLabel();
-        txtBrand = new javax.swing.JTextField();
+        txtBikeId = new javax.swing.JTextField();
         lblBrand = new javax.swing.JLabel();
-        txtCustomerID = new javax.swing.JTextField();
+        txtRentId = new javax.swing.JTextField();
         lblModel = new javax.swing.JLabel();
-        txtModel = new javax.swing.JTextField();
+        txtCustomerId = new javax.swing.JTextField();
         lblStatus = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
-        txtPrice = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtDelay = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
+        btnConfirm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,7 +85,7 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
 
         lblRentalRequest.setText("Rental Request");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblRentalRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -93,7 +93,7 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                 "Bike ID", "Rent ID", "Customer ID", "Rent Fee"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblRentalRequest);
 
         lblCustomerID.setText("Rent ID");
 
@@ -105,13 +105,13 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
 
         lblPrice.setText("Delay");
 
-        txtPrice.addActionListener(new java.awt.event.ActionListener() {
+        txtDelay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPriceActionPerformed(evt);
+                txtDelayActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Confirm");
+        btnConfirm.setText("Confirm");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -136,11 +136,11 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                             .addComponent(lblStatus))
                         .addGap(31, 31, 31)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCustomerID)
-                            .addComponent(txtBrand)
-                            .addComponent(txtModel)
-                            .addComponent(txtPrice)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                            .addComponent(txtRentId)
+                            .addComponent(txtBikeId)
+                            .addComponent(txtCustomerId)
+                            .addComponent(txtDelay)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                         .addContainerGap())))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +149,7 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                         .addComponent(lblReturnBikes))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(111, 111, 111)
-                        .addComponent(jButton1)))
+                        .addComponent(btnConfirm)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -164,25 +164,25 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerID)
-                    .addComponent(txtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRentId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBrand)
-                    .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBikeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblModel)
-                    .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrice)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDelay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStatus)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addComponent(jButton1)
+                .addComponent(btnConfirm)
                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
@@ -204,9 +204,9 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
+    private void txtDelayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDelayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPriceActionPerformed
+    }//GEN-LAST:event_txtDelayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,12 +247,10 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btLogout;
     private javax.swing.JButton btManageBike;
     private javax.swing.JButton btRentBike;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnConfirm;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblBrand;
     private javax.swing.JLabel lblCustomerID;
     private javax.swing.JLabel lblModel;
@@ -260,9 +258,11 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblRentalRequest;
     private javax.swing.JLabel lblReturnBikes;
     private javax.swing.JLabel lblStatus;
-    private javax.swing.JTextField txtBrand;
-    private javax.swing.JTextField txtCustomerID;
-    private javax.swing.JTextField txtModel;
-    private javax.swing.JTextField txtPrice;
+    private javax.swing.JTable tblRentalRequest;
+    private javax.swing.JTextField txtBikeId;
+    private javax.swing.JTextField txtCustomerId;
+    private javax.swing.JTextField txtDelay;
+    private javax.swing.JTextField txtRentId;
+    private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
 }
