@@ -128,7 +128,6 @@ public class RentBikeJFrame extends javax.swing.JFrame {
 
         jLabel6.setText("Rent ID");
 
-        txtRentId.setText("jTextField6");
         txtRentId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRentIdActionPerformed(evt);
