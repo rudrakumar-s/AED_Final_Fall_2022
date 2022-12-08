@@ -3,7 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package BikeRental;
-
+import MySQLConnection.MySQLConnection;
+import Rental.Notification.Email;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author harsh
@@ -15,7 +20,13 @@ public class RentBikeJFrame extends javax.swing.JFrame {
      */
     public RentBikeJFrame() {
         initComponents();
+        displayBikeonRent();
+        displayRentalRequest();
     }
+        MySQLConnection c = new MySQLConnection();
+        Email e=new Email();
+
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,7 +47,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         tblRentalRequest = new javax.swing.JTable();
         lblBikesonRent = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblBikesList2 = new javax.swing.JTable();
+        tblBikesonRent = new javax.swing.JTable();
         lblRentalRequest = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtCustomerId = new javax.swing.JTextField();
@@ -104,7 +115,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
 
         lblBikesonRent.setText("Bikes on Rent");
 
-        tblBikesList2.setModel(new javax.swing.table.DefaultTableModel(
+        tblBikesonRent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -112,7 +123,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                 "Rent ID", "Customer ID", "Rent Fee"
             }
         ));
-        jScrollPane3.setViewportView(tblBikesList2);
+        jScrollPane3.setViewportView(tblBikesonRent);
 
         lblRentalRequest.setText("Rental Request");
 
@@ -143,8 +154,18 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         });
 
         btApprove.setText("Approve ");
+        btApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btApproveActionPerformed(evt);
+            }
+        });
 
         btDeny.setText("Deny");
+        btDeny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDenyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -274,6 +295,48 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRentIdActionPerformed
 
+    private void btApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btApproveActionPerformed
+        // TODO add your handling code here:
+        try{
+            String sql="UPDATE bike SET customerid = '"+txtCustomerId.getText()+"', rentid = '"+txtRentId.getText()+"',status = 'Booked',rentdate = '"+txtRentDate.getText()+"' ,returndate = '"+txtReturnDate.getText()+"',"
+                    + "price = '"+txtFee.getText()+"' WHERE productid = '"+txtBikeId.getText()+"' ";
+            c.updateDatabase(sql);
+            JOptionPane.showMessageDialog(this,"Request Aprooved");
+
+            String sql1 ="UPDATE customers SET laptopaproove = 'Booked'  WHERE customerid = '"+txtCustomerId.getText()+"' ";
+            c.updateDatabase(sql1);  
+            String sql2 = "SELECT email From customers WHERE customerid = '"+txtCustomerId.getText()+"'";
+            
+            ResultSet rs = c.selectDatabase(sql2);
+            if(rs.next()){
+            String email;
+            
+            email = rs.getString(1);
+//            System.out.println(rs.getString(email));
+            txtEmail.setText(email);
+            }
+//                       String s =c.selectDatabase(sql2).getString(1);
+                       
+            String msg = "Your Rental Request has been Aprroved";
+            e.sendMail(msg,"Laptop" ,txtCustomerId.getText(), txtBikeId.getText(), txtRentId.getText(), txtFee.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
+             displayBikeonRent();
+              displayRentalRequest();
+
+        }
+        catch(Exception e)
+        {
+        e.printStackTrace();
+    }
+        
+
+        
+    }//GEN-LAST:event_btApproveActionPerformed
+
+    private void btDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDenyActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btDenyActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,7 +392,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblBikesonRent;
     private javax.swing.JLabel lblRentBikes;
     private javax.swing.JLabel lblRentalRequest;
-    private javax.swing.JTable tblBikesList2;
+    private javax.swing.JTable tblBikesonRent;
     private javax.swing.JTable tblRentalRequest;
     private javax.swing.JTextField txtBikeId;
     private javax.swing.JTextField txtCustomerId;
@@ -339,4 +402,81 @@ public class RentBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtRentId;
     private javax.swing.JTextField txtReturnDate;
     // End of variables declaration//GEN-END:variables
-}
+
+    private void displayBikeonRent() {
+        
+        String reg,brand,carmodel,status,price;
+        try{
+            
+            String sql = "select * from bike where (status = 'Booked' and rentid IS NOT NULL )";
+            ResultSet rs = c.selectDatabase(sql);
+            DefaultTableModel model =(DefaultTableModel) tblBikesonRent.getModel();
+            int rowCount = model.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) 
+            {
+            model.removeRow(i);
+            }
+
+
+            while (rs.next()) 
+            {
+                 reg = rs.getString(2);
+                 brand = rs.getString(9);
+                 carmodel = rs.getString(6);
+                  String[] row = {reg,brand,carmodel};
+                  model.addRow(row);
+                               
+             }
+        
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            
+            
+        }
+    }
+
+    private void displayRentalRequest() {
+String reg,brand,status,price,carmodel;
+        try{
+            String sql = "SELECT * FROM customers where bikeaproove = 'Requested' ";
+            ResultSet rs = c.selectDatabase(sql);
+            DefaultTableModel model =(DefaultTableModel) tblRentalRequest.getModel();
+            int rowCount = model.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) 
+            {
+            model.removeRow(i);
+            }
+
+
+            while (rs.next()) {
+                reg = rs.getString(1);
+                brand = rs.getString(7);
+                
+                status = rs.getString(6);
+                price = rs.getString(5);
+                carmodel = rs.getString(15);
+                String[] row = {reg,brand,status,price,carmodel};
+                  model.addRow(row);
+                               
+            }
+        
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            
+            
+        }
+
+    }
+    private void Reset() {
+        txtCustomerId.setText("");
+        txtEmail.setText("");
+        txtFee.setText("");
+        txtBikeId.setText("");
+        txtRentDate.setText("");
+        txtRentId.setText("");
+        txtReturnDate.setText("");
+    }
+    }
+   
