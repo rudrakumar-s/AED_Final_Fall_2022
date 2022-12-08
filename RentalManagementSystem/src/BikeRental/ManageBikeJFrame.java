@@ -418,7 +418,19 @@ String reg,brand,carmodel,status,price;
             while (rs.next()) {
                 reg = rs.getString(1);
                 brand = rs.getString(3);
-                carmodel = rs.getString(4);    }
+                carmodel = rs.getString(4); 
+                status = rs.getString(5);
+                price = rs.getString(6);
+                String[] row = {reg,brand,carmodel,status,price};
+                model.addRow(row);
+                               
+            }
+        
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            
+            
         }
     }
 
