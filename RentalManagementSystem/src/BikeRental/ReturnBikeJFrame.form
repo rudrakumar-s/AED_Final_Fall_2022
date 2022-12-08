@@ -66,9 +66,9 @@
                   <Component id="btManageBike" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="btRentBike" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="331" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="btLogout" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,49 +96,51 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="lblBrand" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCustomerID" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblModel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblStatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblPrice" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btApprove" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtCustomerID" pref="100" max="32767" attributes="0"/>
-                              <Component id="txtBrand" max="32767" attributes="0"/>
-                              <Component id="txtModel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cbStatus" max="32767" attributes="0"/>
-                              <Component id="txtPrice" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btDecline" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblRentalRequest" min="-2" pref="104" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblRentalRequest" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblReturnBikes" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblCustomerID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblBrand" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblModel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblStatus" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtCustomerID" max="32767" attributes="0"/>
+                              <Component id="txtBrand" max="32767" attributes="0"/>
+                              <Component id="txtModel" max="32767" attributes="0"/>
+                              <Component id="txtPrice" max="32767" attributes="0"/>
+                              <Component id="jTextField1" pref="120" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                          <Component id="lblReturnBikes" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="132" max="32767" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -147,41 +149,38 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="lblReturnBikes" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblRentalRequest" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="201" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtBrand" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtBrand" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtModel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblModel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btApprove" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btDecline" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="92" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -207,21 +206,15 @@
             <Component class="javax.swing.JTable" name="jTable1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="4" rowCount="0">
+                    <Column editable="true" title="Bike ID" type="java.lang.Object"/>
+                    <Column editable="true" title="Rent ID" type="java.lang.Object"/>
                     <Column editable="true" title="Customer ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Name" type="java.lang.Object"/>
-                    <Column editable="true" title="Duration" type="java.lang.Object"/>
-                    <Column editable="true" title="Model" type="java.lang.Object"/>
-                    <Column editable="true" title="Brand" type="java.lang.Object"/>
+                    <Column editable="true" title="Rent Fee" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -253,21 +246,21 @@
         </Container>
         <Component class="javax.swing.JLabel" name="lblCustomerID">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Customer ID "/>
+            <Property name="text" type="java.lang.String" value="Rent ID"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtBrand">
         </Component>
         <Component class="javax.swing.JLabel" name="lblBrand">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Brand"/>
+            <Property name="text" type="java.lang.String" value="Bike ID"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCustomerID">
         </Component>
         <Component class="javax.swing.JLabel" name="lblModel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Model"/>
+            <Property name="text" type="java.lang.String" value="Cusotmer ID"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtModel">
@@ -277,22 +270,9 @@
             <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbStatus">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Available"/>
-                <StringItem index="1" value="Booked"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblPrice">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Price"/>
+            <Property name="text" type="java.lang.String" value="Delay"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPrice">
@@ -300,14 +280,11 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPriceActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btApprove">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Approve"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="jTextField1">
         </Component>
-        <Component class="javax.swing.JButton" name="btDecline">
+        <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Decline"/>
+            <Property name="text" type="java.lang.String" value="Confirm"/>
           </Properties>
         </Component>
       </SubComponents>
