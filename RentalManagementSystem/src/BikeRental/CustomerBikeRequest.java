@@ -197,7 +197,7 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         // TODO add your handling code here:
         try {
-        String sql="UPDATE customers SET bikeaproove = 'Requested' ,productid = '"+txtBikeID.getText()+"',rentdate = '"+txtRentDate.getText()+"',returndate = '"+txtReturnDate.getText()+"',"
+        String sql="UPDATE customers SET bikeapprove = 'Requested' ,productid = '"+txtBikeID.getText()+"',rentdate = '"+txtRentDate.getText()+"',returndate = '"+txtReturnDate.getText()+"',"
                 + " price = '"+txtPrice.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
         c.updateDatabase(sql);
         JOptionPane.showMessageDialog(this," Successfully Requested");

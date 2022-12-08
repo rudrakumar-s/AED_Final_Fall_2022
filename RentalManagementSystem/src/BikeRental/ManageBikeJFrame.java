@@ -23,6 +23,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
 
     public ManageBikeJFrame() {
         initComponents();
+        Display();
     }
 
     /**
@@ -102,7 +103,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
 
         lblStatus.setText("Status");
 
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Booked" }));
+        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Available", "Booked" }));
 
         lblPrice.setText("Price");
 

@@ -301,9 +301,9 @@ public class RentBikeJFrame extends javax.swing.JFrame {
             String sql="UPDATE bike SET customerid = '"+txtCustomerId.getText()+"', rentid = '"+txtRentId.getText()+"',status = 'Booked',rentdate = '"+txtRentDate.getText()+"' ,returndate = '"+txtReturnDate.getText()+"',"
                     + "price = '"+txtFee.getText()+"' WHERE productid = '"+txtBikeId.getText()+"' ";
             c.updateDatabase(sql);
-            JOptionPane.showMessageDialog(this,"Request Aprooved");
+            JOptionPane.showMessageDialog(this,"Request Approved");
 
-            String sql1 ="UPDATE customers SET laptopaproove = 'Booked'  WHERE customerid = '"+txtCustomerId.getText()+"' ";
+            String sql1 ="UPDATE customers SET bikeapprove = 'Booked'  WHERE customerid = '"+txtCustomerId.getText()+"' ";
             c.updateDatabase(sql1);  
             String sql2 = "SELECT email From customers WHERE customerid = '"+txtCustomerId.getText()+"'";
             
@@ -317,7 +317,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
             }
 //                       String s =c.selectDatabase(sql2).getString(1);
                        
-            String msg = "Your Rental Request has been Aprroved";
+            String msg = "Your Rental Request has been Approved";
             e.sendMail(msg,"Laptop" ,txtCustomerId.getText(), txtBikeId.getText(), txtRentId.getText(), txtFee.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
              displayBikeonRent();
               displayRentalRequest();
@@ -439,7 +439,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
     private void displayRentalRequest() {
 String reg,brand,status,price,carmodel;
         try{
-            String sql = "SELECT * FROM customers where bikeaproove = 'Requested' ";
+            String sql = "SELECT * FROM customers where bikeapprove = 'Requested' ";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblRentalRequest.getModel();
             int rowCount = model.getRowCount();
