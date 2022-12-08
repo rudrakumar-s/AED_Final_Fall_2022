@@ -118,31 +118,30 @@ public class RentBikeJFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Customer ID");
 
-        txtCustomerId.setText("jTextField1");
-
         jLabel2.setText("Bike ID");
-
-        txtBikeId.setText("jTextField2");
 
         jLabel3.setText("Rent Date");
 
-        txtRentDate.setText("jTextField3");
-
         jLabel4.setText("Return Date");
 
-        txtReturnDate.setText("jTextField4");
-
         jLabel5.setText("Fee");
-
-        txtFee.setText("jTextField5");
 
         jLabel6.setText("Rent ID");
 
         txtRentId.setText("jTextField6");
+        txtRentId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRentIdActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Email");
 
-        txtEmail.setText("jTextField7");
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         btApprove.setText("Approve ");
 
@@ -267,6 +266,14 @@ public class RentBikeJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void txtRentIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRentIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRentIdActionPerformed
 
     /**
      * @param args the command line arguments
