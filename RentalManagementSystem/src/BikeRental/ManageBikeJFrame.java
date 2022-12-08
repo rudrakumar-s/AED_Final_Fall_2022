@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package BikeRental;
+import MySQLConnection.MySQLConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,6 +17,8 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     /**
      * Creates new form ManageBikeJFrame
      */
+     MySQLConnection c = new MySQLConnection();
+
     public ManageBikeJFrame() {
         initComponents();
     }
@@ -101,10 +107,25 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
         btEdit.setText("Edit");
 
         btSave.setText("Save");
+        btSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSaveActionPerformed(evt);
+            }
+        });
 
         btDelete.setText("Delete");
+        btDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeleteActionPerformed(evt);
+            }
+        });
 
         btReset.setText("Reset");
+        btReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btResetActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Bikes List");
 
@@ -116,6 +137,11 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                 "Registration ", "Brand", "Model", "Status", "Price"
             }
         ));
+        tblBikesList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBikesListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblBikesList);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -230,6 +256,88 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaveActionPerformed
+        // TODO add your handling code here:
+        String sql = "INSERT INTO laptop (productid,brand,model,status,price) "
+                + " VALUES ('"+txtRegistrationNumber.getText()+"','"+txtBrand.getText()+"','"+txtModel.getText()+"',"
+                + "'"+cbStatus.getSelectedItem().toString()+"','"+txtPrice.getText()+"')";     
+                c.insertDatabase(sql);
+                JOptionPane.showMessageDialog(null,"Record Added Successfully!");
+                Display();
+                Reset();
+    }//GEN-LAST:event_btSaveActionPerformed
+
+    private void btDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeleteActionPerformed
+        // TODO add your handling code here:
+        if(txtRegistrationNumber.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
+            
+        }
+        else {
+        try {
+          
+            String Req = txtRegistrationNumber.getText();
+            String Query = "Delete from laptop where productid ='"+Req+"'";
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
+            JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
+            Display();
+            Reset();
+        } catch (Exception e){
+            
+            e.printStackTrace();
+        }
+        
+        }
+    }//GEN-LAST:event_btDeleteActionPerformed
+
+    private void tblBikesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBikesListMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblBikesList.getModel();
+        int MyIndex = tblBikesList.getSelectedRow();
+        txtRegistrationNumber.setText(model.getValueAt(MyIndex,0).toString());
+        txtBrand.setText(model.getValueAt(MyIndex,1).toString());
+        txtModel.setText(model.getValueAt(MyIndex,2).toString());
+        cbStatus.setSelectedItem(model.getValueAt(MyIndex,3).toString());
+        txtPrice.setText(model.getValueAt(MyIndex,4).toString());
+    }//GEN-LAST:event_tblBikesListMouseClicked
+
+    private void btResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btResetActionPerformed
+        // TODO add your handling code here:
+        if(txtRegistrationNumber.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(this,"Select the Record");
+            
+        }else{
+        Reset();
+    }                                        
+    }
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+         if(txtRegistrationNumber.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
+            
+        }else {
+        try {
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+            String Req = txtRegistrationNumber.getText();
+            String Query = "Update laptop set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', "
+                    + "status = '"+cbStatus.getSelectedItem()+"', price = "+txtPrice.getText()+" where productid = '"+Req+"'" ;
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
+            JOptionPane.showMessageDialog(this,"Record Updated Successfully");
+            Display();
+            Reset();
+        } catch (Exception e){
+            
+            e.printStackTrace();
+        } }
+    }//GEN-LAST:event_btResetActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,4 +398,12 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtRegistrationNumber;
     // End of variables declaration//GEN-END:variables
+
+    private void Display() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void Reset() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
