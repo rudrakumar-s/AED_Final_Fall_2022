@@ -258,7 +258,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
 
     private void btSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaveActionPerformed
         // TODO add your handling code here:
-        String sql = "INSERT INTO laptop (productid,brand,model,status,price) "
+        String sql = "INSERT INTO bike (productid,brand,model,status,price) "
                 + " VALUES ('"+txtRegistrationNumber.getText()+"','"+txtBrand.getText()+"','"+txtModel.getText()+"',"
                 + "'"+cbStatus.getSelectedItem().toString()+"','"+txtPrice.getText()+"')";     
                 c.insertDatabase(sql);
@@ -278,7 +278,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
         try {
           
             String Req = txtRegistrationNumber.getText();
-            String Query = "Delete from laptop where productid ='"+Req+"'";
+            String Query = "Delete from bike where productid ='"+Req+"'";
             c.updateDatabase(Query);
 //            Statement Add = con.createStatement();
 //            Add.executeUpdate(Query);
@@ -324,7 +324,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
         try {
 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
             String Req = txtRegistrationNumber.getText();
-            String Query = "Update laptop set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', "
+            String Query = "Update bike set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', "
                     + "status = '"+cbStatus.getSelectedItem()+"', price = "+txtPrice.getText()+" where productid = '"+Req+"'" ;
             c.updateDatabase(Query);
 //            Statement Add = con.createStatement();
@@ -400,10 +400,33 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void Display() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+String reg,brand,carmodel,status,price;
+        try{
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+//            st = con.createStatement();
+            String sql = "select * from bike";
+          ResultSet  rs = c.selectDatabase(sql);
+            
+            DefaultTableModel model =(DefaultTableModel) tblBikesList.getModel();
+            int rowCount = model.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) 
+            {
+            model.removeRow(i);
+            }
+
+
+            while (rs.next()) {
+                reg = rs.getString(1);
+                brand = rs.getString(3);
+                carmodel = rs.getString(4);    }
+        }
     }
 
     private void Reset() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        txtRegistrationNumber.setText("");
+        txtModel.setText("");
+        cbStatus.setSelectedIndex(0);
+        txtPrice.setText("");
+        txtBrand.setText("");
     }
 }
