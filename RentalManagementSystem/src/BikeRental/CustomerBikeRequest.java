@@ -4,6 +4,11 @@
  */
 package BikeRental;
 
+import MySQLConnection.MySQLConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author harsh
@@ -13,10 +18,22 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
     /**
      * Creates new form CustomerBikeRequest
      */
+    MySQLConnection c = new MySQLConnection();
     public CustomerBikeRequest() {
         initComponents();
+        
+        display();
     }
+    
+    public CustomerBikeRequest(String s) {
+        initComponents();
+        showData(s);
+        txtCustomerId.setEditable(false);
+        display();
+    }
+    
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +60,7 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtProductId = new javax.swing.JTextField();
+        txtBikeID = new javax.swing.JTextField();
         btnRequest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,6 +75,11 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
                 "ID", "Brand", "Model", "Status", "Price"
             }
         ));
+        tblBikeRequest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBikeRequestMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblBikeRequest);
 
         jLabel2.setText("Customer ID");
@@ -72,9 +94,14 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
 
         jLabel7.setText("Price");
 
-        jLabel8.setText("Product ID");
+        jLabel8.setText("BikeID");
 
         btnRequest.setText("Request");
+        btnRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,7 +133,7 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
                                         .addComponent(txtRentDate, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                                         .addComponent(txtReturnDate)
                                         .addComponent(txtPrice)
-                                        .addComponent(txtProductId))
+                                        .addComponent(txtBikeID))
                                     .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(333, 333, 333)
@@ -147,7 +174,7 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBikeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnRequest)
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -166,6 +193,29 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
+        // TODO add your handling code here:
+        try {
+        String sql="UPDATE customers SET bikeaproove = 'Requested' ,productid = '"+txtBikeID.getText()+"',rentdate = '"+txtRentDate.getText()+"',returndate = '"+txtReturnDate.getText()+"',"
+                + " price = '"+txtPrice.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
+        c.updateDatabase(sql);
+        JOptionPane.showMessageDialog(this," Successfully Requested");
+         
+            }
+      catch (Exception ex) {
+      System.out.println(ex);}
+    }//GEN-LAST:event_btnRequestActionPerformed
+
+    private void tblBikeRequestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBikeRequestMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblBikeRequest.getModel();
+        int MyIndex = tblBikeRequest.getSelectedRow();
+        txtBikeID.setText(model.getValueAt(MyIndex,0).toString());
+        txtModel.setText(model.getValueAt(MyIndex,2).toString());
+        txtPrice.setText(model.getValueAt(MyIndex,4).toString());
+        txtBrand.setText((model.getValueAt(MyIndex, 1).toString()));
+    }//GEN-LAST:event_tblBikeRequestMouseClicked
 
     /**
      * @param args the command line arguments
@@ -215,12 +265,47 @@ public class CustomerBikeRequest extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblBikeRequest;
+    private javax.swing.JTextField txtBikeID;
     private javax.swing.JTextField txtBrand;
     private javax.swing.JTextField txtCustomerId;
     private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtProductId;
     private javax.swing.JTextField txtRentDate;
     private javax.swing.JTextField txtReturnDate;
     // End of variables declaration//GEN-END:variables
+
+    private void display() {
+String reg,brand,carmodel,status,price;
+        try{
+//           
+            String sql = "select * from bike";
+            ResultSet rs = c.selectDatabase(sql);
+            DefaultTableModel model =(DefaultTableModel) tblBikeRequest.getModel();
+            int rowCount = model.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) 
+            {
+            model.removeRow(i);
+            }
+
+
+            while (rs.next()) {
+                reg = rs.getString(1);
+                brand = rs.getString(3);
+                carmodel = rs.getString(4);
+                status = rs.getString(5);
+                price = rs.getString(6);
+                String[] row = {reg,brand,carmodel,status,price};
+                  model.addRow(row);
+                               
+            }
+        
+        } catch (SQLException e)
+        {
+            e.printStackTrace();      
+        }
+    }
+
+    private void showData(String s) {
+        txtCustomerId.setText(s);
+    }
 }
