@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package LaptopRental;
+package userinterface.PhoneRental;
 
+import userinterface.LaptopRental.*;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,17 +15,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sunilrudrakumar
  */
-public class CustomerLaptopRent extends javax.swing.JFrame {
+public class CustomerPhoneRent extends javax.swing.JFrame {
 
     /**
-     * Creates new form CustomerLaptopRent
+     * Creates new form CustomerPhoneRent
      */
     MySQLConnection c = new MySQLConnection();
-    public CustomerLaptopRent() {
+    public CustomerPhoneRent() {
         initComponents();
         Display();   
     }
-     public CustomerLaptopRent(String s) {
+     public CustomerPhoneRent(String s) {
         initComponents();
         showData(s);
         txtCustomerId.setEditable(false);
@@ -165,7 +166,6 @@ public class CustomerLaptopRent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -241,20 +241,23 @@ public class CustomerLaptopRent extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerLaptopRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerPhoneRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerLaptopRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerPhoneRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerLaptopRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerPhoneRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerLaptopRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerPhoneRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerLaptopRent().setVisible(true);
+                new CustomerPhoneRent().setVisible(true);
             }
         });
     }
