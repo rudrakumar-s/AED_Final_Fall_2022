@@ -261,7 +261,7 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            String sql1 ="UPDATE lpatop SET technicianid = '"+txtTechnicianId.getText()+"'  WHERE productid = '"+txtProductId.getText()+"' ";
+            String sql1 ="UPDATE laptop SET technicianid = '"+txtTechnicianId.getText()+"'  WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Technician Assigned");
             } catch (Exception ex) {

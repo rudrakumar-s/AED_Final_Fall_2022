@@ -34,364 +34,202 @@ public class HomeLanding extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PaneOptions = new javax.swing.JTabbedPane();
-        PaneVehicleRent = new javax.swing.JPanel();
-        ButtonPane = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        txtCustomerId = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        LblAvailableCars = new javax.swing.JLabel();
-        LblAvailableBikes = new javax.swing.JLabel();
-        lblRentPhone = new javax.swing.JLabel();
-        lblLaptopIcon = new javax.swing.JLabel();
-        PaneElectronicsRent = new javax.swing.JPanel();
-        ButtonPane2 = new javax.swing.JPanel();
-        BtnElectRequest = new javax.swing.JButton();
-        ButtonPane1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        VehicleTxtName1 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtCustomerId1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        LblAvailableLaptops = new javax.swing.JLabel();
-        LblAvailablePhone = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
         HeadingPane = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        TabbedPane = new javax.swing.JTabbedPane();
+        SysAdPane = new javax.swing.JPanel();
+        VehAdPane = new javax.swing.JPanel();
+        GadAdPane = new javax.swing.JPanel();
+        VechSerPane = new javax.swing.JPanel();
+        GadSerPane = new javax.swing.JPanel();
+        TechPane = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        TxtUserID = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        TxtPaswd = new javax.swing.JTextField();
+        BtnLogin = new javax.swing.JButton();
+        MechPane = new javax.swing.JPanel();
+        CusPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PaneOptions.setBackground(new java.awt.Color(242, 162, 94));
-        PaneOptions.setBorder(new javax.swing.border.MatteBorder(null));
-        PaneOptions.setForeground(new java.awt.Color(255, 255, 255));
-        PaneOptions.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-        PaneOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        PaneOptions.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        HeadingPane.setBackground(new java.awt.Color(0, 51, 51));
 
-        PaneVehicleRent.setBackground(new java.awt.Color(248, 188, 130));
-
-        ButtonPane.setBackground(new java.awt.Color(153, 255, 255));
-
-        jLabel7.setText("Government ID :");
-
-        txtCustomerId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCustomerIdActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ButtonPaneLayout = new javax.swing.GroupLayout(ButtonPane);
-        ButtonPane.setLayout(ButtonPaneLayout);
-        ButtonPaneLayout.setHorizontalGroup(
-            ButtonPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ButtonPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtCustomerId)
-                .addContainerGap())
-            .addGroup(ButtonPaneLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
-        );
-        ButtonPaneLayout.setVerticalGroup(
-            ButtonPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ButtonPaneLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        LblAvailableCars.setBackground(new java.awt.Color(255, 255, 255));
-        LblAvailableCars.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        LblAvailableCars.setForeground(new java.awt.Color(255, 255, 255));
-        LblAvailableCars.setText("Rent a Laptop");
-
-        LblAvailableBikes.setBackground(new java.awt.Color(255, 255, 255));
-        LblAvailableBikes.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        LblAvailableBikes.setForeground(new java.awt.Color(255, 255, 255));
-        LblAvailableBikes.setText("Rent a Phone");
-
-        lblRentPhone.setText("Phone Icon");
-        lblRentPhone.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRentPhoneMouseClicked(evt);
-            }
-        });
-
-        lblLaptopIcon.setText("Laptop Icon");
-        lblLaptopIcon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblLaptopIconMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PaneVehicleRentLayout = new javax.swing.GroupLayout(PaneVehicleRent);
-        PaneVehicleRent.setLayout(PaneVehicleRentLayout);
-        PaneVehicleRentLayout.setHorizontalGroup(
-            PaneVehicleRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PaneVehicleRentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ButtonPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(PaneVehicleRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PaneVehicleRentLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(PaneVehicleRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PaneVehicleRentLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(27, 27, 27)
-                                .addComponent(LblAvailableBikes, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PaneVehicleRentLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(LblAvailableCars, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(PaneVehicleRentLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(lblRentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PaneVehicleRentLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(lblLaptopIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PaneVehicleRentLayout.setVerticalGroup(
-            PaneVehicleRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PaneVehicleRentLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(PaneVehicleRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PaneVehicleRentLayout.createSequentialGroup()
-                        .addComponent(LblAvailableCars, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(lblLaptopIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(LblAvailableBikes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55)
-                .addComponent(lblRentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(ButtonPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        PaneOptions.addTab("System Admin", PaneVehicleRent);
-
-        PaneElectronicsRent.setBackground(new java.awt.Color(248, 188, 130));
-
-        ButtonPane2.setBackground(new java.awt.Color(242, 162, 94));
-
-        BtnElectRequest.setText("Request");
-
-        ButtonPane1.setBackground(new java.awt.Color(153, 255, 255));
-
-        jLabel8.setText("Customer Name :");
-
-        VehicleTxtName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VehicleTxtName1ActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("Government ID :");
-
-        txtCustomerId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCustomerId1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ButtonPane1Layout = new javax.swing.GroupLayout(ButtonPane1);
-        ButtonPane1.setLayout(ButtonPane1Layout);
-        ButtonPane1Layout.setHorizontalGroup(
-            ButtonPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ButtonPane1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(ButtonPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ButtonPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCustomerId1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .addComponent(VehicleTxtName1))
-                .addContainerGap())
-        );
-        ButtonPane1Layout.setVerticalGroup(
-            ButtonPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ButtonPane1Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(ButtonPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VehicleTxtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(ButtonPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCustomerId1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(540, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout ButtonPane2Layout = new javax.swing.GroupLayout(ButtonPane2);
-        ButtonPane2.setLayout(ButtonPane2Layout);
-        ButtonPane2Layout.setHorizontalGroup(
-            ButtonPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonPane2Layout.createSequentialGroup()
-                .addContainerGap(248, Short.MAX_VALUE)
-                .addComponent(BtnElectRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
-            .addGroup(ButtonPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ButtonPane2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(ButtonPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        ButtonPane2Layout.setVerticalGroup(
-            ButtonPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ButtonPane2Layout.createSequentialGroup()
-                .addGap(583, 583, 583)
-                .addComponent(BtnElectRequest)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(ButtonPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ButtonPane2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(ButtonPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-
-        LblAvailableLaptops.setBackground(new java.awt.Color(255, 255, 255));
-        LblAvailableLaptops.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        LblAvailableLaptops.setForeground(new java.awt.Color(255, 255, 255));
-        LblAvailableLaptops.setText("Rent a Car");
-
-        LblAvailablePhone.setBackground(new java.awt.Color(255, 255, 255));
-        LblAvailablePhone.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        LblAvailablePhone.setForeground(new java.awt.Color(255, 255, 255));
-        LblAvailablePhone.setText("Rent a Bike");
-
-        jLabel11.setText("Laptop Icon");
-
-        jLabel12.setText("Phone Icon");
-
-        javax.swing.GroupLayout PaneElectronicsRentLayout = new javax.swing.GroupLayout(PaneElectronicsRent);
-        PaneElectronicsRent.setLayout(PaneElectronicsRentLayout);
-        PaneElectronicsRentLayout.setHorizontalGroup(
-            PaneElectronicsRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PaneElectronicsRentLayout.createSequentialGroup()
-                .addComponent(jLabel11)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PaneElectronicsRentLayout.createSequentialGroup()
-                .addComponent(ButtonPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(PaneElectronicsRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PaneElectronicsRentLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addGap(27, 27, 27)
-                        .addComponent(LblAvailablePhone, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PaneElectronicsRentLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(LblAvailableLaptops, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PaneElectronicsRentLayout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jLabel12)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PaneElectronicsRentLayout.setVerticalGroup(
-            PaneElectronicsRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ButtonPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PaneElectronicsRentLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(PaneElectronicsRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PaneElectronicsRentLayout.createSequentialGroup()
-                        .addComponent(LblAvailableLaptops, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel11)
-                        .addGap(129, 129, 129)
-                        .addComponent(LblAvailablePhone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(70, 70, 70)
-                .addComponent(jLabel12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        PaneOptions.addTab("Vehicle Admin", PaneElectronicsRent);
-        PaneOptions.addTab("Electronic Admin", jTabbedPane1);
-        PaneOptions.addTab("Vehicle Service", jTabbedPane2);
-        PaneOptions.addTab("Elecronic Services", jTabbedPane3);
-
-        HeadingPane.setBackground(new java.awt.Color(242, 162, 94));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Rental Enterprise");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Great Value Enterprises");
 
         javax.swing.GroupLayout HeadingPaneLayout = new javax.swing.GroupLayout(HeadingPane);
         HeadingPane.setLayout(HeadingPaneLayout);
         HeadingPaneLayout.setHorizontalGroup(
             HeadingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeadingPaneLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(668, Short.MAX_VALUE))
+                .addGap(277, 277, 277)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HeadingPaneLayout.setVerticalGroup(
             HeadingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeadingPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        TabbedPane.setBackground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout SysAdPaneLayout = new javax.swing.GroupLayout(SysAdPane);
+        SysAdPane.setLayout(SysAdPaneLayout);
+        SysAdPaneLayout.setHorizontalGroup(
+            SysAdPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1040, Short.MAX_VALUE)
+        );
+        SysAdPaneLayout.setVerticalGroup(
+            SysAdPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("System Admin", SysAdPane);
+
+        javax.swing.GroupLayout VehAdPaneLayout = new javax.swing.GroupLayout(VehAdPane);
+        VehAdPane.setLayout(VehAdPaneLayout);
+        VehAdPaneLayout.setHorizontalGroup(
+            VehAdPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1040, Short.MAX_VALUE)
+        );
+        VehAdPaneLayout.setVerticalGroup(
+            VehAdPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Vehicle Admin", VehAdPane);
+
+        javax.swing.GroupLayout GadAdPaneLayout = new javax.swing.GroupLayout(GadAdPane);
+        GadAdPane.setLayout(GadAdPaneLayout);
+        GadAdPaneLayout.setHorizontalGroup(
+            GadAdPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1040, Short.MAX_VALUE)
+        );
+        GadAdPaneLayout.setVerticalGroup(
+            GadAdPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Gadget Admin", GadAdPane);
+
+        javax.swing.GroupLayout VechSerPaneLayout = new javax.swing.GroupLayout(VechSerPane);
+        VechSerPane.setLayout(VechSerPaneLayout);
+        VechSerPaneLayout.setHorizontalGroup(
+            VechSerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1040, Short.MAX_VALUE)
+        );
+        VechSerPaneLayout.setVerticalGroup(
+            VechSerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Vehicle Service", VechSerPane);
+
+        javax.swing.GroupLayout GadSerPaneLayout = new javax.swing.GroupLayout(GadSerPane);
+        GadSerPane.setLayout(GadSerPaneLayout);
+        GadSerPaneLayout.setHorizontalGroup(
+            GadSerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1040, Short.MAX_VALUE)
+        );
+        GadSerPaneLayout.setVerticalGroup(
+            GadSerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Gadget Service", GadSerPane);
+
+        jLabel2.setText("User ID :");
+
+        jLabel3.setText("Password :");
+
+        BtnLogin.setText("Login");
+
+        javax.swing.GroupLayout TechPaneLayout = new javax.swing.GroupLayout(TechPane);
+        TechPane.setLayout(TechPaneLayout);
+        TechPaneLayout.setHorizontalGroup(
+            TechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TechPaneLayout.createSequentialGroup()
+                .addGap(307, 307, 307)
+                .addGroup(TechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TechPaneLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85)
+                        .addComponent(TxtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(TechPaneLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(118, 118, 118)
+                        .addGroup(TechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnLogin)
+                            .addComponent(TxtPaswd, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(386, Short.MAX_VALUE))
+        );
+        TechPaneLayout.setVerticalGroup(
+            TechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TechPaneLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addGroup(TechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(TxtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(TechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtPaswd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addComponent(BtnLogin)
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+
+        TabbedPane.addTab("Technician", TechPane);
+
+        javax.swing.GroupLayout MechPaneLayout = new javax.swing.GroupLayout(MechPane);
+        MechPane.setLayout(MechPaneLayout);
+        MechPaneLayout.setHorizontalGroup(
+            MechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1040, Short.MAX_VALUE)
+        );
+        MechPaneLayout.setVerticalGroup(
+            MechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Mechanic", MechPane);
+
+        javax.swing.GroupLayout CusPaneLayout = new javax.swing.GroupLayout(CusPane);
+        CusPane.setLayout(CusPaneLayout);
+        CusPaneLayout.setHorizontalGroup(
+            CusPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1040, Short.MAX_VALUE)
+        );
+        CusPaneLayout.setVerticalGroup(
+            CusPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Customer", CusPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(PaneOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(HeadingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(HeadingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(TabbedPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(HeadingPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PaneOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(511, Short.MAX_VALUE))
+                .addComponent(TabbedPane))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerId1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCustomerId1ActionPerformed
-
-    private void VehicleTxtName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehicleTxtName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VehicleTxtName1ActionPerformed
-
-    private void lblLaptopIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLaptopIconMouseClicked
-        // TODO add your handling code here:
-        String  custid = txtCustomerId.getText();
-        CustomerLaptopRent  lr = new CustomerLaptopRent (custid);
-        lr.setVisible(true);
-    }//GEN-LAST:event_lblLaptopIconMouseClicked
-
-    private void txtCustomerIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCustomerIdActionPerformed
-
-    private void lblRentPhoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRentPhoneMouseClicked
-        // TODO add your handling code here:
-        
-        String  custid = txtCustomerId.getText();
-        CustomerPhoneRent  lr = new CustomerPhoneRent (custid);
-        lr.setVisible(true);
-    }//GEN-LAST:event_lblRentPhoneMouseClicked
 
     /**
      * @param args the command line arguments
@@ -444,33 +282,21 @@ public class HomeLanding extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnElectRequest;
-    private javax.swing.JPanel ButtonPane;
-    private javax.swing.JPanel ButtonPane1;
-    private javax.swing.JPanel ButtonPane2;
+    private javax.swing.JButton BtnLogin;
+    private javax.swing.JPanel CusPane;
+    private javax.swing.JPanel GadAdPane;
+    private javax.swing.JPanel GadSerPane;
     private javax.swing.JPanel HeadingPane;
-    private javax.swing.JLabel LblAvailableBikes;
-    private javax.swing.JLabel LblAvailableCars;
-    private javax.swing.JLabel LblAvailableLaptops;
-    private javax.swing.JLabel LblAvailablePhone;
-    private javax.swing.JPanel PaneElectronicsRent;
-    private javax.swing.JTabbedPane PaneOptions;
-    private javax.swing.JPanel PaneVehicleRent;
-    private javax.swing.JTextField VehicleTxtName1;
+    private javax.swing.JPanel MechPane;
+    private javax.swing.JPanel SysAdPane;
+    private javax.swing.JTabbedPane TabbedPane;
+    private javax.swing.JPanel TechPane;
+    private javax.swing.JTextField TxtPaswd;
+    private javax.swing.JTextField TxtUserID;
+    private javax.swing.JPanel VechSerPane;
+    private javax.swing.JPanel VehAdPane;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JLabel lblLaptopIcon;
-    private javax.swing.JLabel lblRentPhone;
-    private javax.swing.JTextField txtCustomerId;
-    private javax.swing.JTextField txtCustomerId1;
     // End of variables declaration//GEN-END:variables
 }
