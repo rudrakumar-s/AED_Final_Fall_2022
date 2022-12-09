@@ -5,15 +5,8 @@
 package LaptopRental;
 
 import MySQLConnection.MySQLConnection;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,21 +22,14 @@ public class CustomerLaptopRent extends javax.swing.JFrame {
     MySQLConnection c = new MySQLConnection();
     public CustomerLaptopRent() {
         initComponents();
-        GetBasics();
-        Display();
-        
-        
+        Display();   
     }
      public CustomerLaptopRent(String s) {
         initComponents();
         showData(s);
         txtCustomerId.setEditable(false);
-        
-        GetBasics();
-        Display();
-        
+        Display();    
     }
-     String s = "";
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -230,12 +216,11 @@ public class CustomerLaptopRent extends javax.swing.JFrame {
 
     private void tblLaptopListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLaptopListMouseClicked
         // TODO add your handling code here:
-         DefaultTableModel model = (DefaultTableModel) tblLaptopList.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblLaptopList.getModel();
         int MyIndex = tblLaptopList.getSelectedRow();
         txtProductID.setText(model.getValueAt(MyIndex,0).toString());
         txtModel.setText(model.getValueAt(MyIndex,2).toString());
         txtPrice.setText(model.getValueAt(MyIndex,4).toString());
-//        showData(s);
         txtBrand.setText((model.getValueAt(MyIndex, 1).toString()));
     }//GEN-LAST:event_tblLaptopListMouseClicked
 
@@ -294,70 +279,12 @@ public class CustomerLaptopRent extends javax.swing.JFrame {
     private javax.swing.JTextField txtReturnDate;
     // End of variables declaration//GEN-END:variables
 
-    private void getDuration() {
-//        // creating the date 1 with sample input date.
-//		txt
-//		
-//		// getting milliseconds for both dates
-//		long date1InMs = date1.getTime();
-//		long date2InMs = date2.getTime();
-//		
-//		// getting the diff between two dates.
-//		long timeDiff = 0;
-//		if(date1InMs > date2InMs) {
-//			timeDiff = date1InMs - date2InMs;
-//		} else {
-//			timeDiff = date2InMs - date1InMs;
-//		}
-//		
-//		// converting diff into days
-//		int daysDiff = (int) (timeDiff / (1000 * 60 * 60* 24));
-//    }
-    }
-
-//    private void DisplayRentaLRequest() {
-//        String reg,brand,carmodel,status,price;
-//        try{
-//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-//            st = con.createStatement();
-//            rs = st.executeQuery("select * from laptop");
-//            
-//            DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
-//            int rowCount = model.getRowCount();
-//            for (int i = rowCount - 1; i >= 0; i--) 
-//            {
-//            model.removeRow(i);
-//            }
-//
-//
-//            while (rs.next()) {
-//                reg = rs.getString(1);
-//                brand = rs.getString(2);
-//                 carmodel = rs.getString(3);
-//                 status = rs.getString(4);
-//                  price = rs.getString(5);
-//                  String[] row = {reg,brand,carmodel,status,price};
-//                  model.addRow(row);
-//                               
-//            }
-//        
-//        } catch (SQLException e)
-//        {
-//            e.printStackTrace();
-//            
-//            
-//        }
-//    }
-
     private void Display() {
          String reg,brand,carmodel,status,price;
         try{
 //           
             String sql = "select * from laptop";
-           ResultSet rs = c.selectDatabase(sql);
-            
-//            
-            
+            ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
             int rowCount = model.getRowCount();
             for (int i = rowCount - 1; i >= 0; i--) 
@@ -379,20 +306,12 @@ public class CustomerLaptopRent extends javax.swing.JFrame {
         
         } catch (SQLException e)
         {
-            e.printStackTrace();
-            
-            
+            e.printStackTrace();      
         }
-        
-        
-    }
-
-    private void GetBasics() {
-       
+    
     }
 
     private void showData(String s) {
-//      for(String d:s){
          txtCustomerId.setText(s);
       }
         

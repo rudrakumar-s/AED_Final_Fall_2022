@@ -4,13 +4,8 @@
  */
 package userinterface.Customers;
 
-import Customer.Customer;
-import Customer.CustomerDirectory;
-import LaptopRental.CustomerElectronicManagementJFrame;
-import LaptopRental.CustomerLaptopRent;
-import LaptopRental.LaptopRentJFrame;
+
 import MySQLConnection.MySQLConnection;
-import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -26,13 +21,10 @@ public class CustomerLoginJFrame extends javax.swing.JFrame {
      * Creates new form CustomerLoginJFrame
      */
       MySQLConnection c = new MySQLConnection();
-//    Customer customerList;
     public CustomerLoginJFrame() {
         initComponents();
     }
-      
-
-  
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,8 +35,15 @@ public class CustomerLoginJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnSignUp = new javax.swing.JButton();
+        lblUserNameMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtUserName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtUserNameMouseClicked(evt);
+            }
+        });
 
         btnSignIn.setText("Sign In");
         btnSignIn.addActionListener(new java.awt.event.ActionListener() {
@@ -69,39 +68,47 @@ public class CustomerLoginJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(117, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(285, Short.MAX_VALUE)
                         .addComponent(btnSignIn)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSignUp)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSignUp))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(txtPassword))
-                        .addGap(72, 72, 72))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(120, 120, 120)
+                                .addComponent(lblUserNameMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(83, 83, 83)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(35, 35, 35)
+                    .addComponent(jLabel1)
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(27, 27, 27)
+                    .addComponent(jLabel2)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lblUserNameMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSignIn)
                     .addComponent(btnSignUp))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,27 +120,48 @@ public class CustomerLoginJFrame extends javax.swing.JFrame {
         ResultSet rs = c.selectDatabase(sql);
         String  custid = txtUserName.getText();
         
+        
+            
           try {
+               if(txtUserName.getText().isEmpty() && txtPassword.getText().isEmpty()){
+                        lblUserNameMessage.setText("Fields are Empty");
+                }else if(txtUserName.getText().isEmpty()){
+                        lblUserNameMessage.setText("UserName is Empty");
+                }
+                 else{
+                         lblUserNameMessage.setText("Password is Empty");
+                 }
+
               
-              if(rs.next() == true){
-//               
-//                new CustomerLaptopRent(custid);
-                CustomerElectronicManagementJFrame lr = new CustomerElectronicManagementJFrame(custid);
+              if(rs.next() == true)
+              {
+               
+                CustomerLanding lr = new CustomerLanding(custid);
                 lr.setVisible(true);
                 this.dispose();
               }
              
-          } catch (SQLException ex) {
+               } 
+          catch (SQLException ex) 
+          {
               Logger.getLogger(CustomerLoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
           }
     }//GEN-LAST:event_btnSignInActionPerformed
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        // TODO add your handling code here:
+        
         CustomerSignUpJFrame lr = new CustomerSignUpJFrame();
         lr.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void txtUserNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserNameMouseClicked
+//        // TODO add your handling code here:
+//        if(txtUserName.getText().isEmpty() && txtPassword.getText().isEmpty()){
+//                        lblUserNameMessage.setText("UserName is Empty");
+//        }
+    }//GEN-LAST:event_txtUserNameMouseClicked
 
     /**
      * @param args the command line arguments
@@ -175,6 +203,7 @@ public class CustomerLoginJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSignUp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblUserNameMessage;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
