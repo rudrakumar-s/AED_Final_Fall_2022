@@ -84,12 +84,10 @@
                                   <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="BtnConfirm" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TxtCustomerID" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="TxtStatus" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="TxtCustomerID" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="TxtStatus" min="-2" pref="71" max="-2" attributes="0"/>
                                       <Component id="TxtCarID" pref="116" max="32767" attributes="0"/>
-                                      <Component id="TxtRentID" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="TxtRentID" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -114,17 +112,12 @@
                       <Component id="LblCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="TxtCarID" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="LblBrand" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="TxtRentID" min="-2" pref="32" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="LblBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TxtRentID" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="LblModel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="TxtCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
