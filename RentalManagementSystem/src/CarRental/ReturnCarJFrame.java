@@ -37,15 +37,12 @@ public class ReturnCarJFrame extends javax.swing.JFrame {
         LblCustomerID = new javax.swing.JLabel();
         LblBrand = new javax.swing.JLabel();
         LblStatus = new javax.swing.JLabel();
-        TxtCustomerID = new javax.swing.JTextField();
-        TxtBrand = new javax.swing.JTextField();
-        BtnApprove = new javax.swing.JButton();
-        BtnDecline = new javax.swing.JButton();
+        TxtCarID = new javax.swing.JTextField();
+        TxtRentID = new javax.swing.JTextField();
+        BtnConfirm = new javax.swing.JButton();
         LblModel = new javax.swing.JLabel();
-        CBStatus = new javax.swing.JComboBox<>();
-        LblPrice = new javax.swing.JLabel();
-        TxtPrice = new javax.swing.JTextField();
-        TxtModel = new javax.swing.JTextField();
+        TxtCustomerID = new javax.swing.JTextField();
+        TxtStatus = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,39 +105,39 @@ public class ReturnCarJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Customer ID", "Name", "Duration", "Model", "Brand"
+                "Car ID", "Rent ID", "Customer ID", "Rent Fee"
             }
         ));
         jScrollPane3.setViewportView(TblRentalRequest);
 
         LblRentalRequest.setText("Rental Request");
 
-        LblCustomerID.setText("Customer ID");
+        LblCustomerID.setText("Car ID");
 
-        LblBrand.setText("Brand");
+        LblBrand.setText("Rent ID ");
 
         LblStatus.setText("Status");
 
-        TxtCustomerID.addActionListener(new java.awt.event.ActionListener() {
+        TxtCarID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCustomerIDActionPerformed(evt);
+                TxtCarIDActionPerformed(evt);
             }
         });
 
-        BtnApprove.setText("Approve");
-        BtnApprove.addActionListener(new java.awt.event.ActionListener() {
+        BtnConfirm.setText("Confirm");
+        BtnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnApproveActionPerformed(evt);
+                BtnConfirmActionPerformed(evt);
             }
         });
 
-        BtnDecline.setText("Decline");
+        LblModel.setText("Customer ID ");
 
-        LblModel.setText("Model");
-
-        CBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Available", "Booked", "In Service" }));
-
-        LblPrice.setText("Price");
+        TxtStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ReturnCarPanelLayout = new javax.swing.GroupLayout(ReturnCarPanel);
         ReturnCarPanel.setLayout(ReturnCarPanelLayout);
@@ -163,31 +160,24 @@ public class ReturnCarJFrame extends javax.swing.JFrame {
                                 .addComponent(LblRentalRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ReturnCarPanelLayout.createSequentialGroup()
                                 .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(ReturnCarPanelLayout.createSequentialGroup()
-                                            .addGap(168, 168, 168)
+                                    .addGroup(ReturnCarPanelLayout.createSequentialGroup()
+                                        .addGap(168, 168, 168)
+                                        .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(LblCustomerID)
-                                                .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(LblModel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(LblBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(ReturnCarPanelLayout.createSequentialGroup()
-                                            .addGap(186, 186, 186)
-                                            .addComponent(LblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReturnCarPanelLayout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(LblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(LblBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(LblModel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(ReturnCarPanelLayout.createSequentialGroup()
-                                        .addGap(221, 221, 221)
-                                        .addComponent(BtnDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(37, 37, 37)
-                                .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BtnApprove)
-                                    .addComponent(CBStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(186, 186, 186)
+                                        .addComponent(LblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(89, 89, 89)
+                                .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(BtnConfirm)
+                                    .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(TxtCustomerID)
+                                        .addComponent(TxtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TxtCarID, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                    .addComponent(TxtRentID))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         ReturnCarPanelLayout.setVerticalGroup(
@@ -203,32 +193,25 @@ public class ReturnCarJFrame extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblCustomerID)
-                    .addComponent(TxtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblBrand)
-                    .addComponent(TxtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(TxtCarID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ReturnCarPanelLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(LblBrand))
+                    .addGroup(ReturnCarPanelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(TxtRentID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblModel)
-                    .addComponent(TxtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblStatus)
-                    .addComponent(CBStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ReturnCarPanelLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblPrice)
-                            .addComponent(TxtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(106, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReturnCarPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(ReturnCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BtnDecline)
-                            .addComponent(BtnApprove))
-                        .addGap(32, 32, 32))))
+                    .addComponent(TxtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(BtnConfirm)
+                .addGap(100, 100, 100))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,13 +238,17 @@ public class ReturnCarJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnManageCarActionPerformed
 
-    private void TxtCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCustomerIDActionPerformed
+    private void TxtCarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCarIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCustomerIDActionPerformed
+    }//GEN-LAST:event_TxtCarIDActionPerformed
 
-    private void BtnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnApproveActionPerformed
+    private void BtnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConfirmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnApproveActionPerformed
+    }//GEN-LAST:event_BtnConfirmActionPerformed
+
+    private void TxtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,25 +286,22 @@ public class ReturnCarJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnApprove;
-    private javax.swing.JButton BtnDecline;
+    private javax.swing.JButton BtnConfirm;
     private javax.swing.JButton BtnManageCar;
     private javax.swing.JButton BtnRentCar;
     private javax.swing.JPanel ButtonsPanel;
-    private javax.swing.JComboBox<String> CBStatus;
     private javax.swing.JLabel LblBrand;
     private javax.swing.JLabel LblCustomerID;
     private javax.swing.JLabel LblModel;
-    private javax.swing.JLabel LblPrice;
     private javax.swing.JLabel LblRentalRequest;
     private javax.swing.JLabel LblReturnCarHeading;
     private javax.swing.JLabel LblStatus;
     private javax.swing.JPanel ReturnCarPanel;
     private javax.swing.JTable TblRentalRequest;
-    private javax.swing.JTextField TxtBrand;
+    private javax.swing.JTextField TxtCarID;
     private javax.swing.JTextField TxtCustomerID;
-    private javax.swing.JTextField TxtModel;
-    private javax.swing.JTextField TxtPrice;
+    private javax.swing.JTextField TxtRentID;
+    private javax.swing.JTextField TxtStatus;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }

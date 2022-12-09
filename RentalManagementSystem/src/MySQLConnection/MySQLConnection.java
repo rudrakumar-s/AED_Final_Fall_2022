@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package SQLConnection;
+package MySQLConnection;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author BARATHI
  */
-public class SQLConnection {
+public class MySQLConnection {
     Connection con=null;
     public static Connection dbconnector()
     {
@@ -28,6 +28,18 @@ public class SQLConnection {
                     return null;
                 }
         
+    }
+
+    public ResultSet selectDatabase(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void updateDatabase(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void insertDatabase(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
