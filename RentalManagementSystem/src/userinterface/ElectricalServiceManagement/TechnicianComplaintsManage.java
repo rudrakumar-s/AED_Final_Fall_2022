@@ -216,4 +216,8 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
         }
     
     }
+
+    private void Reset() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
