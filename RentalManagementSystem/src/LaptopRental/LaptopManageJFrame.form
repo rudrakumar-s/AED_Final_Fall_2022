@@ -35,40 +35,26 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblBrand" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblModel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblStatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblPrice" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="txtBrand" min="-2" pref="86" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                                              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtModel" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
-                                                  <Component id="txtPrice" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
-                                                  <Component id="cbStatus" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="btnUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="btnReset" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="btnDelete" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblRentId" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="txtRentId" min="-2" pref="86" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblBrand" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblModel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRentId" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cbStatus" max="32767" attributes="0"/>
+                                  <Component id="txtPrice" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtModel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtBrand" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtProductId" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnReset" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnDelete" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -87,13 +73,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblRentId" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtRentId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtProductId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="btnReset" min="-2" max="-2" attributes="0"/>
@@ -169,13 +155,20 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnReturnLaptop">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Return Laptop"/>
+            <Property name="text" type="java.lang.String" value="Manage Return"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReturnLaptopActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRentLaptop">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Rent Laptop"/>
+            <Property name="text" type="java.lang.String" value="Manage Rents"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRentLaptopMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRentLaptopActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLogout">
           <Properties>
@@ -186,7 +179,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="lblRentId">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Rent Id"/>
+        <Property name="text" type="java.lang.String" value="Product Id"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -200,12 +193,41 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="0">
-                <Column editable="true" title="Rent ID" type="java.lang.Object"/>
+                <Column editable="true" title="Product ID" type="java.lang.Object"/>
                 <Column editable="true" title="Brand" type="java.lang.Object"/>
                 <Column editable="true" title="Model" type="java.lang.Object"/>
                 <Column editable="true" title="Status" type="java.lang.Object"/>
                 <Column editable="true" title="Price" type="java.lang.Object"/>
               </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -237,7 +259,7 @@
         <Property name="text" type="java.lang.String" value="Price"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtRentId">
+    <Component class="javax.swing.JTextField" name="txtProductId">
     </Component>
     <Component class="javax.swing.JButton" name="btnSave">
       <Properties>
@@ -296,7 +318,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblHeading">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Manage Laptop"/>
+            <Property name="text" type="java.lang.String" value="Manage Product"/>
           </Properties>
         </Component>
       </SubComponents>
