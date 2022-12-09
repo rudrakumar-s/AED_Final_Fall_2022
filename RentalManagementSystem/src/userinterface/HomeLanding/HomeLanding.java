@@ -57,6 +57,9 @@ public class HomeLanding extends javax.swing.JFrame {
         LblAvailablePhone = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
         HeadingPane = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -152,7 +155,7 @@ public class HomeLanding extends javax.swing.JFrame {
                     .addGroup(PaneVehicleRentLayout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(lblLaptopIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(447, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PaneVehicleRentLayout.setVerticalGroup(
             PaneVehicleRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,11 +171,11 @@ public class HomeLanding extends javax.swing.JFrame {
                         .addComponent(LblAvailableBikes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(55, 55, 55)
                 .addComponent(lblRentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(ButtonPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        PaneOptions.addTab("Electronics Rent", PaneVehicleRent);
+        PaneOptions.addTab("System Admin", PaneVehicleRent);
 
         PaneElectronicsRent.setBackground(new java.awt.Color(248, 188, 130));
 
@@ -232,7 +235,7 @@ public class HomeLanding extends javax.swing.JFrame {
         ButtonPane2Layout.setHorizontalGroup(
             ButtonPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonPane2Layout.createSequentialGroup()
-                .addContainerGap(224, Short.MAX_VALUE)
+                .addContainerGap(248, Short.MAX_VALUE)
                 .addComponent(BtnElectRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
             .addGroup(ButtonPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +249,7 @@ public class HomeLanding extends javax.swing.JFrame {
             .addGroup(ButtonPane2Layout.createSequentialGroup()
                 .addGap(583, 583, 583)
                 .addComponent(BtnElectRequest)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(ButtonPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ButtonPane2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -274,7 +277,7 @@ public class HomeLanding extends javax.swing.JFrame {
             PaneElectronicsRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PaneElectronicsRentLayout.createSequentialGroup()
                 .addComponent(jLabel11)
-                .addGap(0, 1035, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PaneElectronicsRentLayout.createSequentialGroup()
                 .addComponent(ButtonPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(PaneElectronicsRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,7 +292,7 @@ public class HomeLanding extends javax.swing.JFrame {
                     .addGroup(PaneElectronicsRentLayout.createSequentialGroup()
                         .addGap(242, 242, 242)
                         .addComponent(jLabel12)))
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PaneElectronicsRentLayout.setVerticalGroup(
             PaneElectronicsRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,7 +312,10 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        PaneOptions.addTab("Vechicle Rent", PaneElectronicsRent);
+        PaneOptions.addTab("Vehicle Admin", PaneElectronicsRent);
+        PaneOptions.addTab("Electronic Admin", jTabbedPane1);
+        PaneOptions.addTab("Vehicle Service", jTabbedPane2);
+        PaneOptions.addTab("Elecronic Services", jTabbedPane3);
 
         HeadingPane.setBackground(new java.awt.Color(242, 162, 94));
 
@@ -324,7 +330,7 @@ public class HomeLanding extends javax.swing.JFrame {
             .addGroup(HeadingPaneLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(668, Short.MAX_VALUE))
         );
         HeadingPaneLayout.setVerticalGroup(
             HeadingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,8 +347,10 @@ public class HomeLanding extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(HeadingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PaneOptions, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PaneOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(HeadingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -351,8 +359,8 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(HeadingPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PaneOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(PaneOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(511, Short.MAX_VALUE))
         );
 
         pack();
@@ -457,6 +465,9 @@ public class HomeLanding extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JLabel lblLaptopIcon;
     private javax.swing.JLabel lblRentPhone;
     private javax.swing.JTextField txtCustomerId;
