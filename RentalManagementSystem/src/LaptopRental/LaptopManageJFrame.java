@@ -5,12 +5,9 @@
 package LaptopRental;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,13 +20,12 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
     /**
      * Creates new form PhoneManageJFrame
      */
+    MySQLConnection c = new MySQLConnection();
     public LaptopManageJFrame() {
         initComponents();
           Display();
     }
-    Connection con = null;
-    Statement st = null;
-    ResultSet rs = null;
+    
 
 
     /**
@@ -270,45 +266,13 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        
-        String sql="INSERT INTO laptop (productid,brand,model,status,price) VALUES (?,?,?,?,?)";
-    
-      try {
-        PreparedStatement add = con.prepareStatement(sql);
-            add.setString(1,txtProductId.getText());
-            add.setString(2,txtBrand.getText());
-            add.setString(3,txtModel.getText());
-            add.setString(4,cbStatus.getSelectedItem().toString());
-            add.setInt(5,Integer.valueOf(txtPrice.getText()));
-            
-        int n1=add.executeUpdate();
-      if(n1>0)
-      {
-      JOptionPane.showMessageDialog(null,"Record Added Successfully!");
-      Display();
-      Reset();
-      }
-      }catch (SQLException ex) { }
-//        
-//        try{
-//            DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
-//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent" ,"root", "12345678");
-//            PreparedStatement add = con.prepareStatement("insert into laptop(productid,brand,model,status,price) values( '"+txtProductId.getText()+"', '" +txtBrand.getText()+"', '"+txtModel.getText()+"',  '"+cbStatus.getSelectedItem()+"' "+txtPrice.getText()+")");
-//            add.setString(1,txtProductId.getText());
-//            add.setString(3,txtBrand.getText());
-//            add.setString(4,txtModel.getText());
-//            add.setString(4,cbStatus.getSelectedItem().toString());
-//            add.setInt(6,Integer.valueOf(txtPrice.getText()));
-//            int row = add.executeUpdate();
-//            JOptionPane.showMessageDialog(this,"Laptop Added");
-//
-//        Display();
-//
-//        }
-//        catch(Exception e)
-//        {
-//        e.printStackTrace();
-//    }
+        String sql = "INSERT INTO laptop (productid,brand,model,status,price) "
+                + " VALUES ('"+txtProductId.getText()+"','"+txtBrand.getText()+"','"+txtModel.getText()+"',"
+                + "'"+cbStatus.getSelectedItem().toString()+"','"+txtPrice.getText()+"')";     
+                c.insertDatabase(sql);
+                JOptionPane.showMessageDialog(null,"Record Added Successfully!");
+                Display();
+                Reset();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -321,11 +285,12 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         }
         else {
         try {
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-          String Req = txtProductId.getText();
-          String Query = "Delete from laptop where productid ='"+Req+"'";
-            Statement Add = con.createStatement();
-            Add.executeUpdate(Query);
+          
+            String Req = txtProductId.getText();
+            String Query = "Delete from laptop where productid ='"+Req+"'";
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
             JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
             Display();
             Reset();
@@ -367,11 +332,13 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
             
         }else {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
             String Req = txtProductId.getText();
-            String Query = "Update laptop set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', status = '"+cbStatus.getSelectedItem()+"', price = "+txtPrice.getText()+" where productid = '"+Req+"'" ;
-            Statement Add = con.createStatement();
-            Add.executeUpdate(Query);
+            String Query = "Update laptop set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', "
+                    + "status = '"+cbStatus.getSelectedItem()+"', price = "+txtPrice.getText()+" where productid = '"+Req+"'" ;
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
             JOptionPane.showMessageDialog(this,"Record Updated Successfully");
             Display();
             Reset();
@@ -442,9 +409,10 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         private void Display(){
         String reg,brand,carmodel,status,price;
         try{
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-            st = con.createStatement();
-            rs = st.executeQuery("select * from laptop");
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+//            st = con.createStatement();
+            String sql = "select * from laptop";
+          ResultSet  rs = c.selectDatabase(sql);
             
             DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
             int rowCount = model.getRowCount();

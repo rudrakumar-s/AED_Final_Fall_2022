@@ -4,15 +4,13 @@
  */
 package LaptopRental;
 
+import Rental.Notification.Email;
 import MySQLConnection.MySQLConnection;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,15 +23,13 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
      * Creates new form RentJFrame
      */
     MySQLConnection c = new MySQLConnection();
+    Email e = new Email();
     public LaptopRentJFrame() {
         initComponents();
 
         DisplayLaptopOnRent();
         DisplayLaptopRentalRequest();
     }
-    Connection con = null;
-    Statement st = null;
-    ResultSet rs = null;
 
 
     /**
@@ -59,7 +55,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         lblCustomerId = new javax.swing.JLabel();
         btnAproove = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnDeny = new javax.swing.JButton();
         txtCustomerId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtRentID = new javax.swing.JTextField();
@@ -71,6 +67,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
         txtReturnDate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,7 +178,12 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setText("Deny");
+        btnDeny.setText("Deny");
+        btnDeny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDenyActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Rent ID");
 
@@ -212,34 +214,33 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel11))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(216, 216, 216)
-                                    .addComponent(btnAproove))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(43, 43, 43)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel3)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(6, 6, 6)
-                                                    .addComponent(jLabel5)))
-                                            .addGap(94, 94, 94)
-                                            .addComponent(txtRentID))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel6)
-                                                .addComponent(lblCustomerId))
-                                            .addGap(80, 80, 80)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtRentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGap(43, 43, 43)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jLabel5)))
+                                        .addGap(94, 94, 94)
+                                        .addComponent(txtRentID))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(lblCustomerId))
+                                        .addGap(80, 80, 80)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtRentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnAproove)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(33, 33, 33)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButton9)
+                                        .addComponent(btnDeny)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel4)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -261,7 +262,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(139, 139, 139))))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,11 +301,16 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txtRentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAproove)
-                            .addComponent(jButton9))
-                        .addGap(43, 43, 43))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnAproove)
+                                    .addComponent(btnDeny)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
@@ -332,26 +338,30 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try{
-//            DefaultTableModel model =(DefaultTableModel) tblLaptopOnRent.getModel();
-//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent" ,"root", "12345678");
             String sql="UPDATE laptop SET customerid = '"+txtCustomerId.getText()+"', rentid = '"+txtRentID.getText()+"',status = 'Booked',rentdate = '"+txtRentDate.getText()+"' ,returndate = '"+txtReturnDate.getText()+"',price = '"+txtPrice.getText()+"' WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql);
-//            Statement Add = con.createStatement();
-//            Add.executeUpdate(sql);
             JOptionPane.showMessageDialog(this,"Request Aprooved");
-//**************************************************************
-            
+//************************************************************************************************************   
             String sql1 ="UPDATE customers SET laptopaproove = 'Booked'  WHERE customerid = '"+txtCustomerId.getText()+"' ";
-            c.updateDatabase(sql1);
-
-//            PreparedStatement add = con.prepareStatement(sql1);
-//            Statement Add1 = con.createStatement();
-//            Add1.executeUpdate(sql1);
+            c.updateDatabase(sql1);          
+//************************************************************************************************************
+            String sql2 = "SELECT email From customers WHERE customerid = '"+txtCustomerId.getText()+"'";
             
-//**************************************************************    
-//            DisplayLaptopList();
+            ResultSet rs = c.selectDatabase(sql2);
+            if(rs.next()){
+            String email;
+            
+            email = rs.getString(1);
+//            System.out.println(rs.getString(email));
+            txtEmail.setText(email);
+            }
+//                       String s =c.selectDatabase(sql2).getString(1);
+                       
+            String msg = "Your Rental Request has been Aprroved";
+            e.sendMail(msg,"Laptop" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
             DisplayLaptopOnRent();
             DisplayLaptopRentalRequest();
+            Reset();
 
         }
         catch(Exception e)
@@ -378,14 +388,27 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturnLaptopActionPerformed
 
     private void tblLaptopOnRentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLaptopOnRentMouseClicked
-        //        // TODO add your handling code here:
-        //        DefaultTableModel model = (DefaultTableModel) tblLaptopRentalRequest.getModel();
-        //        int MyIndex = tblLaptopRentalRequest.getSelectedRow();
-        //        txtCustomerId.setText(model.getValueAt(MyIndex,0).toString());
-        //        txtName.setText(model.getValueAt(MyIndex,1).toString());
-        //        txtDuration.setText(model.getValueAt(MyIndex,2).toString());
+
 
     }//GEN-LAST:event_tblLaptopOnRentMouseClicked
+
+    private void btnDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenyActionPerformed
+        try {
+            // TODO add your handling code here:
+            String sql1 ="UPDATE customers SET laptopaproove = NULL  WHERE customerid = '"+txtCustomerId.getText()+"' ";
+            c.updateDatabase(sql1);
+            JOptionPane.showMessageDialog(this,"Request Denied");
+            String msg = "Your Rental request has been Denied";
+            e.sendMail(msg,"Laptop" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
+            
+        } catch (Exception ex) {
+            Logger.getLogger(LaptopRentJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+            DisplayLaptopOnRent();
+            DisplayLaptopRentalRequest();
+            Reset();
+    }//GEN-LAST:event_btnDenyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,10 +487,9 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
     private void DisplayLaptopOnRent(){
         String reg,brand,carmodel,status,price;
         try{
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-            st = con.createStatement();
-            rs = st.executeQuery("select * from laptop where (status = 'Booked' and rentid IS NOT NULL )");
             
+            String sql = "select * from laptop where (status = 'Booked' and rentid IS NOT NULL )";
+            ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblLaptopOnRent.getModel();
             int rowCount = model.getRowCount();
             for (int i = rowCount - 1; i >= 0; i--) 
@@ -476,17 +498,15 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
             }
 
 
-            while (rs.next()) {
+            while (rs.next()) 
+            {
                  reg = rs.getString(2);
                  brand = rs.getString(9);
                  carmodel = rs.getString(6);
-//                 status = rs.getString(6);
-//                 price = rs.getString(price)
-                  
                   String[] row = {reg,brand,carmodel};
                   model.addRow(row);
                                
-            }
+             }
         
         } catch (SQLException e)
         {
@@ -503,10 +523,8 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
     private void DisplayLaptopRentalRequest(){
         String reg,brand,status,price,carmodel;
         try{
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-            st = con.createStatement();
-            String queryString = "SELECT * FROM customers where laptopaproove = 'Requested' ";
-            rs = st.executeQuery(queryString);
+            String sql = "SELECT * FROM customers where laptopaproove = 'Requested' ";
+            ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblLaptopRentalRequest.getModel();
             int rowCount = model.getRowCount();
             for (int i = rowCount - 1; i >= 0; i--) 
@@ -537,10 +555,10 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAproove;
+    private javax.swing.JButton btnDeny;
     private javax.swing.JButton btnManagelaptop;
     private javax.swing.JButton btnReturnLaptop;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -557,12 +575,23 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
     private javax.swing.JTable tblLaptopOnRent;
     private javax.swing.JTable tblLaptopRentalRequest;
     private javax.swing.JTextField txtCustomerId;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProductId;
     private javax.swing.JTextField txtRentDate;
     private javax.swing.JTextField txtRentID;
     private javax.swing.JTextField txtReturnDate;
     // End of variables declaration//GEN-END:variables
+
+    private void Reset() {
+        txtCustomerId.setText("");
+        txtEmail.setText("");
+        txtPrice.setText("");
+        txtProductId.setText("");
+        txtRentDate.setText("");
+        txtRentID.setText("");
+        txtReturnDate.setText("");
+    }
 }
 
 
