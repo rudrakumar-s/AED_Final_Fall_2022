@@ -4,8 +4,6 @@
  */
 package PhoneRental;
 
-import LaptopRental.*;
-
 /**
  *
  * @author sunilrudrakumar

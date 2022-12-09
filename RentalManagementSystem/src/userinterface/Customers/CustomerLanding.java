@@ -4,7 +4,7 @@
  */
 package userinterface.Customers;
 
-import LaptopRental.CustomerLaptopRent;
+import userinterface.LaptopRental.CustomerLaptopRent;
 
 /**
  *

@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package LaptopRental;
+package userinterface.PhoneRental;
 
 
+import userinterface.LaptopRental.*;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,13 +16,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sunilrudrakumar
  */
-public class LaptopManageJFrame extends javax.swing.JFrame {
+public class PhoneManageJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form PhoneManageJFrame
      */
     MySQLConnection c = new MySQLConnection();
-    public LaptopManageJFrame() {
+    public PhoneManageJFrame() {
         initComponents();
           Display();
     }
@@ -353,7 +354,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
 
     private void btnRentLaptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRentLaptopMouseClicked
         // TODO add your handling code here:
-        LaptopRentJFrame  lr = new LaptopRentJFrame();
+        PhoneRentJFrame  lr = new PhoneRentJFrame();
         lr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRentLaptopMouseClicked
@@ -364,7 +365,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
 
     private void btnReturnLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnLaptopActionPerformed
         // TODO add your handling code here:
-        LaptopReturnJFrame  lr = new LaptopReturnJFrame();
+        PhoneReturnJFrame  lr = new PhoneReturnJFrame();
         lr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReturnLaptopActionPerformed
@@ -386,21 +387,27 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LaptopManageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhoneManageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LaptopManageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhoneManageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LaptopManageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhoneManageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LaptopManageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhoneManageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LaptopManageJFrame().setVisible(true);
+                new PhoneManageJFrame().setVisible(true);
             }
         });
     }
