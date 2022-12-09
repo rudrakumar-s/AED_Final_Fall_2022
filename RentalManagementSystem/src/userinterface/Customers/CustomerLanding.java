@@ -5,6 +5,7 @@
 package userinterface.Customers;
 
 import userinterface.LaptopRental.CustomerLaptopRent;
+import userinterface.PhoneRental.CustomerPhoneRent;
 
 /**
  *
@@ -40,7 +41,7 @@ public class CustomerLanding extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         LblAvailableCars = new javax.swing.JLabel();
         LblAvailableBikes = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblRentPhone = new javax.swing.JLabel();
         lblLaptopIcon = new javax.swing.JLabel();
         PaneElectronicsRent = new javax.swing.JPanel();
         ButtonPane2 = new javax.swing.JPanel();
@@ -112,7 +113,12 @@ public class CustomerLanding extends javax.swing.JFrame {
         LblAvailableBikes.setForeground(new java.awt.Color(255, 255, 255));
         LblAvailableBikes.setText("Rent a Phone");
 
-        jLabel4.setText("Phone Icon");
+        lblRentPhone.setText("Phone Icon");
+        lblRentPhone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRentPhoneMouseClicked(evt);
+            }
+        });
 
         lblLaptopIcon.setText("Laptop Icon");
         lblLaptopIcon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,7 +147,7 @@ public class CustomerLanding extends javax.swing.JFrame {
                                 .addComponent(LblAvailableCars, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(PaneVehicleRentLayout.createSequentialGroup()
                         .addGap(142, 142, 142)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblRentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PaneVehicleRentLayout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(lblLaptopIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -160,7 +166,7 @@ public class CustomerLanding extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(LblAvailableBikes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(55, 55, 55)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblRentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(354, Short.MAX_VALUE))
             .addComponent(ButtonPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -370,6 +376,14 @@ public class CustomerLanding extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCustomerIdActionPerformed
 
+    private void lblRentPhoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRentPhoneMouseClicked
+        // TODO add your handling code here:
+        
+        String  custid = txtCustomerId.getText();
+        CustomerPhoneRent  lr = new CustomerPhoneRent (custid);
+        lr.setVisible(true);
+    }//GEN-LAST:event_lblRentPhoneMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -427,11 +441,11 @@ public class CustomerLanding extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblLaptopIcon;
+    private javax.swing.JLabel lblRentPhone;
     private javax.swing.JTextField txtCustomerId;
     private javax.swing.JTextField txtCustomerId1;
     // End of variables declaration//GEN-END:variables

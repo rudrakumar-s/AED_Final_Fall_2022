@@ -267,7 +267,7 @@ public class PhoneManageJFrame extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        String sql = "INSERT INTO laptop (productid,brand,model,status,price) "
+        String sql = "INSERT INTO phone (productid,brand,model,status,price) "
                 + " VALUES ('"+txtProductId.getText()+"','"+txtBrand.getText()+"','"+txtModel.getText()+"',"
                 + "'"+cbStatus.getSelectedItem().toString()+"','"+txtPrice.getText()+"')";     
                 c.insertDatabase(sql);
@@ -288,7 +288,7 @@ public class PhoneManageJFrame extends javax.swing.JFrame {
         try {
           
             String Req = txtProductId.getText();
-            String Query = "Delete from laptop where productid ='"+Req+"'";
+            String Query = "Delete from phone where productid ='"+Req+"'";
             c.updateDatabase(Query);
 //            Statement Add = con.createStatement();
 //            Add.executeUpdate(Query);
@@ -335,7 +335,7 @@ public class PhoneManageJFrame extends javax.swing.JFrame {
         try {
 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
             String Req = txtProductId.getText();
-            String Query = "Update laptop set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', "
+            String Query = "Update phone set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', "
                     + "status = '"+cbStatus.getSelectedItem()+"', price = "+txtPrice.getText()+" where productid = '"+Req+"'" ;
             c.updateDatabase(Query);
 //            Statement Add = con.createStatement();
@@ -418,7 +418,7 @@ public class PhoneManageJFrame extends javax.swing.JFrame {
         try{
 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
 //            st = con.createStatement();
-            String sql = "select * from laptop";
+            String sql = "select * from phone";
           ResultSet  rs = c.selectDatabase(sql);
             
             DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
