@@ -4,6 +4,15 @@
  */
 package userinterface.ElectricalServiceManagement;
 
+import MySQLConnection.MySQLConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import userinterface.LaptopRental.LaptopRentJFrame;
+
 /**
  *
  * @author tejas
@@ -13,8 +22,11 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
     /**
      * Creates new form ComplaintsJFrame
      */
+     MySQLConnection c = new MySQLConnection();
     public ComplaintsJFrame() {
         initComponents();
+        DisplayServiceRequests();
+        DispayTechnicianList();
     }
 
     /**
@@ -36,16 +48,14 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
         TblMechAssign = new javax.swing.JTable();
         LblElectAssign = new javax.swing.JLabel();
         LblID = new javax.swing.JLabel();
-        TxtComplaintID = new javax.swing.JTextField();
+        txtProductId = new javax.swing.JTextField();
         LblModel = new javax.swing.JLabel();
-        TxtModel = new javax.swing.JTextField();
+        txtModel = new javax.swing.JTextField();
         LblBrand = new javax.swing.JLabel();
-        TxtBrand = new javax.swing.JTextField();
-        LblGadgetType = new javax.swing.JLabel();
-        TxtVehicleType = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        CbAssignMechanic = new javax.swing.JComboBox<>();
+        txtBrand = new javax.swing.JTextField();
         BtnAssign = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtTechnicianId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,9 +95,14 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Model", "Brand", "Gadget Type"
+                "ID", "Model", "Brand"
             }
         ));
+        TblComplaints.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblComplaintsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TblComplaints);
 
         TblMechAssign.setModel(new javax.swing.table.DefaultTableModel(
@@ -95,7 +110,7 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Electrician ID", "Register No", "Model", "Status"
+                "Technician ID", "Name", "Assigned Product"
             }
         ));
         jScrollPane2.setViewportView(TblMechAssign);
@@ -103,45 +118,40 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
         LblElectAssign.setBackground(new java.awt.Color(255, 255, 255));
         LblElectAssign.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         LblElectAssign.setForeground(new java.awt.Color(255, 255, 255));
-        LblElectAssign.setText("Electrician Assigned");
+        LblElectAssign.setText("Technicians");
 
         LblID.setText("ID :");
 
-        TxtComplaintID.addActionListener(new java.awt.event.ActionListener() {
+        txtProductId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtComplaintIDActionPerformed(evt);
+                txtProductIdActionPerformed(evt);
             }
         });
 
         LblModel.setText("Model :");
 
-        TxtModel.addActionListener(new java.awt.event.ActionListener() {
+        txtModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtModelActionPerformed(evt);
+                txtModelActionPerformed(evt);
             }
         });
 
         LblBrand.setText("Brand :");
 
-        TxtBrand.addActionListener(new java.awt.event.ActionListener() {
+        txtBrand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtBrandActionPerformed(evt);
+                txtBrandActionPerformed(evt);
             }
         });
-
-        LblGadgetType.setText("Gadget Type :");
-
-        TxtVehicleType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtVehicleTypeActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Assign Electrician :");
-
-        CbAssignMechanic.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Electrician 1", "Electrician 2", "Electrician 3" }));
 
         BtnAssign.setText("Assign");
+        BtnAssign.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAssignActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Technician ID");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -157,22 +167,19 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                             .addComponent(jScrollPane2))
                         .addGap(56, 56, 56)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LblID, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LblModel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LblBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LblGadgetType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel1)))
                     .addComponent(LblElectAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(62, 62, 62)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BtnAssign)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TxtVehicleType, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                        .addComponent(TxtBrand, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                        .addComponent(TxtModel, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                        .addComponent(TxtComplaintID)
-                        .addComponent(CbAssignMechanic, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(txtBrand, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                    .addComponent(txtModel, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                    .addComponent(txtProductId)
+                    .addComponent(txtTechnicianId))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -189,24 +196,20 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LblID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtComplaintID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LblModel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LblBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LblGadgetType, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtVehicleType, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26)
+                            .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CbAssignMechanic, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtTechnicianId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(BtnAssign)
@@ -232,21 +235,40 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtComplaintIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtComplaintIDActionPerformed
+    private void txtProductIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtComplaintIDActionPerformed
+    }//GEN-LAST:event_txtProductIdActionPerformed
 
-    private void TxtModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModelActionPerformed
+    private void txtModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtModelActionPerformed
+    }//GEN-LAST:event_txtModelActionPerformed
 
-    private void TxtBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBrandActionPerformed
+    private void txtBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBrandActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtBrandActionPerformed
+    }//GEN-LAST:event_txtBrandActionPerformed
 
-    private void TxtVehicleTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtVehicleTypeActionPerformed
+    private void TblComplaintsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblComplaintsMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtVehicleTypeActionPerformed
+         DefaultTableModel model = (DefaultTableModel) TblComplaints.getModel();
+        int MyIndex = TblComplaints.getSelectedRow();
+        txtProductId.setText(model.getValueAt(MyIndex,0).toString());
+        txtModel.setText(model.getValueAt(MyIndex,1).toString());
+//        txtPrice.setText(model.getValueAt(MyIndex,4).toString());
+        txtBrand.setText((model.getValueAt(MyIndex, 2).toString()));
+    }//GEN-LAST:event_TblComplaintsMouseClicked
+
+    private void BtnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAssignActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            String sql1 ="UPDATE lpatop SET technicianid = '"+txtTechnicianId.getText()+"'  WHERE productid = '"+txtProductId.getText()+"' ";
+            c.updateDatabase(sql1);
+            JOptionPane.showMessageDialog(this,"Technician Assigned");
+            } catch (Exception ex) {
+            Logger.getLogger(LaptopRentJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }//GEN-LAST:event_BtnAssignActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,24 +307,90 @@ public class ComplaintsJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAssign;
-    private javax.swing.JComboBox<String> CbAssignMechanic;
     private javax.swing.JLabel LblBrand;
     private javax.swing.JLabel LblComplaints;
     private javax.swing.JLabel LblElectAssign;
-    private javax.swing.JLabel LblGadgetType;
     private javax.swing.JLabel LblID;
     private javax.swing.JButton LblManageElect;
     private javax.swing.JLabel LblModel;
     private javax.swing.JTable TblComplaints;
     private javax.swing.JTable TblMechAssign;
-    private javax.swing.JTextField TxtBrand;
-    private javax.swing.JTextField TxtComplaintID;
-    private javax.swing.JTextField TxtModel;
-    private javax.swing.JTextField TxtVehicleType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField txtBrand;
+    private javax.swing.JTextField txtModel;
+    private javax.swing.JTextField txtProductId;
+    private javax.swing.JTextField txtTechnicianId;
     // End of variables declaration//GEN-END:variables
+
+    private void DisplayServiceRequests() {
+            String reg,brand,carmodel,status,price;
+        try{
+
+
+            String sql = "select * from laptop where service = 'Requested' ";
+            ResultSet rs = c.selectDatabase(sql);
+            
+            DefaultTableModel model =(DefaultTableModel) TblComplaints.getModel();
+            int rowCount = model.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) 
+            {
+            model.removeRow(i);
+            }
+
+
+            while (rs.next()) {
+                 reg = rs.getString(1);
+                 brand = rs.getString(4);
+                 carmodel = rs.getString(3);
+                 String[] row = {reg,brand,carmodel};
+                 model.addRow(row);
+                               
+            }
+        
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            
+            
+        }
+    }
+
+    private void DispayTechnicianList() {
+        
+        String reg,brand,carmodel,status,price;
+        try{
+
+
+            String sql = "select * from laptoptechnician ";
+            ResultSet rs = c.selectDatabase(sql);
+            
+            DefaultTableModel model =(DefaultTableModel) TblComplaints.getModel();
+            int rowCount = model.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) 
+            {
+            model.removeRow(i);
+            }
+
+
+            while (rs.next()) {
+                 reg = rs.getString(1);
+                 brand = rs.getString(2);
+                 carmodel = rs.getString(3);
+                 String[] row = {reg,brand,carmodel};
+                 model.addRow(row);
+                               
+            }
+        
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            
+            
+        }
+    }
+    
 }
