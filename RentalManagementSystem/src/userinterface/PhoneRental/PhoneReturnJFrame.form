@@ -148,7 +148,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnManageLaptop">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Manage Laptop"/>
+            <Property name="text" type="java.lang.String" value="Manage Phone"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageLaptopActionPerformed"/>
@@ -156,7 +156,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnRentLaptop">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Rent Laptop"/>
+            <Property name="text" type="java.lang.String" value="Rent Phone"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRentLaptopActionPerformed"/>

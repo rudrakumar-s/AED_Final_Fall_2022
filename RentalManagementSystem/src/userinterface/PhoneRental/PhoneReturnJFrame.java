@@ -59,14 +59,14 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
-        btnManageLaptop.setText("Manage Laptop");
+        btnManageLaptop.setText("Manage Phone");
         btnManageLaptop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageLaptopActionPerformed(evt);
             }
         });
 
-        btnRentLaptop.setText("Rent Laptop");
+        btnRentLaptop.setText("Rent Phone");
         btnRentLaptop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRentLaptopActionPerformed(evt);
@@ -172,7 +172,7 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
