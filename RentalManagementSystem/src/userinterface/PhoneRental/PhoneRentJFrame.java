@@ -339,11 +339,14 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try{
-            String sql="UPDATE laptop SET customerid = '"+txtCustomerId.getText()+"', rentid = '"+txtRentID.getText()+"',status = 'Booked',rentdate = '"+txtRentDate.getText()+"' ,returndate = '"+txtReturnDate.getText()+"',price = '"+txtPrice.getText()+"' WHERE productid = '"+txtProductId.getText()+"' ";
+            String sql="UPDATE phone SET customerid = '"+txtCustomerId.getText()+"', "
+                    + "rentid = '"+txtRentID.getText()+"',status = 'Booked',rentdate = '"+txtRentDate.getText()+"' ,"
+                    + "returndate = '"+txtReturnDate.getText()+"',price = '"+txtPrice.getText()+
+                    "' WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Request Aprooved");
 //************************************************************************************************************   
-            String sql1 ="UPDATE customers SET laptopaproove = 'Booked'  WHERE customerid = '"+txtCustomerId.getText()+"' ";
+            String sql1 ="UPDATE customers SET phoneaproove = 'Booked'  WHERE customerid = '"+txtCustomerId.getText()+"' ";
             c.updateDatabase(sql1);          
 //************************************************************************************************************
             String sql2 = "SELECT email From customers WHERE customerid = '"+txtCustomerId.getText()+"'";
@@ -359,7 +362,7 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
 //                       String s =c.selectDatabase(sql2).getString(1);
                        
             String msg = "Your Rental Request has been Aprroved";
-            e.sendMail(msg,"Laptop" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
+            e.sendMail(msg,"Phone" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
             DisplayLaptopOnRent();
             DisplayLaptopRentalRequest();
             Reset();
@@ -396,11 +399,11 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
     private void btnDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenyActionPerformed
         try {
             // TODO add your handling code here:
-            String sql1 ="UPDATE customers SET laptopaproove = NULL  WHERE customerid = '"+txtCustomerId.getText()+"' ";
+            String sql1 ="UPDATE customers SET phoneaproove = NULL  WHERE customerid = '"+txtCustomerId.getText()+"' ";
             c.updateDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Request Denied");
             String msg = "Your Rental request has been Denied";
-            e.sendMail(msg,"Laptop" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
+            e.sendMail(msg,"Phone" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
             
         } catch (Exception ex) {
             Logger.getLogger(PhoneRentJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -495,7 +498,7 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
         String reg,brand,carmodel,status,price;
         try{
             
-            String sql = "select * from laptop where (status = 'Booked' and rentid IS NOT NULL )";
+            String sql = "select * from phone where (status = 'Booked' and rentid IS NOT NULL )";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblLaptopOnRent.getModel();
             int rowCount = model.getRowCount();
@@ -530,7 +533,7 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
     private void DisplayLaptopRentalRequest(){
         String reg,brand,status,price,carmodel;
         try{
-            String sql = "SELECT * FROM customers where laptopaproove = 'Requested' ";
+            String sql = "SELECT * FROM customers where phoneaproove = 'Requested' ";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblLaptopRentalRequest.getModel();
             int rowCount = model.getRowCount();
