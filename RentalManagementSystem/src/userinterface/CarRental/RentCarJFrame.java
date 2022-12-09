@@ -15,9 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import userinterface.LaptopRental.LaptopManageJFrame;
-import userinterface.LaptopRental.LaptopRentJFrame;
-import userinterface.LaptopRental.LaptopReturnJFrame;
+
 
 /**
  *
@@ -346,7 +344,7 @@ public class RentCarJFrame extends javax.swing.JFrame {
         
         
         try{
-            String sql="UPDATE car SET customerid = '"+TxtCustomerID.getText()+"', rentid = '"+TxtRentID.getText()+"',status = 'Booked',rentdate = '"+TxtRentDate.getText()+"' ,returndate = '"+TxtReturnDate.getText()+"',price = '"+TxtPrice.getText()+"' WHERE productid = '"+TxtRegNo.getText()+"' ";
+            String sql="UPDATE car SET customerid = '"+TxtCustomerID.getText()+"', rentid = '"+TxtRentID.getText()+"',status = 'Booked',rentdate = '"+TxtRentDate.getText()+"' ,returndate = '"+TxtReturnDate.getText()+"',price = '"+TxtPrice.getText()+"' WHERE Regno = '"+TxtRegNo.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Request Aprooved");  
             String sql1 ="UPDATE customers SET carapproved = 'Booked'  WHERE customerid = '"+TxtCustomerID.getText()+"' ";
@@ -403,7 +401,7 @@ public class RentCarJFrame extends javax.swing.JFrame {
             e.sendMail(msg,"Car" ,TxtCustomerID.getText(), TxtRegNo.getText(), TxtRentID.getText(), TxtPrice.getText(),TxtRentDate.getText(), TxtReturnDate.getText(), TxtEmail.getText());
             
         } catch (Exception ex) {
-            Logger.getLogger(LaptopRentJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RentCarJFrame.class.getName()).log(Level.SEVERE, null, ex);
             
         }
             DisplayCarOnRent();
@@ -495,11 +493,11 @@ public class RentCarJFrame extends javax.swing.JFrame {
 
             while (rs.next()) 
             {
-                 reg = rs.getString(2);
-                 brand = rs.getString(9);
-                 carmodel = rs.getString(6);
-                  String[] row = {reg,brand,carmodel};
-                  model.addRow(row);
+                reg = rs.getString(2);
+                brand = rs.getString(9);
+                carmodel = rs.getString(6);
+                String[] row = {reg,brand,carmodel};
+                model.addRow(row);
                                
              }
         
@@ -533,7 +531,7 @@ public class RentCarJFrame extends javax.swing.JFrame {
                 price = rs.getString(5);
                 carmodel = rs.getString(15);
                 String[] row = {reg,brand,status,price,carmodel};
-                  model.addRow(row);
+                model.addRow(row);
                                
             }
         
