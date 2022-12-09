@@ -4,7 +4,7 @@
  */
 package userinterface.PhoneRental;
 
-import userinterface.LaptopRental.*;
+
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -199,7 +199,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         
       try {
-        String sql="UPDATE customers SET laptopaproove = 'Requested' ,productid = '"+txtProductID.getText()+"',rentdate = '"+txtRentDate.getText()+"',returndate = '"+txtReturnDate.getText()+"', price = '"+txtPrice.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
+        String sql="UPDATE customers SET phoneaproove = 'Requested' ,productid = '"+txtProductID.getText()+"',rentdate = '"+txtRentDate.getText()+"',returndate = '"+txtReturnDate.getText()+"', price = '"+txtPrice.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
         c.updateDatabase(sql);
         JOptionPane.showMessageDialog(this," Successfully Requested");
          
@@ -286,7 +286,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
          String reg,brand,carmodel,status,price;
         try{
 //           
-            String sql = "select * from laptop";
+            String sql = "select * from phone";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblLaptopList.getModel();
             int rowCount = model.getRowCount();

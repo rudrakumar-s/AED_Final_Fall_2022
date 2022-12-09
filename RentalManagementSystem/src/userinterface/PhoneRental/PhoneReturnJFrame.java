@@ -217,11 +217,12 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
 
         try{
 
-            String sql="UPDATE customers SET customerid = '"+txtCustomerId.getText()+"', delay = '"+txtDelay.getText()+"', fine= '"+txtFine.getText()+"',laptopaproove = 'Returned' WHERE customerid = '"+txtCustomerId.getText()+"' ";
+            String sql="UPDATE customers SET customerid = '"+txtCustomerId.getText()+"', delay = '"+txtDelay.getText()+"', "
+                    + "fine= '"+txtFine.getText()+"',phoneaproove = 'Returned' WHERE customerid = '"+txtCustomerId.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Return Confirmed");
 //***********************************************************************************************************
-            String sql1 ="UPDATE laptop SET status = 'Available', rentid = NULL  WHERE productid = '"+txtProductId.getText()+"'";
+            String sql1 ="UPDATE phone SET status = 'Available', rentid = NULL  WHERE productid = '"+txtProductId.getText()+"'";
             c.updateDatabase(sql1);
             
 //************************************************************** *********************************************   
@@ -318,7 +319,7 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
         try{
 
 
-            String sql = "select * from laptop where status = 'Booked' and rentid IS NOT NULL";
+            String sql = "select * from phone where status = 'Booked' and rentid IS NOT NULL";
             ResultSet rs = c.selectDatabase(sql);
             
             DefaultTableModel model =(DefaultTableModel) tblLaptopOnRent.getModel();
