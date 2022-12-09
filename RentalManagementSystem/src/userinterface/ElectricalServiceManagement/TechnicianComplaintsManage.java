@@ -146,12 +146,26 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
         // TODO add your handling code here:
          try {
             // TODO add your handling code here:
-            String sql1 ="UPDATE lpatop SET technicianid = NULL and sservice = NULL  WHERE productid = '"+txtProductId.getText()+"' ";
+            String sql1 ="UPDATE lpatop SET technicianid = NULL and service = NULL  WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Service Completed");
             } catch (Exception ex) {
             Logger.getLogger(LaptopRentJFrame.class.getName()).log(Level.SEVERE, null, ex);
             
+        }
+         try {
+          
+            String Req = txtProductId.getText();
+            String Query = "Delete from laptoptechnician where productid ='"+Req+"'";
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
+            JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
+            Display();
+            Reset();
+        } catch (Exception e){
+            
+            e.printStackTrace();
         }
     }//GEN-LAST:event_btnCompleteServiceActionPerformed
 
