@@ -22,7 +22,7 @@ public class HomeLanding extends javax.swing.JFrame {
     }
        public HomeLanding(String s) {
         initComponents();
-        txtCustomerId.setText(s);
+//        txtCustomerId.setText(s);
     }
     
     /**

@@ -15,7 +15,7 @@ import java.util.Properties;
 
 /**
  *
- * @author prakruthisomashekar
+ * @author sunilrudrakumar
  */
 public  class Email {
     
@@ -52,13 +52,6 @@ public  class Email {
      message.setContent(multipart);
      Transport.send(message);         
     }
-    
-    
-    
-//    public static void main(String[] args) throws Exception {
-//        System.out.println("Hello World!"); // Display the string.
-//        
-//        sendMail("Prakruthi", "prakruthisomashekar29@gmail.com","Prakruthi", "Paracetemal", "29");
-//    }
+
 }
 
