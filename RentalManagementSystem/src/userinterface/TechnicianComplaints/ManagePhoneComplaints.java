@@ -1,9 +1,10 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package userinterface.ElectricalServiceManagement;
+package userinterface.TechnicianComplaints;
 
+import MySQLConnection.MySQLConnection;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,18 +13,17 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import userinterface.LaptopRental.LaptopRentJFrame;
-
 /**
  *
  * @author sunilrudrakumar
  */
-public class TechnicianComplaintsManage extends javax.swing.JPanel {
+public class ManagePhoneComplaints extends javax.swing.JFrame {
 
     /**
-     * Creates new form TechnicianComplaintsManage
+     * Creates new form ManagePhoneComplaints
      */
     MySQLConnection c = new MySQLConnection();
-    public TechnicianComplaintsManage() {
+    public ManagePhoneComplaints() {
         initComponents();
         Display();
     }
@@ -37,17 +37,28 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtModel = new javax.swing.JTextField();
+        txtBrand = new javax.swing.JTextField();
+        btnCompleteService = new javax.swing.JButton();
+        txtTechnicianId = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComplaints = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtProductId = new javax.swing.JTextField();
-        txtModel = new javax.swing.JTextField();
-        txtBrand = new javax.swing.JTextField();
-        btnCompleteService = new javax.swing.JButton();
-        txtTechnicianId = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnCompleteService.setText("Complete Service");
+        btnCompleteService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompleteServiceActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Technician ID");
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,17 +76,8 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
 
         jLabel3.setText("Brand");
 
-        btnCompleteService.setText("Complete Service");
-        btnCompleteService.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCompleteServiceActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Technician ID");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -113,7 +115,7 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(57, 57, 57))))))))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,37 +140,73 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
                     .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(btnCompleteService)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCompleteServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteServiceActionPerformed
         // TODO add your handling code here:
-         try {
+        try {
             // TODO add your handling code here:
-            String sql1 ="UPDATE lpatop SET technicianid = NULL and service = NULL  WHERE productid = '"+txtProductId.getText()+"' ";
+            String sql1 ="UPDATE phone SET technicianid = NULL and service = NULL  WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Service Completed");
-            } catch (Exception ex) {
+        } catch (Exception ex) {
             Logger.getLogger(LaptopRentJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
-         try {
-          
+        try {
+
             String Req = txtProductId.getText();
             String Query = "Delete from laptoptechnician where productid ='"+Req+"'";
             c.updateDatabase(Query);
-//            Statement Add = con.createStatement();
-//            Add.executeUpdate(Query);
+            //            Statement Add = con.createStatement();
+            //            Add.executeUpdate(Query);
             JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
             Display();
             Reset();
         } catch (Exception e){
-            
+
             e.printStackTrace();
         }
     }//GEN-LAST:event_btnCompleteServiceActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ManagePhoneComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ManagePhoneComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ManagePhoneComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ManagePhoneComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ManagePhoneComplaints().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCompleteService;
@@ -185,11 +223,10 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void Display() {
-        
         String reg,brand,carmodel;
         try{
 //           
-            String sql = "select * from laptop where service = 'Requested' and technicianid = '"+txtTechnicianId.getText()+"'";
+            String sql = "select * from phone where service = 'Requested' and technicianid = '"+txtTechnicianId.getText()+"'";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblComplaints.getModel();
             int rowCount = model.getRowCount();
@@ -206,7 +243,7 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
 //                status = rs.getString(5);
 //                price = rs.getString(6);
                 String[] row = {reg,brand,carmodel};
-                  model.addRow(row);
+                model.addRow(row);
                                
             }
         
@@ -214,10 +251,12 @@ public class TechnicianComplaintsManage extends javax.swing.JPanel {
         {
             e.printStackTrace();      
         }
-    
     }
 
     private void Reset() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         txtTechnicianId.setText("");
+        txtModel.setText("");
+        txtBrand.setText("");
+        txtProductId.setText("");
     }
 }
