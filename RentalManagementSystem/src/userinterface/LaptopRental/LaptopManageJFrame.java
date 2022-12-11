@@ -328,7 +328,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
          if(txtProductId.getText().isEmpty() )
         {
-            JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
+            JOptionPane.showMessageDialog(this,"Select the Record to be Updated");
             
         }else {
         try {
