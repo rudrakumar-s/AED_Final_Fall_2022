@@ -12,7 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import userinterface.HomeLanding.HomeLanding;
 
 /**
  *
@@ -90,11 +89,6 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
         });
 
         jButton7.setText("Logout");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -425,13 +419,6 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
             DisplayLaptopRentalRequest();
             Reset();
     }//GEN-LAST:event_btnDenyActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-         HomeLanding hl = new HomeLanding();
-        hl.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments

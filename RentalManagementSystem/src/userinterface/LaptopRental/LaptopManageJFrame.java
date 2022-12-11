@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import userinterface.HomeLanding.HomeLanding;
 
 /**
  *
@@ -85,11 +84,6 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         });
 
         btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -374,14 +368,6 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         lr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReturnLaptopActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        HomeLanding hl = new HomeLanding();
-        hl.setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
