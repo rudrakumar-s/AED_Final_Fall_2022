@@ -675,14 +675,21 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                           <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+=======
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel20" pref="294" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+>>>>>>> 34b8bea8be4d84c4b4d02ef3736ae33191afc30e
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="76" max="32767" attributes="0"/>
                           <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
@@ -691,6 +698,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                           <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
+=======
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel20" min="-2" pref="184" max="-2" attributes="0"/>
+                          </Group>
+>>>>>>> 34b8bea8be4d84c4b4d02ef3736ae33191afc30e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -800,11 +815,20 @@
                     </Component>
                   </SubComponents>
                 </Container>
+<<<<<<< HEAD
                 <Component class="javax.swing.JLabel" name="jLabel39">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/vehicle service.png"/>
                     </Property>
+=======
+                <Component class="javax.swing.JLabel" name="jLabel20">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/sunilrudrakumar/Downloads/giphy.gif"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="jLabel20"/>
+>>>>>>> 34b8bea8be4d84c4b4d02ef3736ae33191afc30e
                   </Properties>
                 </Component>
               </SubComponents>
