@@ -22,6 +22,7 @@ public class GadgetAdminPanel extends javax.swing.JPanel {
         MySQLConnection c = new MySQLConnection();
     public GadgetAdminPanel() {
         initComponents();
+        Display();
     }
 
     /**
