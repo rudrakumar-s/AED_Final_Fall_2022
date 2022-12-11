@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package userinterface.ElectricalServiceManagement;
+package userinterface.GadgetServiceTechnicianManagement;
 
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
@@ -43,7 +43,7 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTechnicianList = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
-        btnDelete1 = new javax.swing.JButton();
+        Save = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,6 +60,11 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
                 "Technician ID", "Name", "UserName", "Password"
             }
         ));
+        tblTechnicianList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTechnicianListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblTechnicianList);
 
         btnDelete.setText("Delete");
@@ -69,10 +74,10 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
             }
         });
 
-        btnDelete1.setText("Save");
-        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+        Save.setText("Save");
+        Save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelete1ActionPerformed(evt);
+                SaveActionPerformed(evt);
             }
         });
 
@@ -124,7 +129,7 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
                                     .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDelete1)
+                            .addComponent(Save)
                             .addComponent(btnUpdate))
                         .addGap(28, 28, 28))))
         );
@@ -153,7 +158,7 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
-                .addComponent(btnDelete1)
+                .addComponent(Save)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -161,9 +166,9 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(128, 128, 128)
+                .addGap(66, 66, 66)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         pack();
@@ -188,6 +193,7 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
             Display();
             Reset();
+            
         } catch (Exception e){
             
             e.printStackTrace();
@@ -196,27 +202,22 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
-        // TODO add your handling code here:
-        String sql = "select count(*) from laptoptechnician WHERE username = '"+txtUserName.getText()+"' or technicianid = '"+txtTechnicianId.getText()+"' ";
-        ResultSet rs = c.selectDatabase(sql);
-        //             if(rs.next()){
-//             JOptionPane.showMessageDialog(this,"Details  Already Exists");
-//                 
-//             }
-//             else {
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+
+//            String sql = "select count(*) from laptoptechnician WHERE username = '"+txtUserName.getText()+"' or technicianid = '"+txtTechnicianId.getText()+"' ";
+//            ResultSet rs = c.selectDatabase(sql);
+//            if(rs.next()){
+//                JOptionPane.showMessageDialog(this,"Details  Already Exists");
+
                 String sql1 = "Insert into laptoptechnician (technicianid, name,username,password ) values ('"+txtTechnicianId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"','"+txtPassword.getText()+"') ";
-                c.insertDatabase(sql);
+                c.insertDatabase(sql1);
                 JOptionPane.showMessageDialog(this,"Record added!");
-//             String sql1 = "select count(*) WHERE technicianid = '"+txtTechnicianId.getText()+"' ";
-//             rs = c.selectDatabase(sql1);
-//             if(rs.next()){
-//             JOptionPane.showMessageDialog(this,"Technician ID Already Exists");
-                 
-//             }
-Display();
-Reset();
-    }//GEN-LAST:event_btnDelete1ActionPerformed
+
+
+
+            Display();
+            Reset();       
+    }//GEN-LAST:event_SaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
@@ -248,6 +249,18 @@ Reset();
         
       } 
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void tblTechnicianListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTechnicianListMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblTechnicianList.getModel();
+        int MyIndex = tblTechnicianList.getSelectedRow();
+        txtTechnicianId.setText(model.getValueAt(MyIndex,0).toString());
+        txtName.setText(model.getValueAt(MyIndex,1).toString());
+        txtUserName.setText(model.getValueAt(MyIndex,2).toString());
+        txtPassword.setText((model.getValueAt(MyIndex, 3).toString()));
+        TextEdit();
+//        txtPrice.setText((model.getValueAt(MyIndex, 4).toString()));
+    }//GEN-LAST:event_tblTechnicianListMouseClicked
 
     /**
      * @param args the command line arguments
@@ -303,10 +316,10 @@ Reset();
 
 
             while (rs.next()) {
-                reg = rs.getString(1);
-                brand = rs.getString(2);
-                carmodel = rs.getString(4);
-                status = rs.getString(5);
+                reg = rs.getString(7);
+                brand = rs.getString(1);
+                carmodel = rs.getString(3);
+                status = rs.getString(4);
 //                price = rs.getString(6);
                 String[] row = {reg,brand,carmodel,status};
                   model.addRow(row);
@@ -330,10 +343,8 @@ Reset();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Save;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnDelete1;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnSave1;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -346,4 +357,9 @@ Reset();
     private javax.swing.JTextField txtTechnicianId;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    private void TextEdit() {
+        txtTechnicianId.setEditable(false);
+        
+    }
 }
