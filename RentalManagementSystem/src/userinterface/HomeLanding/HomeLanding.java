@@ -809,7 +809,7 @@ public class HomeLanding extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 185, 12));
-        jLabel28.setText("Want to Book...?");
+        jLabel28.setText("Want to Rent...?");
 
         jLabel29.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 185, 12));

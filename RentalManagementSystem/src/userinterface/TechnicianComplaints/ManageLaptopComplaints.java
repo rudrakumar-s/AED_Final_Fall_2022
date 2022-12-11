@@ -26,8 +26,18 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
      MySQLConnection c = new MySQLConnection();
     public ManageLaptopComplaints() {
         initComponents();
-        Display();
+//        Display();
     }
+
+   public ManageLaptopComplaints(String s) {
+//        showData(s);
+//        txtTechnicianId.setEditable(false);
+  initComponents();
+    txtTechnicianId.setText(s);
+    
+        Display();    
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,6 +84,11 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
                 "Product ID", "Model", "Brand"
             }
         ));
+        tblComplaints.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblComplaintsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblComplaints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,28 +165,30 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            String sql1 ="UPDATE lpatop SET technicianid = NULL and service = NULL  WHERE productid = '"+txtProductId.getText()+"' ";
+            String sql1 ="UPDATE laptop SET technicianid = NULL , service = NULL  WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql1);
+            String sql = "UPDATE laptoptechnician SET productid = 'Not Assigned'  WHERE technicianid = '"+txtTechnicianId.getText()+"' ";
+            c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Service Completed");
+            Display();
+            Reset();
         } catch (Exception ex) {
             Logger.getLogger(LaptopRentJFrame.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-        try {
-
-            String Req = txtProductId.getText();
-            String Query = "Delete from laptoptechnician where productid ='"+Req+"'";
-            c.updateDatabase(Query);
-            //            Statement Add = con.createStatement();
-            //            Add.executeUpdate(Query);
-            JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
-            Display();
-            Reset();
-        } catch (Exception e){
-
-            e.printStackTrace();
-        }
+        
     }//GEN-LAST:event_btnCompleteServiceActionPerformed
+
+    private void tblComplaintsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblComplaintsMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblComplaints.getModel();
+        int MyIndex = tblComplaints.getSelectedRow();
+//        txtTechnicianId.setText(model.getValueAt(MyIndex,0).toString());
+        txtBrand.setText(model.getValueAt(MyIndex,2).toString());
+        txtModel.setText(model.getValueAt(MyIndex,1).toString());
+        txtProductId.setText((model.getValueAt(MyIndex, 0).toString()));
+//        txtPrice.setText((model.getValueAt(MyIndex, 4).toString()));
+    }//GEN-LAST:event_tblComplaintsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -257,9 +274,13 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
     }
 
     private void Reset() {
-        txtTechnicianId.setText("");
+//        txtTechnicianId.setText("");
         txtModel.setText("");
         txtBrand.setText("");
         txtProductId.setText("");
     }
+
+//    private void showData(String s) {
+//         txtTechnicianId.setText(s);
+//    }
 }

@@ -352,7 +352,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Request Aprooved");
 //************************************************************************************************************   
-            String sql1 ="UPDATE customers SET laptopaproove = 'Booked'  WHERE customerid = '"+txtCustomerId.getText()+"' ";
+            String sql1 ="UPDATE customers SET laptopaproove = 'Booked', laptoprentid = '"+ txtRentID.getText()+"'  WHERE customerid = '"+txtCustomerId.getText()+"' ";
             c.updateDatabase(sql1);          
 //************************************************************************************************************
             String sql2 = "SELECT email From customers WHERE customerid = '"+txtCustomerId.getText()+"'";

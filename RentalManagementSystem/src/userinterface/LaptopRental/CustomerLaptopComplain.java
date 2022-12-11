@@ -23,6 +23,7 @@ public class CustomerLaptopComplain extends javax.swing.JFrame {
     public CustomerLaptopComplain() {
         initComponents();
         DisplayLatopOnRent();
+//        DisplaylaptopOnRent2();
     }
 public CustomerLaptopComplain(String s) {
         initComponents();
@@ -166,7 +167,7 @@ public CustomerLaptopComplain(String s) {
         c.updateDatabase(sql);
         JOptionPane.showMessageDialog(this," Successfully Raised Request");
         String sql1 = "UPDATE laptop SET service = 'Requested'  WHERE productid = '"+txtProductID.getText()+"' ";
-        c.updateDatabase(sql);
+        c.updateDatabase(sql1);
          
             }
       catch (Exception ex) {
@@ -224,6 +225,7 @@ public CustomerLaptopComplain(String s) {
     private javax.swing.JTextField txtRentId;
     // End of variables declaration//GEN-END:variables
 
+            
     private void DisplayLatopOnRent() {
         
          String reg,brand,carmodel,status,price;
@@ -232,6 +234,7 @@ public CustomerLaptopComplain(String s) {
 
             String sql = "select * from customers where customerid = '"+txtCustomerId.getText()+"' and laptopaproove = 'Booked' ";
             ResultSet rs = c.selectDatabase(sql);
+            
             
             DefaultTableModel model =(DefaultTableModel) tblLaptopOnRent.getModel();
             int rowCount = model.getRowCount();
@@ -243,7 +246,7 @@ public CustomerLaptopComplain(String s) {
 
             while (rs.next()) {
                  reg = rs.getString(7);
-                 brand = rs.getString(8);
+                 brand = rs.getString(21);
 //                 carmodel = rs.getString(1);
 //                 status = rs.getString(1);
 //               
@@ -263,4 +266,5 @@ public CustomerLaptopComplain(String s) {
     private void showData(String s) {
          txtCustomerId.setText(s);
     }
+
 }

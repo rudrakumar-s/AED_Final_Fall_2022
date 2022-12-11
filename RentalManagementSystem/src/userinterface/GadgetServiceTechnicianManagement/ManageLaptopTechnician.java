@@ -209,7 +209,9 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
 //            if(rs.next()){
 //                JOptionPane.showMessageDialog(this,"Details  Already Exists");
 
-                String sql1 = "Insert into laptoptechnician (technicianid, name,username,password ) values ('"+txtTechnicianId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"','"+txtPassword.getText()+"') ";
+                String sql1 = "Insert into laptoptechnician (technicianid, name,username,password,productid ) "
+                        + "values ('"+txtTechnicianId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"',"
+                        + "'"+txtPassword.getText()+"','Not Assigned') ";
                 c.insertDatabase(sql1);
                 JOptionPane.showMessageDialog(this,"Record added!");
 
@@ -230,9 +232,10 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
         {
               try {
       //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-                  String Req = txtTechnicianId.getText();
+//                  String Req = txtTechnicianId.getText();
                   String Query = "Update laptoptechnician set  name = '"+txtName.getText()+"',"
-                          + " username = '"+txtUserName.getText()+"',password = '"+txtPassword.getText()+"'";
+                          + " username = '"+txtUserName.getText()+"',password = '"+txtPassword.getText()+"'"
+                          + " where technicianid = '"+txtTechnicianId.getText()+"' ";
                   c.updateDatabase(Query);
       //            Statement Add = con.createStatement();
       //            Add.executeUpdate(Query);
@@ -316,10 +319,10 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
 
 
             while (rs.next()) {
-                reg = rs.getString(7);
+                reg = rs.getString(4);
                 brand = rs.getString(1);
-                carmodel = rs.getString(3);
-                status = rs.getString(4);
+                carmodel = rs.getString(2);
+                status = rs.getString(3);
 //                price = rs.getString(6);
                 String[] row = {reg,brand,carmodel,status};
                   model.addRow(row);
@@ -359,7 +362,7 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void TextEdit() {
-        txtTechnicianId.setEditable(false);
+//        txtTechnicianId.setEditable(false);
         
     }
 }
