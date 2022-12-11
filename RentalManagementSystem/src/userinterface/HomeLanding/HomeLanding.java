@@ -72,11 +72,7 @@ public class HomeLanding extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         TxtVehSerUID = new javax.swing.JTextField();
         TxtVehSerPwd = new javax.swing.JTextField();
-<<<<<<< Updated upstream
-        jLabel20 = new javax.swing.JLabel();
-=======
         jLabel39 = new javax.swing.JLabel();
->>>>>>> Stashed changes
         GadSerPane = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
@@ -516,12 +512,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
-<<<<<<< Updated upstream
-        jLabel20.setIcon(new javax.swing.ImageIcon("/Users/sunilrudrakumar/Downloads/giphy.gif")); // NOI18N
-        jLabel20.setText("jLabel20");
-=======
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/vehicle service.png"))); // NOI18N
->>>>>>> Stashed changes
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -530,19 +521,6 @@ public class HomeLanding extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< Updated upstream
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 294, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
                 .addGap(67, 67, 67)
                 .addComponent(jLabel39)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -556,7 +534,6 @@ public class HomeLanding extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(113, 113, 113)
                 .addComponent(jLabel39)
->>>>>>> Stashed changes
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1240,10 +1217,7 @@ public class HomeLanding extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-<<<<<<< Updated upstream
-=======
     private javax.swing.JLabel jLabel21;
->>>>>>> Stashed changes
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
