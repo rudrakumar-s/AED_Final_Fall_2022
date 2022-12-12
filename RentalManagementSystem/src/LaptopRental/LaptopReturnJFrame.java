@@ -10,9 +10,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HomeLanding.HomeLanding;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JDialog;
 
 /**
  *
@@ -27,10 +24,6 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
     public LaptopReturnJFrame() {
         initComponents();
         DisplayLaptopOnRent();
-        txtProductId.setVisible(false);
-        txtRentId.setEditable(false);
-        txtCustomerId.setEditable(false);
-        
     }
 
 
@@ -293,46 +286,7 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
 
         try{
-             int flag = 0;
-                
-                //*************************************** Validation of Empty Name Field ***************************************//
-                 if(txtDelay.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Delay Field cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                 if(txtFine.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Fine Field cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                String cellPhoneNumber3 = txtFine.getText();
-                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
-                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
-                if(!matcher3.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a Valid Fine Amount!");
-                    flag = 1;
-                    txtFine.setText("");
-                    
-                    
-                }
-                String cellPhoneNumber2 = txtDelay.getText();
-                Pattern pattern2 = Pattern.compile("^[0-9]{3}$");
-                Matcher matcher2 = pattern2.matcher(cellPhoneNumber2);
-                if(!matcher3.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a Valid Delay Period!");
-                    flag = 1;
-                    txtDelay.setText("");
-                    
-                    
-                }
-                 if(flag == 0){
+
             String sql="UPDATE customers SET customerid = '"+txtCustomerId.getText()+"', delay = '"+txtDelay.getText()+"', fine= '"+txtFine.getText()+"',laptopaproove = 'Returned' WHERE customerid = '"+txtCustomerId.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Return Confirmed");
@@ -343,11 +297,8 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
 //************************************************************** *********************************************   
 
             DisplayLaptopOnRent();
-            txtDelay.setText("");
-            txtFine.setText("");
 
 
-        }
         }
         catch(Exception e)
         {

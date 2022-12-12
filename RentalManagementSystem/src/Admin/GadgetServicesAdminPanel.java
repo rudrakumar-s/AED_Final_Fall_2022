@@ -48,7 +48,6 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
         txtSave = new javax.swing.JButton();
         txtEdit = new javax.swing.JButton();
         txtDelete = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
 
         tblGadgetServicesAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,13 +91,6 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -130,10 +122,7 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtGadgetServicesAdminID)
                             .addComponent(txtUsername)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addComponent(btnBack)))
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -158,9 +147,7 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
                     .addComponent(txtSave)
                     .addComponent(txtEdit)
                     .addComponent(txtDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBack)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -267,17 +254,9 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
 //        txtPrice.setText((model.getValueAt(MyIndex, 4).toString()));
     }//GEN-LAST:event_tblGadgetServicesAdminMouseClicked
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        AdminLandingJFrame al = new AdminLandingJFrame();
-        al.setVisible(true);
-
-    }//GEN-LAST:event_btnBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ScrollJPane;
-    private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

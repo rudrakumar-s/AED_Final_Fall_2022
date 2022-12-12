@@ -25,12 +25,7 @@ public class CustomerLaptopComplain extends javax.swing.JFrame {
     public CustomerLaptopComplain() {
         initComponents();
         DisplayLatopOnRent();
-        txtProductID.setEditable(false);
-        txtCustomerId.setEditable(false);
-        txtRentId.setEditable(false);
-        txtDelay.setEditable(false);
-        txtFine.setEditable(false);
-
+//        DisplaylaptopOnRent2();
     }
 public CustomerLaptopComplain(String s) {
         initComponents();
@@ -336,8 +331,6 @@ public CustomerLaptopComplain(String s) {
 //        txtCustomerId.setText(model.getValueAt(MyIndex,2).toString());
         txtRentId.setText(model.getValueAt(MyIndex,1).toString());
         txtProductID.setText(model.getValueAt(MyIndex,0).toString());
-        txtDelay.setText(model.getValueAt(MyIndex,2).toString());
-        txtFine.setText(model.getValueAt(MyIndex,3).toString());
     }//GEN-LAST:event_tblLaptopOnRentMouseClicked
 
     private void txtProductIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductIDActionPerformed

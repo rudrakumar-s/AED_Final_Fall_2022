@@ -11,9 +11,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HomeLanding.HomeLanding;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JDialog;
 
 /**
  *
@@ -329,98 +326,13 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        int flag = 0;
-                
-                //*************************************** Validation of Empty Name Field ***************************************//
-                 if(txtProductId.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Product ID cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                 if(txtModel.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Model cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                  if(txtBrand.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Brand cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                   if(txtPrice.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Price cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                     
-                   if(cbStatus.getSelectedItem().toString().isEmpty() || cbStatus.getSelectedItem().toString() == "Select" ){
-                    JOptionPane optionPane = new JOptionPane("Please choose the Status", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                 String name7 = txtProductId.getText();
-                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
-                Matcher matcher7 = pattern7.matcher(name7);
-                if(!matcher7.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a valid Product ID!");
-                    flag = 1;
-                    txtProductId.setText("");
-                    
-                }
-                
-                 String employeeId2 = txtBrand.getText();
-                Pattern pattern2 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
-                Matcher matcher2 =pattern2.matcher(employeeId2);
-                if(!matcher2.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a Valid Brand!");
-                    flag = 1;
-                    txtBrand.setText("");   
-                }
-                String level4 = txtModel.getText();
-                Pattern pattern4 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
-                Matcher matcher4 = pattern4.matcher(level4);
-                if(!matcher4.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a valid Model!");
-                    flag = 1;
-                    txtModel.setText("");
-                    
-                }
-                
-                 String cellPhoneNumber3 = txtPrice.getText();
-                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
-                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
-                if(!matcher3.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a valid Price!");
-                    flag = 1;
-                    txtPrice.setText("");
-                    
-                    
-                }
-                
-                if(flag == 0)
-        {
-                String sql = "INSERT INTO laptop (productid,brand,model,status,price) "
+        String sql = "INSERT INTO laptop (productid,brand,model,status,price) "
                 + " VALUES ('"+txtProductId.getText()+"','"+txtBrand.getText()+"','"+txtModel.getText()+"',"
                 + "'"+cbStatus.getSelectedItem().toString()+"','"+txtPrice.getText()+"')";     
                 c.insertDatabase(sql);
                 JOptionPane.showMessageDialog(null,"Record Added Successfully!");
                 Display();
                 Reset();
-        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -480,97 +392,16 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
             
         }else {
         try {
-            int flag = 0;
-                
-                //*************************************** Validation of Empty Name Field ***************************************//
-                 if(txtProductId.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Product ID cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                 if(txtModel.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Model cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                  if(txtBrand.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Brand cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                   if(txtPrice.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Price cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                     
-                   if(cbStatus.getSelectedItem().toString().isEmpty() || cbStatus.getSelectedItem().toString() == "Select" ){
-                    JOptionPane optionPane = new JOptionPane("Please choose the Status", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                 String name7 = txtProductId.getText();
-                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
-                Matcher matcher7 = pattern7.matcher(name7);
-                if(!matcher7.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a valid Product ID!");
-                    flag = 1;
-                    txtProductId.setText("");
-                    
-                }
-                
-                 String employeeId2 = txtBrand.getText();
-                Pattern pattern2 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
-                Matcher matcher2 =pattern2.matcher(employeeId2);
-                if(!matcher2.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a Valid Brand!");
-                    flag = 1;
-                    txtBrand.setText("");   
-                }
-                String level4 = txtModel.getText();
-                Pattern pattern4 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
-                Matcher matcher4 = pattern4.matcher(level4);
-                if(!matcher4.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a valid Model!");
-                    flag = 1;
-                    txtModel.setText("");
-                    
-                }
-                
-                 String cellPhoneNumber3 = txtPrice.getText();
-                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
-                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
-                if(!matcher3.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a valid Price!");
-                    flag = 1;
-                    txtPrice.setText("");
-                    
-                    
-                }
-            if(flag == 0){    
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
             String Req = txtProductId.getText();
             String Query = "Update laptop set brand = '" +txtBrand.getText()+"', model = '"+txtModel.getText()+"', "
                     + "status = '"+cbStatus.getSelectedItem()+"', price = "+txtPrice.getText()+" where productid = '"+Req+"'" ;
             c.updateDatabase(Query);
-
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
             JOptionPane.showMessageDialog(this,"Record Updated Successfully");
             Display();
             Reset();
-            }
         } catch (Exception e){
             
             e.printStackTrace();

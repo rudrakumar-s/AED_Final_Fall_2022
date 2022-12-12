@@ -10,10 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -189,43 +185,22 @@ public class CustomerLoginJFrame extends javax.swing.JFrame {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
-        
-        int flag = 0;
-                
-                //*************************************** Validation of Empty Name Field ***************************************//
-                if(txtUserName.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                 if(txtPassword.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
-                String name7 = txtUserName.getText();
-                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
-                Matcher matcher7 = pattern7.matcher(name7);
-                if(!matcher7.matches())
-                {
-                    JOptionPane.showMessageDialog(this,"Enter a valid Name!");
-                    flag = 1;
-                    txtUserName.setText("");
-                    
-                }
-                 
+        String sql = " SELECT customerid,password FROM customers WHERE customerid = '"+txtUserName.getText()+"' and password = '"+txtPassword.getText()+"' ";
+        ResultSet rs = c.selectDatabase(sql);
+        String  custid = txtUserName.getText();
         
         
-         if(flag == 0){   
+            
           try {
-                    
-                    String sql = " SELECT customerid,password FROM customers WHERE customerid = '"+txtUserName.getText()+"' and password = '"+txtPassword.getText()+"' ";
-                    ResultSet rs = c.selectDatabase(sql);
-                    String  custid = txtUserName.getText();
+               if(txtUserName.getText().isEmpty() && txtPassword.getText().isEmpty()){
+                        lblUserNameMessage.setText("Fields are Empty");
+                }else if(txtUserName.getText().isEmpty()){
+                        lblUserNameMessage.setText("UserName is Empty");
+                }
+                 else{
+                        lblUserNameMessage.setText("Password is Empty");
+                 }
+
               
               if(rs.next() == true)
               {
@@ -234,16 +209,12 @@ public class CustomerLoginJFrame extends javax.swing.JFrame {
                 lr.setVisible(true);
                 this.dispose();
               }
-              else{
-                  JOptionPane.showMessageDialog(this,"Invalid Crednetials!");
-              }
              
                } 
           catch (SQLException ex) 
           {
               Logger.getLogger(CustomerLoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
           }
-         } 
     }//GEN-LAST:event_btnSignInActionPerformed
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed

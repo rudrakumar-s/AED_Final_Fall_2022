@@ -100,11 +100,13 @@
                                   <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel9" max="32767" attributes="0"/>
-                                      <Component id="txtEmail" max="32767" attributes="0"/>
-                                      <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtSSN" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtEmail" pref="167" max="32767" attributes="0"/>
+                                          <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtSSN" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
