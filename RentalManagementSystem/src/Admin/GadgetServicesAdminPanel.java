@@ -4,6 +4,12 @@
  */
 package Admin;
 
+import MySQLConnection.MySQLConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author harsh
@@ -13,8 +19,11 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
     /**
      * Creates new form GadgetServicesAdminPanel
      */
+            MySQLConnection c = new MySQLConnection();
+
     public GadgetServicesAdminPanel() {
         initComponents();
+        Display();
     }
 
     /**
@@ -48,6 +57,11 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
                 "Gadget Services Admin ID", "Username", "Password"
             }
         ));
+        tblGadgetServicesAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblGadgetServicesAdminMouseClicked(evt);
+            }
+        });
         ScrollJPane.setViewportView(tblGadgetServicesAdmin);
 
         jLabel1.setText("Gadget Services Admin ID");
@@ -57,10 +71,25 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
         jLabel3.setText("Password");
 
         txtSave.setText("Save");
+        txtSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSaveActionPerformed(evt);
+            }
+        });
 
         txtEdit.setText("Edit");
+        txtEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEditActionPerformed(evt);
+            }
+        });
 
         txtDelete.setText("Delete");
+        txtDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -146,6 +175,85 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaveActionPerformed
+        // TODO add your handling code here:
+        try{
+
+            String sql = "Insert into gadgetservicesadmin (id,username,password)"
+                    + " values ('"+txtGadgetServicesAdminID.getText()+"','"+txtUsername.getText()+"','"+txtPassword.getText()+"')";
+            c.insertDatabase(sql);
+            JOptionPane.showMessageDialog(this,"Account has been Created");
+            Reset();
+            Display();
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_txtSaveActionPerformed
+
+    private void txtEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditActionPerformed
+        // TODO add your handling code here:
+        if(txtGadgetServicesAdminID.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(this,"Select the Record to be Updated");
+            
+        }else {
+        try {
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+            String Req = txtGadgetServicesAdminID.getText();
+            String Query = "Update gadgetservicesadmin set username = '"+txtUsername.getText()+"', password = '"+txtPassword.getText()+"' where id = '"+Req+"'" ;
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
+            JOptionPane.showMessageDialog(this,"Record Updated Successfully");
+            Display();
+            Reset();
+        } catch (Exception e){
+            
+            e.printStackTrace();
+        }
+        
+        }
+    }//GEN-LAST:event_txtEditActionPerformed
+
+    private void txtDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDeleteActionPerformed
+        // TODO add your handling code here:
+        if(txtGadgetServicesAdminID.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
+            
+        }
+        else {
+        try {
+          
+            String Req = txtGadgetServicesAdminID.getText();
+            String Query = "Delete from gadgetservicesadmin where id ='"+Req+"'";
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
+            JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
+           Display();
+            Reset();
+        } catch (Exception e){
+            
+            e.printStackTrace();
+        }
+        
+        }
+    }//GEN-LAST:event_txtDeleteActionPerformed
+
+    private void tblGadgetServicesAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGadgetServicesAdminMouseClicked
+        // TODO add your handling code here:
+         DefaultTableModel model = (DefaultTableModel) tblGadgetServicesAdmin.getModel();
+        int MyIndex = tblGadgetServicesAdmin.getSelectedRow();
+        txtGadgetServicesAdminID.setText(model.getValueAt(MyIndex,0).toString());
+        txtUsername.setText(model.getValueAt(MyIndex,1).toString());
+        txtPassword.setText(model.getValueAt(MyIndex,2).toString());
+//        txtProductId.setText((model.getValueAt(MyIndex, 1).toString()));
+//        txtPrice.setText((model.getValueAt(MyIndex, 4).toString()));
+    }//GEN-LAST:event_tblGadgetServicesAdminMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ScrollJPane;
@@ -162,4 +270,47 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
     private javax.swing.JButton txtSave;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
-}
+
+  
+    private void Reset() {
+        txtGadgetServicesAdminID.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");    }
+
+    private void Display() {
+String reg,brand,carmodel,status,price;
+        try{
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+//            st = con.createStatement();
+            String sql = "select * from gadgetservicesadmin";
+          ResultSet  rs = c.selectDatabase(sql);
+            
+            DefaultTableModel model =(DefaultTableModel) tblGadgetServicesAdmin.getModel();
+            int rowCount = model.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) 
+            {
+            model.removeRow(i);
+            }
+
+
+            while (rs.next()) {
+                reg = rs.getString(1);
+                brand = rs.getString(2);
+                carmodel = rs.getString(3);
+//                status = rs.getString(5);
+//                price = rs.getString(6);
+                String[] row = {reg,brand,carmodel};
+                  model.addRow(row);
+                               
+            }
+        
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            
+            
+        }
+    }
+    }
+
+  
