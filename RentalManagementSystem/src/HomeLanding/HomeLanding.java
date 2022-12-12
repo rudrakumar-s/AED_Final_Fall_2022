@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import LaptopRental.CustomerLaptopRent;
 import LaptopRental.LaptopManageJFrame;
 import PhoneRental.CustomerPhoneRent;
+import PhoneRental.PhoneManageJFrame;
 
 /**
  *
@@ -92,20 +93,14 @@ public class HomeLanding extends javax.swing.JFrame {
         TechPane = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
-        BtnTechLogin = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        TxtTecUID = new javax.swing.JTextField();
-        TxtTecPwd = new javax.swing.JTextField();
+        btnManageLaptop = new javax.swing.JButton();
+        btnManagePhone = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
         MechPane = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
-        BtnMechLogin = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        TxtMecUID = new javax.swing.JTextField();
-        TxtMecPwd = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         CusPane = new javax.swing.JPanel();
@@ -667,59 +662,45 @@ public class HomeLanding extends javax.swing.JFrame {
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
-        BtnTechLogin.setBackground(new java.awt.Color(255, 185, 12));
-        BtnTechLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        BtnTechLogin.setForeground(new java.awt.Color(255, 255, 255));
-        BtnTechLogin.setText("Login");
+        btnManageLaptop.setBackground(new java.awt.Color(255, 185, 12));
+        btnManageLaptop.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnManageLaptop.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageLaptop.setText("Manage laptop ");
+        btnManageLaptop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageLaptopActionPerformed(evt);
+            }
+        });
 
-        jLabel14.setBackground(new java.awt.Color(223, 207, 213));
-        jLabel14.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 185, 12));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("User ID :");
-        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabel15.setBackground(new java.awt.Color(223, 207, 213));
-        jLabel15.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 185, 12));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Password :");
-        jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnManagePhone.setBackground(new java.awt.Color(255, 185, 12));
+        btnManagePhone.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnManagePhone.setForeground(new java.awt.Color(255, 255, 255));
+        btnManagePhone.setText("Manage Phone");
+        btnManagePhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePhoneActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TxtTecUID, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                            .addComponent(TxtTecPwd)))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(BtnTechLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(87, 87, 87)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnManagePhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageLaptop, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtTecUID, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtTecPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(BtnTechLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(94, 94, 94)
+                .addComponent(btnManageLaptop)
+                .addGap(49, 49, 49)
+                .addComponent(btnManagePhone)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Technician.png"))); // NOI18N
@@ -731,14 +712,14 @@ public class HomeLanding extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
+                .addGap(217, 217, 217)
                 .addComponent(jLabel41)
                 .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
             .addGroup(jPanel12Layout.createSequentialGroup()
@@ -765,58 +746,35 @@ public class HomeLanding extends javax.swing.JFrame {
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
 
-        BtnMechLogin.setBackground(new java.awt.Color(255, 185, 12));
-        BtnMechLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        BtnMechLogin.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMechLogin.setText("Login");
+        jButton1.setBackground(new java.awt.Color(255, 185, 12));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Manage Car");
 
-        jLabel16.setBackground(new java.awt.Color(223, 207, 213));
-        jLabel16.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 185, 12));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("User ID :");
-        jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabel17.setBackground(new java.awt.Color(223, 207, 213));
-        jLabel17.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 185, 12));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("Password :");
-        jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setBackground(new java.awt.Color(255, 185, 12));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Manage Bikes");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TxtMecUID, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                    .addComponent(TxtMecPwd))
-                .addContainerGap(95, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnMechLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(166, 166, 166))
+                .addGap(101, 101, 101)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtMecUID, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtMecPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addComponent(BtnMechLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -840,7 +798,7 @@ public class HomeLanding extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(160, 160, 160)
                 .addComponent(jLabel42)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1172,6 +1130,20 @@ public class HomeLanding extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_BtnGadAdLoginActionPerformed
 
+    private void btnManageLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageLaptopActionPerformed
+        // TODO add your handling code here:
+        LaptopManageJFrame lr = new LaptopManageJFrame();
+        lr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnManageLaptopActionPerformed
+
+    private void btnManagePhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePhoneActionPerformed
+        // TODO add your handling code here:
+        PhoneManageJFrame pm = new PhoneManageJFrame();
+        pm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnManagePhoneActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1227,9 +1199,7 @@ public class HomeLanding extends javax.swing.JFrame {
     private javax.swing.JButton BtnCusLogin1;
     private javax.swing.JButton BtnGadAdLogin;
     private javax.swing.JButton BtnGadSerLogin;
-    private javax.swing.JButton BtnMechLogin;
     private javax.swing.JButton BtnSysLogin;
-    private javax.swing.JButton BtnTechLogin;
     private javax.swing.JButton BtnVehLogin;
     private javax.swing.JButton BtnVehSerLogin;
     private javax.swing.JPanel CusPane;
@@ -1244,27 +1214,23 @@ public class HomeLanding extends javax.swing.JFrame {
     private javax.swing.JTextField TxtGadAdUID;
     private javax.swing.JTextField TxtGadSerPwd;
     private javax.swing.JTextField TxtGadSerUID;
-    private javax.swing.JTextField TxtMecPwd;
-    private javax.swing.JTextField TxtMecUID;
     private javax.swing.JTextField TxtSysPwd;
     private javax.swing.JTextField TxtSysUID;
-    private javax.swing.JTextField TxtTecPwd;
-    private javax.swing.JTextField TxtTecUID;
     private javax.swing.JTextField TxtVehAdPwd;
     private javax.swing.JTextField TxtVehAdUID;
     private javax.swing.JTextField TxtVehSerPwd;
     private javax.swing.JTextField TxtVehSerUID;
     private javax.swing.JPanel VechSerPane;
     private javax.swing.JPanel VehAdPane;
+    private javax.swing.JButton btnManageLaptop;
+    private javax.swing.JButton btnManagePhone;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
