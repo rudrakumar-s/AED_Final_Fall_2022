@@ -4,8 +4,6 @@
  */
 package VehicleServiceMechanicManagement;
 
-import GadgetServiceTechnicianManagement.*;
-
 /**
  *
  * @author sunilrudrakumar
@@ -33,14 +31,14 @@ public class ManageMechanics extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Manage Laptop technicians");
+        jLabel1.setText("Manage Bike Mechanics");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
 
-        jLabel2.setText("Manage Phone technicians");
+        jLabel2.setText("Manage Car Mechanics");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -51,21 +49,21 @@ public class ManageMechanics extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(152, 152, 152)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(146, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addContainerGap(87, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(84, 84, 84)
                 .addComponent(jLabel1)
-                .addGap(103, 103, 103)
+                .addGap(67, 67, 67)
                 .addComponent(jLabel2)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
@@ -73,7 +71,7 @@ public class ManageMechanics extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
-        ManageCarTechnician lr = new ManageCarTechnician();
+        ManageCarMechanic lr = new ManageCarMechanic();
         lr.setVisible(true);
         this.dispose();
         
@@ -81,7 +79,7 @@ public class ManageMechanics extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        ManageBikeTechnician lr = new ManageBikeTechnician();
+        ManageBikeMechanic lr = new ManageBikeMechanic();
         lr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked

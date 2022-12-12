@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package VehicleServiceMechanicManagement;
+
 import GadgetServiceTechnicianManagement.*;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
@@ -16,14 +17,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sunilrudrakumar
  */
-public class ManageBikeTechnician extends javax.swing.JFrame {
+public class ManageCarMechanic extends javax.swing.JFrame {
 
     /**
-     * Creates new form ManageBikeTechnician
+     * Creates new form ManageCarMechanic
      */
-     MySQLConnection c = new MySQLConnection();
-    public ManageBikeTechnician() {
+    MySQLConnection c = new MySQLConnection();
+    public ManageCarMechanic() {
         initComponents();
+        Display();
     }
 
     /**
@@ -35,38 +37,36 @@ public class ManageBikeTechnician extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtMechanicId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblTechnicianList = new javax.swing.JTable();
+        tblMechanicList = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         Save = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtTechnicianId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel4.setText("Password");
-
-        tblTechnicianList.setModel(new javax.swing.table.DefaultTableModel(
+        tblMechanicList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Technician ID", "Name", "UserName", "Password"
+                "Mechanic ID", "Name", "UserName", "Password"
             }
         ));
-        tblTechnicianList.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblMechanicList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblTechnicianListMouseClicked(evt);
+                tblMechanicListMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblTechnicianList);
+        jScrollPane1.setViewportView(tblMechanicList);
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -89,18 +89,20 @@ public class ManageBikeTechnician extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Technician ID");
+        jLabel1.setText("Mechanic ID");
 
         jLabel2.setText("Name");
 
         jLabel3.setText("UserName");
+
+        jLabel4.setText("Password");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
+                .addContainerGap(172, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,7 +126,7 @@ public class ManageBikeTechnician extends javax.swing.JFrame {
                                         .addGap(101, 101, 101)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTechnicianId, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMechanicId, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +139,7 @@ public class ManageBikeTechnician extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTechnicianId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMechanicId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,96 +169,102 @@ public class ManageBikeTechnician extends javax.swing.JFrame {
                         .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(66, 66, 66)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tblTechnicianListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTechnicianListMouseClicked
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) tblTechnicianList.getModel();
-        int MyIndex = tblTechnicianList.getSelectedRow();
-        txtTechnicianId.setText(model.getValueAt(MyIndex,0).toString());
-        txtName.setText(model.getValueAt(MyIndex,1).toString());
-        txtUserName.setText(model.getValueAt(MyIndex,2).toString());
-        txtPassword.setText((model.getValueAt(MyIndex, 3).toString()));
-        TextEdit();
-        //        txtPrice.setText((model.getValueAt(MyIndex, 4).toString()));
-    }//GEN-LAST:event_tblTechnicianListMouseClicked
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-
-        if(txtTechnicianId.getText().isEmpty() )
+        
+         if(txtMechanicId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
-
+            
         }
         else {
-            try {
-
-                String Req = txtTechnicianId.getText();
-                String Query = "Delete from laptoptechnician where technicianid ='"+Req+"'";
-                c.updateDatabase(Query);
-                //            Statement Add = con.createStatement();
-                //            Add.executeUpdate(Query);
-                JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
-                Display();
-                Reset();
-
-            } catch (Exception e){
-
-                e.printStackTrace();
-            }
-
+        try {
+          
+            String Req = txtMechanicId.getText();
+            String Query = "Delete from carmechanic where mechanicid ='"+Req+"'";
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
+            JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
+            Display();
+            Reset();
+            
+        } catch (Exception e){
+            
+            e.printStackTrace();
+        }
+        
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
 
-        //            String sql = "select count(*) from laptoptechnician WHERE username = '"+txtUserName.getText()+"' or technicianid = '"+txtTechnicianId.getText()+"' ";
-        //            ResultSet rs = c.selectDatabase(sql);
-        //            if(rs.next()){
-            //                JOptionPane.showMessageDialog(this,"Details  Already Exists");
+//            String sql = "select count(*) from laptoptechnician WHERE username = '"+txtUserName.getText()+"' or technicianid = '"+txtTechnicianId.getText()+"' ";
+//            ResultSet rs = c.selectDatabase(sql);
+//            if(rs.next()){
+//                JOptionPane.showMessageDialog(this,"Details  Already Exists");
 
-            String sql1 = "Insert into laptoptechnician (technicianid, name,username,password ) values ('"+txtTechnicianId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"','"+txtPassword.getText()+"') ";
-            c.insertDatabase(sql1);
-            JOptionPane.showMessageDialog(this,"Record added!");
+                String sql1 = "Insert into carmechanic (mechanicid, name,username,password,productid ) "
+                        + "values ('"+txtMechanicId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"',"
+                        + "'"+txtPassword.getText()+"','Not Assigned') ";
+                c.insertDatabase(sql1);
+                JOptionPane.showMessageDialog(this,"Record added!");
+
+
 
             Display();
-            Reset();
+            Reset();       
     }//GEN-LAST:event_SaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        if(txtTechnicianId.getText().isEmpty() )
+              if(txtMechanicId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to be Updated");
-
+            
         }
-        else
+        else 
         {
-            try {
-                //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-                String Req = txtTechnicianId.getText();
-                String Query = "Update laptoptechnician set  name = '"+txtName.getText()+"',"
-                + " username = '"+txtUserName.getText()+"',password = '"+txtPassword.getText()+"'";
-                c.updateDatabase(Query);
-                //            Statement Add = con.createStatement();
-                //            Add.executeUpdate(Query);
-                JOptionPane.showMessageDialog(this,"Record Updated Successfully");
-                Display();
-                Reset();
+              try {
+      //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+//                  String Req = txtTechnicianId.getText();
+                  String Query = "Update carmechanic set  name = '"+txtName.getText()+"',"
+                          + " username = '"+txtUserName.getText()+"',password = '"+txtPassword.getText()+"'"
+                          + " where mechanicid = '"+txtMechanicId.getText()+"' ";
+                  c.updateDatabase(Query);
+      //            Statement Add = con.createStatement();
+      //            Add.executeUpdate(Query);
+                  JOptionPane.showMessageDialog(this,"Record Updated Successfully");
+                  Display();
+                  Reset();
 
-            } catch (Exception e)
-            {
-
-                e.printStackTrace();
-            }
-
-        }
+              } catch (Exception e)
+              {
+            
+            e.printStackTrace();
+       				 }
+        
+        
+      } 
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void tblMechanicListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMechanicListMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblMechanicList.getModel();
+        int MyIndex = tblMechanicList.getSelectedRow();
+        txtMechanicId.setText(model.getValueAt(MyIndex,0).toString());
+        txtName.setText(model.getValueAt(MyIndex,1).toString());
+        txtUserName.setText(model.getValueAt(MyIndex,2).toString());
+        txtPassword.setText((model.getValueAt(MyIndex, 3).toString()));
+        TextEdit();
+//        txtPrice.setText((model.getValueAt(MyIndex, 4).toString()));
+    }//GEN-LAST:event_tblMechanicListMouseClicked
 
     /**
      * @param args the command line arguments
@@ -275,14 +283,18 @@ public class ManageBikeTechnician extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManageBikeTechnician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageCarMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManageBikeTechnician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageCarMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManageBikeTechnician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageCarMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManageBikeTechnician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageCarMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -291,42 +303,22 @@ public class ManageBikeTechnician extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManageBikeTechnician().setVisible(true);
+                new ManageCarMechanic().setVisible(true);
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Save;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblTechnicianList;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtTechnicianId;
-    private javax.swing.JTextField txtUserName;
-    // End of variables declaration//GEN-END:variables
-
-    private void TextEdit() {
-
-txtTechnicianId.setEditable(false);  
-    }
-
+    
+    
     private void Display() {
-
+        
         String reg,brand,carmodel,status,price;
         try{
 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
 //            st = con.createStatement();
-            String sql = "select * from laptoptechnician";
+            String sql = "select * from carmechanic";
           ResultSet  rs = c.selectDatabase(sql);
             
-            DefaultTableModel model =(DefaultTableModel) tblTechnicianList.getModel();
+            DefaultTableModel model =(DefaultTableModel) tblMechanicList.getModel();
             int rowCount = model.getRowCount();
             for (int i = rowCount - 1; i >= 0; i--) 
             {
@@ -335,10 +327,10 @@ txtTechnicianId.setEditable(false);
 
 
             while (rs.next()) {
-                reg = rs.getString(7);
+                reg = rs.getString(4);
                 brand = rs.getString(1);
-                carmodel = rs.getString(3);
-                status = rs.getString(4);
+                carmodel = rs.getString(2);
+                status = rs.getString(3);
 //                price = rs.getString(6);
                 String[] row = {reg,brand,carmodel,status};
                   model.addRow(row);
@@ -350,13 +342,35 @@ txtTechnicianId.setEditable(false);
             e.printStackTrace();
             
             
-        }   
+        }
     }
 
     private void Reset() {
-txtTechnicianId.setText("");
+       txtMechanicId.setText("");
         txtName.setText("");
        txtUserName.setText("");
-        txtPassword.setText("");   
+        txtPassword.setText("");
+//        txtBrand.setText("");
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Save;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblMechanicList;
+    private javax.swing.JTextField txtMechanicId;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtUserName;
+    // End of variables declaration//GEN-END:variables
+
+    private void TextEdit() {
+//        txtTechnicianId.setEditable(false);
+        
     }
 }

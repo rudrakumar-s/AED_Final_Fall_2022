@@ -54,7 +54,7 @@
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtName" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="txtTechnicianId" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="txtMechanicId" min="-2" pref="96" max="-2" attributes="0"/>
                                   <Component id="txtUserName" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -75,7 +75,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtTechnicianId" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtMechanicId" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="19" max="-2" attributes="0"/>
@@ -120,7 +120,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtTechnicianId">
+    <Component class="javax.swing.JTextField" name="txtMechanicId">
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
     </Component>
@@ -135,11 +135,11 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tblTechnicianList">
+        <Component class="javax.swing.JTable" name="tblMechanicList">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="0">
-                <Column editable="true" title="Technician ID" type="java.lang.Object"/>
+                <Column editable="true" title="Mechanic ID" type="java.lang.Object"/>
                 <Column editable="true" title="Name" type="java.lang.Object"/>
                 <Column editable="true" title="UserName" type="java.lang.Object"/>
                 <Column editable="true" title="Password" type="java.lang.Object"/>
@@ -174,7 +174,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblTechnicianListMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblMechanicListMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
@@ -205,7 +205,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Technician ID"/>
+        <Property name="text" type="java.lang.String" value="Mechanic ID"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">

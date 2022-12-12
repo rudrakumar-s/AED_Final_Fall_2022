@@ -4,7 +4,6 @@
  */
 package VehicleServiceComplaintsManagement;
 
-import GadgetServiceComplaintsManagement.*;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +23,7 @@ public class BikeComplaints extends javax.swing.JFrame {
     public BikeComplaints() {
         initComponents();
          DisplayComplaints();
-        DisplayTechnicians();
+        DisplayMechanics();
     }
 
     /**
@@ -40,17 +39,17 @@ public class BikeComplaints extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComplaints = new javax.swing.JTable();
-        txtTechnicianId = new javax.swing.JTextField();
+        txtMechanicId = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblTechnician = new javax.swing.JTable();
+        tblMechanic = new javax.swing.JTable();
         btnAssign = new javax.swing.JButton();
-        txtProductId = new javax.swing.JTextField();
+        txtBikeId = new javax.swing.JTextField();
         txtCustomerId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Product ID");
+        jLabel1.setText("Bike ID");
 
         jLabel2.setText("CustomerID");
 
@@ -59,7 +58,7 @@ public class BikeComplaints extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Product ID", "Customer ID", "Brand", "Model"
+                "Bike ID", "Customer ID", "Brand", "Model"
             }
         ));
         tblComplaints.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,22 +68,22 @@ public class BikeComplaints extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblComplaints);
 
-        jLabel4.setText("Technician ID");
+        jLabel4.setText("Mechanic ID");
 
-        tblTechnician.setModel(new javax.swing.table.DefaultTableModel(
+        tblMechanic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Technician ID", "Name", "Product ID"
+                "Mechanic ID", "Name", "Product ID"
             }
         ));
-        tblTechnician.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblMechanic.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblTechnicianMouseClicked(evt);
+                tblMechanicMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblTechnician);
+        jScrollPane2.setViewportView(tblMechanic);
 
         btnAssign.setText("Assign");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
@@ -112,9 +111,9 @@ public class BikeComplaints extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(82, 82, 82)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtProductId)
+                            .addComponent(txtBikeId)
                             .addComponent(txtCustomerId, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(txtTechnicianId)))
+                            .addComponent(txtMechanicId)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(270, 270, 270)
                         .addComponent(btnAssign)))
@@ -129,7 +128,7 @@ public class BikeComplaints extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBikeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -138,7 +137,7 @@ public class BikeComplaints extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtTechnicianId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMechanicId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(btnAssign)
                 .addGap(54, 54, 54))
@@ -154,23 +153,23 @@ public class BikeComplaints extends javax.swing.JFrame {
         txtCustomerId.setText(model.getValueAt(MyIndex,1).toString());
         //        txtRentDate.setText(model.getValueAt(MyIndex,2).toString());
         //        txtReturnDate.setText(model.getValueAt(MyIndex,3).toString());
-        txtProductId.setText((model.getValueAt(MyIndex, 0).toString()));
+        txtBikeId.setText((model.getValueAt(MyIndex, 0).toString()));
         //        txtPrice.setText((model.getValueAt(MyIndex, 4).toString()));
     }//GEN-LAST:event_tblComplaintsMouseClicked
 
-    private void tblTechnicianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTechnicianMouseClicked
+    private void tblMechanicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMechanicMouseClicked
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) tblTechnician.getModel();
-        int MyIndex = tblTechnician.getSelectedRow();
-        txtTechnicianId.setText(model.getValueAt(MyIndex,0).toString());
+        DefaultTableModel model = (DefaultTableModel) tblMechanic.getModel();
+        int MyIndex = tblMechanic.getSelectedRow();
+        txtMechanicId.setText(model.getValueAt(MyIndex,0).toString());
         //        txtRentDate.setText(model.getValueAt(MyIndex,2).toString());
         //        txtReturnDate.setText(model.getValueAt(MyIndex,3).toString());
         //        txtProductId.setText((model.getValueAt(MyIndex, 0).toString()));
-    }//GEN-LAST:event_tblTechnicianMouseClicked
+    }//GEN-LAST:event_tblMechanicMouseClicked
 
     private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
         // TODO add your handling code here:
-        if(txtTechnicianId.getText().isEmpty() )
+        if(txtMechanicId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to Assign");
 
@@ -179,15 +178,15 @@ public class BikeComplaints extends javax.swing.JFrame {
         {
             try {
                 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-                String Req = txtTechnicianId.getText();
-                String Query = "Update phonetechnician set  productid = '"+txtProductId.getText()+"',"
-                + " where technicianid = '"+txtTechnicianId.getText()+"' ";
-                String sql1 = "Update phone set technicianid = '"+txtTechnicianId.getText()+"' where   productid = '"+txtProductId.getText()+"'  ";
+                String Req = txtMechanicId.getText();
+                String Query = "Update bikemechanic set  productid = '"+txtBikeId.getText()+"',"
+                + " where mechanicid = '"+txtMechanicId.getText()+"' ";
+                String sql1 = "Update bike set mechanicid = '"+txtMechanicId.getText()+"' where   productid = '"+txtBikeId.getText()+"'  ";
                 c.updateDatabase(Query);
 
                 JOptionPane.showMessageDialog(this,"Record Updated Successfully");
                 DisplayComplaints();
-                DisplayTechnicians();
+                DisplayMechanics();
                 Reset();
 
             } catch (Exception e)
@@ -245,17 +244,17 @@ public class BikeComplaints extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblComplaints;
-    private javax.swing.JTable tblTechnician;
+    private javax.swing.JTable tblMechanic;
+    private javax.swing.JTextField txtBikeId;
     private javax.swing.JTextField txtCustomerId;
-    private javax.swing.JTextField txtProductId;
-    private javax.swing.JTextField txtTechnicianId;
+    private javax.swing.JTextField txtMechanicId;
     // End of variables declaration//GEN-END:variables
 
     private void DisplayComplaints() {
         String reg,brand,carmodel,status,price;
         try{
 //           
-            String sql = "select * from phone where service = 'Requested' ";
+            String sql = "select * from bike where service = 'Requested' ";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblComplaints.getModel();
             int rowCount = model.getRowCount();
@@ -282,13 +281,13 @@ public class BikeComplaints extends javax.swing.JFrame {
         }
     }
 
-    private void DisplayTechnicians() {
+    private void DisplayMechanics() {
         String reg,brand,carmodel,status,price;
         try{
 //           
-            String sql = "select * from phonetechnician";
+            String sql = "select * from bikemechanic";
             ResultSet rs = c.selectDatabase(sql);
-            DefaultTableModel model =(DefaultTableModel) tblTechnician.getModel();
+            DefaultTableModel model =(DefaultTableModel) tblMechanic.getModel();
             int rowCount = model.getRowCount();
             for (int i = rowCount - 1; i >= 0; i--) 
             {
@@ -314,9 +313,9 @@ public class BikeComplaints extends javax.swing.JFrame {
     }
 
     private void Reset() {
-        txtProductId.setText("");
+        txtBikeId.setText("");
         txtCustomerId.setText("");
-        txtTechnicianId.setText("");
+        txtMechanicId.setText("");
         
     }
 }
