@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TechnicianComplaints;
+package MechanicComplaints;
 
+import TechnicianComplaints.*;
 import MySQLConnection.MySQLConnection;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
@@ -18,22 +19,22 @@ import LaptopRental.LaptopRentJFrame;
  *
  * @author sunilrudrakumar
  */
-public class ManageLaptopComplaints extends javax.swing.JFrame {
+public class ManageBikeComplaints extends javax.swing.JFrame {
 
     /**
-     * Creates new form ManageLaptopComplaints
+     * Creates new form ManageBikeComplaints
      */
      MySQLConnection c = new MySQLConnection();
-    public ManageLaptopComplaints() {
+    public ManageBikeComplaints() {
         initComponents();
 //        Display();
     }
 
-   public ManageLaptopComplaints(String s) {
+   public ManageBikeComplaints(String s) {
 //        showData(s);
 //        txtTechnicianId.setEditable(false);
   initComponents();
-    txtTechnicianId.setText(s);
+    txtMechanicId.setText(s);
     
         Display();    
     }
@@ -54,14 +55,14 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
         txtModel = new javax.swing.JTextField();
         txtBrand = new javax.swing.JTextField();
         btnCompleteService = new javax.swing.JButton();
-        txtTechnicianId = new javax.swing.JTextField();
+        txtMechanicId = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComplaints = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Product ID");
+        jLabel1.setText("Bike ID");
 
         jLabel2.setText("Model");
 
@@ -74,14 +75,14 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Technician ID");
+        jLabel4.setText("Mechanic ID");
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product ID", "Model", "Brand"
+                "Bike ID", "Model", "Brand"
             }
         ));
         tblComplaints.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,41 +96,40 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCompleteService)
-                .addGap(240, 240, 240))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addGap(106, 106, 106)
-                        .addComponent(txtTechnicianId, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(84, 84, 84)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(117, 117, 117)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(57, 57, 57))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabel1)
-                                    .addGap(89, 89, 89)
-                                    .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(174, 174, 174))
+                                    .addGap(89, 89, 89)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(92, 92, 92)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel2))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(76, 76, 76)
-                                            .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(57, 57, 57))))))))
+                                        .addComponent(txtMechanicId, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(btnCompleteService)))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,23 +139,26 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTechnicianId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMechanicId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
                 .addComponent(btnCompleteService)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,9 +168,9 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            String sql1 ="UPDATE laptop SET technicianid = NULL , service = NULL  WHERE productid = '"+txtProductId.getText()+"' ";
+            String sql1 ="UPDATE bike SET mechanicid = NULL , service = NULL  WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql1);
-            String sql = "UPDATE laptoptechnician SET productid = 'Not Assigned'  WHERE technicianid = '"+txtTechnicianId.getText()+"' ";
+            String sql = "UPDATE bikemechanic SET productid = 'Not Assigned'  WHERE mechanicid = '"+txtMechanicId.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Service Completed");
             Display();
@@ -207,21 +210,27 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManageLaptopComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageBikeComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManageLaptopComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageBikeComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManageLaptopComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageBikeComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManageLaptopComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageBikeComplaints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManageLaptopComplaints().setVisible(true);
+                new ManageBikeComplaints().setVisible(true);
             }
         });
     }
@@ -235,9 +244,9 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblComplaints;
     private javax.swing.JTextField txtBrand;
+    private javax.swing.JTextField txtMechanicId;
     private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtProductId;
-    private javax.swing.JTextField txtTechnicianId;
     // End of variables declaration//GEN-END:variables
 
     private void Display() {
@@ -246,7 +255,7 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
         String reg,brand,carmodel;
         try{
 //           
-            String sql = "select * from laptop where service = 'Requested' and technicianid = '"+txtTechnicianId.getText()+"'";
+            String sql = "select * from bike where service = 'Requested' and mechanicid = '"+txtMechanicId.getText()+"'";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) tblComplaints.getModel();
             int rowCount = model.getRowCount();
@@ -274,7 +283,7 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
     }
 
     private void Reset() {
-       txtTechnicianId.setText("");
+    txtMechanicId.setText("");
         txtModel.setText("");
         txtBrand.setText("");
         txtProductId.setText("");

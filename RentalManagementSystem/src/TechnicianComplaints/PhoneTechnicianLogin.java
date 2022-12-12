@@ -13,15 +13,15 @@ import Customers.CustomerLanding;
 
 /**
  *
- * @author sunilrudrakumar
+ * @author harsh
  */
-public class LaptopTechnicianLogin extends javax.swing.JFrame {
+public class PhoneTechnicianLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form LaptopTechnicianLogin
+     * Creates new form PhoneTechnicianLogin
      */
     MySQLConnection c = new MySQLConnection();
-    public LaptopTechnicianLogin() {
+    public PhoneTechnicianLogin() {
         initComponents();
     }
 
@@ -70,7 +70,7 @@ public class LaptopTechnicianLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addComponent(btnLogin)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,29 +85,29 @@ public class LaptopTechnicianLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(57, 57, 57)
                 .addComponent(btnLogin)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-       try {
+        try {
             // TODO add your handling code here:
-           
-            String sql = " SELECT technicianid,password FROM laptoptechnician WHERE technicianid = '"+txtTechnicianId.getText()+"' and password = '"+txtPassword.getText()+"' ";          ResultSet rs = c.selectDatabase(sql);
-            
-          if(rs.next() == true)
-          {
+
+            String sql = " SELECT technicianid,password FROM phonetechnician WHERE technicianid = '"+txtTechnicianId.getText()+"' and password = '"+txtPassword.getText()+"' ";          ResultSet rs = c.selectDatabase(sql);
+
+            if(rs.next() == true)
+            {
                 String  s = txtTechnicianId.getText();
-                ManageLaptopComplaints lr = new ManageLaptopComplaints(s);
+                ManagePhoneComplaints lr = new ManagePhoneComplaints(s);
                 lr.setVisible(true);
                 this.dispose();
             }
-        } 
+        }
         catch (SQLException ex) {
-            Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(Level.SEVERE, null, ex);
-     }
+            Logger.getLogger(PhoneTechnicianLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -127,20 +127,20 @@ public class LaptopTechnicianLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhoneTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhoneTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhoneTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhoneTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LaptopTechnicianLogin().setVisible(true);
+                new PhoneTechnicianLogin().setVisible(true);
             }
         });
     }
