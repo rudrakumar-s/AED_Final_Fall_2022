@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TechnicianComplaints;
+package MechanicComplaints;
 
+import TechnicianComplaints.*;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,15 +14,15 @@ import Customers.CustomerLanding;
 
 /**
  *
- * @author sunilrudrakumar
+ * @author harsh
  */
-public class LaptopTechnicianLogin extends javax.swing.JFrame {
+public class CarMechanicLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form LaptopTechnicianLogin
+     * Creates new form CarMechanicLogin
      */
     MySQLConnection c = new MySQLConnection();
-    public LaptopTechnicianLogin() {
+    public CarMechanicLogin() {
         initComponents();
     }
 
@@ -34,7 +35,7 @@ public class LaptopTechnicianLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtTechnicianId = new javax.swing.JTextField();
+        txtMechanicId = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -64,20 +65,20 @@ public class LaptopTechnicianLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTechnicianId, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(txtMechanicId, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                     .addComponent(txtPassword))
                 .addGap(66, 66, 66))
             .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addComponent(btnLogin)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTechnicianId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMechanicId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -85,29 +86,29 @@ public class LaptopTechnicianLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(57, 57, 57)
                 .addComponent(btnLogin)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-       try {
+        try {
             // TODO add your handling code here:
-           
-            String sql = " SELECT technicianid,password FROM laptoptechnician WHERE technicianid = '"+txtTechnicianId.getText()+"' and password = '"+txtPassword.getText()+"' ";          ResultSet rs = c.selectDatabase(sql);
-            
-          if(rs.next() == true)
-          {
-                String  s = txtTechnicianId.getText();
-                ManageLaptopComplaints lr = new ManageLaptopComplaints(s);
+
+            String sql = " SELECT mechanicid,password FROM carmechanic WHERE mechanicid = '"+txtMechanicId.getText()+"' and password = '"+txtPassword.getText()+"' ";          ResultSet rs = c.selectDatabase(sql);
+
+            if(rs.next() == true)
+            {
+                String  s = txtMechanicId.getText();
+                ManageCarComplaints lr = new ManageCarComplaints(s);
                 lr.setVisible(true);
                 this.dispose();
             }
-        } 
+        }
         catch (SQLException ex) {
-            Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(Level.SEVERE, null, ex);
-     }
+            Logger.getLogger(CarMechanicLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -127,20 +128,23 @@ public class LaptopTechnicianLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CarMechanicLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CarMechanicLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CarMechanicLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LaptopTechnicianLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CarMechanicLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LaptopTechnicianLogin().setVisible(true);
+                new CarMechanicLogin().setVisible(true);
             }
         });
     }
@@ -149,7 +153,7 @@ public class LaptopTechnicianLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField txtMechanicId;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtTechnicianId;
     // End of variables declaration//GEN-END:variables
 }
