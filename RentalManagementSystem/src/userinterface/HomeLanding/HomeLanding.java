@@ -4,8 +4,14 @@
  */
 package userinterface.HomeLanding;
 
+import MySQLConnection.MySQLConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import userinterface.Customers.*;
 import userinterface.LaptopRental.CustomerLaptopRent;
+import userinterface.LaptopRental.LaptopManageJFrame;
 import userinterface.PhoneRental.CustomerPhoneRent;
 
 /**
@@ -17,6 +23,8 @@ public class HomeLanding extends javax.swing.JFrame {
     /**
      * Creates new form RentsJFrame
      */
+        MySQLConnection c = new MySQLConnection();
+ 
     public HomeLanding() {
         initComponents();
     }
@@ -269,6 +277,11 @@ public class HomeLanding extends javax.swing.JFrame {
         BtnVehLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnVehLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnVehLogin.setText("Login");
+        BtnVehLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVehLoginActionPerformed(evt);
+            }
+        });
 
         jLabel36.setBackground(new java.awt.Color(223, 207, 213));
         jLabel36.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -366,6 +379,11 @@ public class HomeLanding extends javax.swing.JFrame {
         BtnGadAdLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnGadAdLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnGadAdLogin.setText("Login");
+        BtnGadAdLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGadAdLoginActionPerformed(evt);
+            }
+        });
 
         jLabel8.setBackground(new java.awt.Color(223, 207, 213));
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -1119,6 +1137,41 @@ public class HomeLanding extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnVehLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehLoginActionPerformed
+        // TODO add your handling code here:
+        try{
+        String sql = " SELECT username,password FROM vehicleadmin WHERE id = '"+TxtVehAdUID.getText()+"' and password = '"+TxtVehAdPwd.getText()+"' ";
+                ResultSet rs = c.selectDatabase(sql);
+                if(rs.next() == true)
+                {
+                    
+                    LaptopManageJFrame lr = new LaptopManageJFrame();
+                    lr.setVisible(true);
+                    this.dispose();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeLanding.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }//GEN-LAST:event_BtnVehLoginActionPerformed
+
+    private void BtnGadAdLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGadAdLoginActionPerformed
+            try {
+                // TODO add your handling code here:
+                String sql = " SELECT username,password FROM gadgetadmin WHERE id = '"+TxtGadAdUID.getText()+"' and password = '"+TxtGadAdPwd.getText()+"' ";
+                ResultSet rs = c.selectDatabase(sql);
+                if(rs.next() == true)
+                {
+                    
+                    GadgetAdminLanding lr = new GadgetAdminLanding();
+                    lr.setVisible(true);
+                    this.dispose();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeLanding.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_BtnGadAdLoginActionPerformed
 
     /**
      * @param args the command line arguments

@@ -179,7 +179,7 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         try{
 
-            String sql = "Insert into gadgetservicesadmin (id,username,password)"
+            String sql = "Insert into gadgetserviceadmin (id,username,password)"
                     + " values ('"+txtGadgetServicesAdminID.getText()+"','"+txtUsername.getText()+"','"+txtPassword.getText()+"')";
             c.insertDatabase(sql);
             JOptionPane.showMessageDialog(this,"Account has been Created");
@@ -202,7 +202,7 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
         try {
 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
             String Req = txtGadgetServicesAdminID.getText();
-            String Query = "Update gadgetservicesadmin set username = '"+txtUsername.getText()+"', password = '"+txtPassword.getText()+"' where id = '"+Req+"'" ;
+            String Query = "Update gadgetserviceadmin set username = '"+txtUsername.getText()+"', password = '"+txtPassword.getText()+"' where id = '"+Req+"'" ;
             c.updateDatabase(Query);
 //            Statement Add = con.createStatement();
 //            Add.executeUpdate(Query);
@@ -228,7 +228,7 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
         try {
           
             String Req = txtGadgetServicesAdminID.getText();
-            String Query = "Delete from gadgetservicesadmin where id ='"+Req+"'";
+            String Query = "Delete from gadgetserviceadmin where id ='"+Req+"'";
             c.updateDatabase(Query);
 //            Statement Add = con.createStatement();
 //            Add.executeUpdate(Query);
@@ -282,7 +282,7 @@ String reg,brand,carmodel,status,price;
         try{
 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
 //            st = con.createStatement();
-            String sql = "select * from gadgetservicesadmin";
+            String sql = "select * from gadgetserviceadmin";
           ResultSet  rs = c.selectDatabase(sql);
             
             DefaultTableModel model =(DefaultTableModel) tblGadgetServicesAdmin.getModel();

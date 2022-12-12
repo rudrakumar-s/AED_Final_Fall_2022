@@ -180,7 +180,7 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         try{
 
-            String sql = "Insert into vehicleservicesadmin (id,username,password)"
+            String sql = "Insert into vehicleserviceadmin (id,username,password)"
                     + " values ('"+txtVehicleServicesAdminID.getText()+"','"+txtUsername.getText()+"','"+txtPassword.getText()+"')";
             c.insertDatabase(sql);
             JOptionPane.showMessageDialog(this,"Account has been Created");
@@ -202,7 +202,7 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
         try {
 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
             String Req = txtVehicleServicesAdminID.getText();
-            String Query = "Update vehicleservicesadmin set username = '"+txtUsername.getText()+"', password = '"+txtPassword.getText()+"' where id = '"+Req+"'" ;
+            String Query = "Update vehicleserviceadmin set username = '"+txtUsername.getText()+"', password = '"+txtPassword.getText()+"' where id = '"+Req+"'" ;
             c.updateDatabase(Query);
 //            Statement Add = con.createStatement();
 //            Add.executeUpdate(Query);
@@ -228,7 +228,7 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
         try {
           
             String Req = txtVehicleServicesAdminID.getText();
-            String Query = "Delete from vehicleservicesadmin where id ='"+Req+"'";
+            String Query = "Delete from vehicleserviceadmin where id ='"+Req+"'";
             c.updateDatabase(Query);
 //            Statement Add = con.createStatement();
 //            Add.executeUpdate(Query);
@@ -276,7 +276,7 @@ String reg,brand,carmodel,status,price;
         try{
 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
 //            st = con.createStatement();
-            String sql = "select * from vehicleservicesadmin";
+            String sql = "select * from vehicleserviceadmin";
           ResultSet  rs = c.selectDatabase(sql);
             
             DefaultTableModel model =(DefaultTableModel) tblVehicleServicesAdmin.getModel();
