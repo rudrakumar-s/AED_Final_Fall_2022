@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tejas
  */
-public class CustomerRequestJFrame extends javax.swing.JFrame {
+public class CustomerCarRequestJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form CustomerRequestJFrame
+     * Creates new form CustomerCarRequestJFrame
      */
     MySQLConnection c = new MySQLConnection();
-    public CustomerRequestJFrame() {
+    public CustomerCarRequestJFrame() {
         initComponents();
         Display();
         TxtCustomerID.setEditable(false);
@@ -31,7 +31,7 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
         TxtModel.setEditable(false);
         TxtBrand.setEditable(false);
     }
-    public CustomerRequestJFrame(String s) {
+    public CustomerCarRequestJFrame(String s) {
         initComponents();
         showData(s);
         TxtCustomerID.setEditable(false);
@@ -377,20 +377,21 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerRequestJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerCarRequestJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerRequestJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerCarRequestJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerRequestJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerCarRequestJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerRequestJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerCarRequestJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerRequestJFrame().setVisible(true);
+                new CustomerCarRequestJFrame().setVisible(true);
             }
         });
     }

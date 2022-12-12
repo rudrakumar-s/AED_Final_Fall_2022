@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -251,7 +252,37 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
 //            ResultSet rs = c.selectDatabase(sql);
 //            if(rs.next()){
 //                JOptionPane.showMessageDialog(this,"Details  Already Exists");
-
+int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(txtName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Name cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(txtUserName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(txtPassword.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(txtTechnicianId.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Mechanic ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }if(flag == 0){
                 String sql1 = "Insert into laptoptechnician (technicianid, name,username,password,productid ) "
                         + "values ('"+txtTechnicianId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"',"
                         + "'"+txtPassword.getText()+"','Not Assigned') ";
@@ -261,11 +292,15 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
 
 
             Display();
-            Reset();       
+            Reset();       }else {
+                    JOptionPane.showMessageDialog(this,"User Already exists");
+
+                }
     }//GEN-LAST:event_SaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int flag =0;
               if(txtTechnicianId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to be Updated");
@@ -273,7 +308,27 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
         }
         else 
         {
-              try {
+              try {if(txtUserName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(txtPassword.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(txtTechnicianId.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Mechanic ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }if(flag==0){
       //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
 //                  String Req = txtTechnicianId.getText();
                   String Query = "Update laptoptechnician set  name = '"+txtName.getText()+"',"
@@ -284,7 +339,7 @@ public class ManageLaptopTechnician extends javax.swing.JFrame {
       //            Add.executeUpdate(Query);
                   JOptionPane.showMessageDialog(this,"Record Updated Successfully");
                   Display();
-                  Reset();
+                  Reset();}
 
               } catch (Exception e)
               {

@@ -49,7 +49,10 @@ public class GadgetAdminPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(561, 619));
+
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel2.setPreferredSize(new java.awt.Dimension(702, 622));
 
         tblGadgetAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,7 +115,7 @@ public class GadgetAdminPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 142, Short.MAX_VALUE)
+                .addGap(0, 74, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(128, 128, 128))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -168,7 +171,7 @@ public class GadgetAdminPanel extends javax.swing.JPanel {
                     .addComponent(btnSave)
                     .addComponent(btnEdit)
                     .addComponent(btnDelete))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -27,6 +27,10 @@ public class ManageCarComplaints extends javax.swing.JFrame {
     public ManageCarComplaints() {
         initComponents();
         Display();
+        txtMechanicId.setEnabled(false);
+        txtProductId.setEditable(false);
+        txtBrand.setEditable(false);
+        txtModel.setEditable(false);
     }
 
     /**
@@ -39,6 +43,10 @@ public class ManageCarComplaints extends javax.swing.JFrame {
 //        txtTechnicianId.setEditable(false);
   initComponents();
     txtMechanicId.setText(s);
+    txtMechanicId.setEnabled(false);
+        txtProductId.setEditable(false);
+        txtBrand.setEditable(false);
+        txtModel.setEditable(false);
     
         Display();    
     }

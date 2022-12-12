@@ -11,6 +11,10 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Customers.CustomerLanding;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +28,7 @@ public class BikeMechanicLogin extends javax.swing.JFrame {
     MySQLConnection c = new MySQLConnection();
     public BikeMechanicLogin() {
         initComponents();
+             
     }
 
     /**
@@ -152,7 +157,37 @@ public class BikeMechanicLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
        try {
             // TODO add your handling code here:
-           
+           int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(txtMechanicId.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(txtPassword.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String name7 = txtMechanicId.getText();
+                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher7 = pattern7.matcher(name7);
+                if(!matcher7.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Name!");
+                    flag = 1;
+                    txtMechanicId.setText("");
+                    
+                }
+                 
+        
+            // TODO add your handling code here:
+           if(flag == 0){
             String sql = " SELECT mechanicid,password FROM bikemechanic WHERE mechanicid = '"+txtMechanicId.getText()+"' and password = '"+txtPassword.getText()+"' ";          ResultSet rs = c.selectDatabase(sql);
             
           if(rs.next() == true)
@@ -161,8 +196,10 @@ public class BikeMechanicLogin extends javax.swing.JFrame {
                 ManageBikeComplaints lr = new ManageBikeComplaints(s);
                 lr.setVisible(true);
                 this.dispose();
-            }
-        } 
+            }else {
+              JOptionPane.showMessageDialog(this,"Credentials Invalid!");
+          }
+        } }
         catch (SQLException ex) {
             Logger.getLogger(BikeMechanicLogin.class.getName()).log(Level.SEVERE, null, ex);
      }

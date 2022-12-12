@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Customers;
-
+import BikeRental.CustomerBikeComplain;
+import BikeRental.CustomerBikeRequestJFrame;
+import CarRental.CustomerCarComplain;
+import CarRental.CustomerCarRequestJFrame;
+import HomeLanding.HomeLanding;
 import LaptopRental.CustomerLaptopComplain;
 import LaptopRental.CustomerLaptopRent;
 import PhoneRental.CustomerPhoneRent;
@@ -19,10 +23,15 @@ public class CustomerLanding extends javax.swing.JFrame {
      */
     public CustomerLanding() {
         initComponents();
+         txtCustomerId.setEditable(false);
+        txtCustomerId1.setEditable(false);
     }
        public CustomerLanding(String s) {
         initComponents();
         txtCustomerId.setText(s);
+        txtCustomerId1.setText(s);
+        txtCustomerId.setEditable(false);
+        txtCustomerId1.setEditable(false);
     }
     
     /**
@@ -101,6 +110,11 @@ public class CustomerLanding extends javax.swing.JFrame {
         });
 
         jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ButtonPane1Layout = new javax.swing.GroupLayout(ButtonPane1);
         ButtonPane1.setLayout(ButtonPane1Layout);
@@ -267,6 +281,11 @@ public class CustomerLanding extends javax.swing.JFrame {
 
         lblManageBike.setForeground(new java.awt.Color(255, 185, 12));
         lblManageBike.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bike mnage.png"))); // NOI18N
+        lblManageBike.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblManageBikeMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -358,6 +377,11 @@ public class CustomerLanding extends javax.swing.JFrame {
         });
 
         jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ButtonPaneLayout = new javax.swing.GroupLayout(ButtonPane);
         ButtonPane.setLayout(ButtonPaneLayout);
@@ -516,6 +540,11 @@ public class CustomerLanding extends javax.swing.JFrame {
 
         lblManagePhone.setForeground(new java.awt.Color(255, 185, 12));
         lblManagePhone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Phone repair.png"))); // NOI18N
+        lblManagePhone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblManagePhoneMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -650,6 +679,7 @@ public class CustomerLanding extends javax.swing.JFrame {
         String  custid = txtCustomerId.getText();
         CustomerLaptopRent  lr = new CustomerLaptopRent (custid);
         lr.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblLaptopIconMouseClicked
 
     private void txtCustomerIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerIdActionPerformed
@@ -661,6 +691,7 @@ public class CustomerLanding extends javax.swing.JFrame {
         String  custid = txtCustomerId.getText();
         CustomerLaptopComplain  lr = new CustomerLaptopComplain (custid);
         lr.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_lblManageLaptopMouseClicked
 
@@ -670,23 +701,69 @@ public class CustomerLanding extends javax.swing.JFrame {
         String  custid = txtCustomerId.getText();
         CustomerPhoneRent  lr = new CustomerPhoneRent (custid);
         lr.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblRentPhoneMouseClicked
 
     private void txtCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerId1ActionPerformed
         // TODO add your handling code here:
+      
     }//GEN-LAST:event_txtCustomerId1ActionPerformed
 
     private void lblCarIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCarIconMouseClicked
         // TODO add your handling code here:
+        String  custid = txtCustomerId1.getText();
+        CustomerCarRequestJFrame cr = new CustomerCarRequestJFrame(custid);
+        cr.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_lblCarIconMouseClicked
 
     private void lblRentBikeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRentBikeMouseClicked
         // TODO add your handling code here:
+        String  custid = txtCustomerId1.getText();
+        CustomerBikeRequestJFrame cr = new CustomerBikeRequestJFrame(custid);
+        cr.setVisible(true);
+        this.dispose();
+ 
     }//GEN-LAST:event_lblRentBikeMouseClicked
 
     private void lblManageCarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageCarMouseClicked
         // TODO add your handling code here:
+         String  custid = txtCustomerId1.getText();
+        CustomerCarComplain cc = new CustomerCarComplain(custid);
+        cc.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblManageCarMouseClicked
+
+    private void lblManagePhoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManagePhoneMouseClicked
+        // TODO add your handling code here:
+        String  custid = txtCustomerId.getText();
+        CustomerLaptopComplain  lr = new CustomerLaptopComplain (custid);
+        lr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblManagePhoneMouseClicked
+
+    private void lblManageBikeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageBikeMouseClicked
+        // TODO add your handling code here:
+        String  custid = txtCustomerId1.getText();
+        CustomerBikeComplain cc = new CustomerBikeComplain(custid);
+        cc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblManageBikeMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+          HomeLanding lr = new HomeLanding();
+                lr.setVisible(true);
+                this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+          HomeLanding lr = new HomeLanding();
+                lr.setVisible(true);
+                this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

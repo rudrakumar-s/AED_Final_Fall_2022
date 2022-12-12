@@ -26,6 +26,10 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
     public ManagePhoneComplaints() {
         initComponents();
         Display();
+        txtTechnicianId.setEnabled(false);
+        txtProductId.setEditable(false);
+        txtBrand.setEditable(false);
+        txtModel.setEditable(false);
     }
 
     /**
@@ -36,8 +40,12 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
      public ManagePhoneComplaints(String s) {
 //        showData(s);
 //        txtTechnicianId.setEditable(false);
-  initComponents();
-    txtTechnicianId.setText(s);
+        initComponents();
+        txtTechnicianId.setText(s);
+        txtTechnicianId.setEnabled(false);
+        txtProductId.setEditable(false);
+        txtBrand.setEditable(false);
+        txtModel.setEditable(false);
     
         Display();    
     }
@@ -311,7 +319,7 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
     }
 
     private void Reset() {
-         txtTechnicianId.setText("");
+        txtTechnicianId.setText("");
         txtModel.setText("");
         txtBrand.setText("");
         txtProductId.setText("");

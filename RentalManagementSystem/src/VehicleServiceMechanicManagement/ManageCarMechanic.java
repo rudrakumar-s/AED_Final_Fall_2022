@@ -265,7 +265,38 @@ public class ManageCarMechanic extends javax.swing.JFrame {
 //            ResultSet rs = c.selectDatabase(sql);
 //            if(rs.next()){
 //                JOptionPane.showMessageDialog(this,"Details  Already Exists");
-
+int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(txtName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Name cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(txtUserName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(txtPassword.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(txtMechanicId.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Mechanic ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(flag==0){
                 String sql1 = "Insert into carmechanic (mechanicid, name,username,password,productid ) "
                         + "values ('"+txtMechanicId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"',"
                         + "'"+txtPassword.getText()+"','Not Assigned') ";
@@ -275,7 +306,11 @@ public class ManageCarMechanic extends javax.swing.JFrame {
 
 
             Display();
-            Reset();       
+            Reset();  
+                   } else{
+                        JOptionPane.showMessageDialog(this,"Record Already exists");
+
+                   }      
     }//GEN-LAST:event_SaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed

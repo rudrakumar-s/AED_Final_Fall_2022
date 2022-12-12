@@ -4,6 +4,8 @@
  */
 package HomeLanding;
 
+import Admin.AdminLandingJFrame;
+import GadgetServiceTechnicianManagement.ManageTechnicians;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,8 +13,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import LaptopRental.CustomerLaptopRent;
 import LaptopRental.LaptopManageJFrame;
+import MechanicComplaints.BikeMechanicLogin;
+import MechanicComplaints.CarMechanicLogin;
 import PhoneRental.CustomerPhoneRent;
+
 import PhoneRental.PhoneManageJFrame;
+import TechnicianComplaints.LaptopTechnicianLogin;
+import TechnicianComplaints.PhoneTechnicianLogin;
+import VehicleServiceMechanicManagement.ManageMechanics;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -171,6 +185,11 @@ public class HomeLanding extends javax.swing.JFrame {
         BtnSysLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnSysLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnSysLogin.setText("Login");
+        BtnSysLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSysLoginActionPerformed(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(223, 207, 213));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -474,6 +493,11 @@ public class HomeLanding extends javax.swing.JFrame {
         BtnVehSerLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnVehSerLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnVehSerLogin.setText("Login");
+        BtnVehSerLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVehSerLoginActionPerformed(evt);
+            }
+        });
 
         jLabel10.setBackground(new java.awt.Color(223, 207, 213));
         jLabel10.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -570,6 +594,11 @@ public class HomeLanding extends javax.swing.JFrame {
         BtnGadSerLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnGadSerLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnGadSerLogin.setText("Login");
+        BtnGadSerLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGadSerLoginActionPerformed(evt);
+            }
+        });
 
         jLabel12.setBackground(new java.awt.Color(223, 207, 213));
         jLabel12.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -665,7 +694,7 @@ public class HomeLanding extends javax.swing.JFrame {
         btnManageLaptop.setBackground(new java.awt.Color(255, 185, 12));
         btnManageLaptop.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnManageLaptop.setForeground(new java.awt.Color(255, 255, 255));
-        btnManageLaptop.setText("Manage laptop ");
+        btnManageLaptop.setText("Laptop Technician ");
         btnManageLaptop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageLaptopActionPerformed(evt);
@@ -675,7 +704,7 @@ public class HomeLanding extends javax.swing.JFrame {
         btnManagePhone.setBackground(new java.awt.Color(255, 185, 12));
         btnManagePhone.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnManagePhone.setForeground(new java.awt.Color(255, 255, 255));
-        btnManagePhone.setText("Manage Phone");
+        btnManagePhone.setText("Phone Technician");
         btnManagePhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManagePhoneActionPerformed(evt);
@@ -690,7 +719,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addGap(87, 87, 87)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnManagePhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageLaptop, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                    .addComponent(btnManageLaptop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
@@ -714,7 +743,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(217, 217, 217)
                 .addComponent(jLabel41)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -749,12 +778,22 @@ public class HomeLanding extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 185, 12));
         jButton1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Manage Car");
+        jButton1.setText("Car Mechanic");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 185, 12));
         jButton2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Manage Bikes");
+        jButton2.setText("Bike Mechanic");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -1098,15 +1137,58 @@ public class HomeLanding extends javax.swing.JFrame {
     private void BtnVehLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehLoginActionPerformed
         // TODO add your handling code here:
         try{
+             int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(TxtVehAdUID.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(TxtVehAdPwd.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String name7 = TxtVehAdUID.getText();
+                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher7 = pattern7.matcher(name7);
+                if(!matcher7.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Name!");
+                    flag = 1;
+                    TxtVehAdUID.setText("");
+                    
+                }
+//                 String name8 = TxtVehAdUID.getText();
+//                Pattern pattern8 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+//                Matcher matcher8 = pattern8.matcher(name8);
+//                if(!matcher7.matches())
+//                {
+//                    JOptionPane.showMessageDialog(this,"Enter a valid Password!");
+//                    flag = 1;
+//                    TxtVehAdUID.setText("");
+//                    
+//                }
+        
+        
+         if(flag == 0){
         String sql = " SELECT username,password FROM vehicleadmin WHERE id = '"+TxtVehAdUID.getText()+"' and password = '"+TxtVehAdPwd.getText()+"' ";
                 ResultSet rs = c.selectDatabase(sql);
                 if(rs.next() == true)
                 {
                     
-                    LaptopManageJFrame lr = new LaptopManageJFrame();
+                    VehicleAdminLandingPage lr = new VehicleAdminLandingPage();
                     lr.setVisible(true);
                     this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(this,"Invalid Crednetials!");
                 }
+         }
             } catch (SQLException ex) {
                 Logger.getLogger(HomeLanding.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1115,34 +1197,194 @@ public class HomeLanding extends javax.swing.JFrame {
 
     private void BtnGadAdLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGadAdLoginActionPerformed
             try {
+                int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(TxtGadAdUID.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(TxtGadAdPwd.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String name7 = TxtGadAdUID.getText();
+                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher7 = pattern7.matcher(name7);
+                if(!matcher7.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Name!");
+                    flag = 1;
+                    TxtGadAdUID.setText("");
+                    
+                }
+                if(flag == 0){
                 // TODO add your handling code here:
-                String sql = " SELECT username,password FROM gadgetadmin WHERE id = '"+TxtGadAdUID.getText()+"' and password = '"+TxtGadAdPwd.getText()+"' ";
+                String sql = " SELECT username,password FROM gadgetadmin WHERE id = '"+TxtVehAdUID.getText()+"' and password = '"+TxtVehAdPwd.getText()+"' ";
                 ResultSet rs = c.selectDatabase(sql);
                 if(rs.next() == true)
                 {
                     
-                    GadgetAdminLanding lr = new GadgetAdminLanding();
+                    GadgetAdminLandingPage lr = new GadgetAdminLandingPage();
                     lr.setVisible(true);
                     this.dispose();
+                }else {
+                JOptionPane.showMessageDialog(this,"Invalid Crednetials!");
+                }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(HomeLanding.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_BtnGadAdLoginActionPerformed
 
+
     private void btnManageLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageLaptopActionPerformed
         // TODO add your handling code here:
-        LaptopManageJFrame lr = new LaptopManageJFrame();
+        LaptopTechnicianLogin lr = new LaptopTechnicianLogin();
         lr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnManageLaptopActionPerformed
 
     private void btnManagePhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePhoneActionPerformed
         // TODO add your handling code here:
-        PhoneManageJFrame pm = new PhoneManageJFrame();
+       PhoneTechnicianLogin pm = new PhoneTechnicianLogin();
         pm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnManagePhoneActionPerformed
+
+    private void BtnSysLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSysLoginActionPerformed
+        // TODO add your handling code here:
+        if("admin".equals(TxtSysUID.getText())&&"password".equals(TxtSysPwd.getText())){
+            AdminLandingJFrame af = new AdminLandingJFrame();
+            af.setVisible(true);
+            this.dispose();
+            
+        }else{
+        JOptionPane.showMessageDialog(this,"Invalid Crednetials!");
+        }
+    }//GEN-LAST:event_BtnSysLoginActionPerformed
+
+    private void BtnVehSerLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehSerLoginActionPerformed
+        // TODO add your handling code here:
+          int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(TxtVehSerUID.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(TxtVehSerPwd.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String name7 = TxtVehSerUID.getText();
+                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher7 = pattern7.matcher(name7);
+                if(!matcher7.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Name!");
+                    flag = 1;
+                    TxtVehSerUID.setText("");
+                    
+                }
+                if(flag == 0){
+              try {
+                  // TODO add your handling code here:
+                  String sql = " SELECT username,password FROM vehicleserviceadmin WHERE id = '"+TxtVehSerUID.getText()+"' and password = '"+TxtVehSerPwd.getText()+"' ";
+                  ResultSet rs = c.selectDatabase(sql);
+                  if(rs.next() == true)
+                  {
+                      
+                      ManageMechanics lr = new ManageMechanics();
+                      lr.setVisible(true);
+                      this.dispose();
+                  }else {
+                      JOptionPane.showMessageDialog(this,"Invalid Crednetials!");
+                  }
+              } catch (SQLException ex) {
+                  Logger.getLogger(HomeLanding.class.getName()).log(Level.SEVERE, null, ex);
+              }
+                }
+    }//GEN-LAST:event_BtnVehSerLoginActionPerformed
+
+    private void BtnGadSerLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGadSerLoginActionPerformed
+        // TODO add your handling code here:
+        
+         int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(TxtGadSerUID.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(TxtGadSerPwd.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String name7 = TxtGadSerUID.getText();
+                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher7 = pattern7.matcher(name7);
+                if(!matcher7.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Name!");
+                    flag = 1;
+                    TxtGadSerUID.setText("");
+                    
+                }
+                if(flag == 0){
+              try {
+                  // TODO add your handling code here:
+                  String sql = " SELECT username,password FROM gadgetserviceadmin WHERE id = '"+TxtGadSerUID.getText()+"' and password = '"+TxtGadSerPwd.getText()+"' ";
+                  ResultSet rs = c.selectDatabase(sql);
+                  if(rs.next() == true)
+                  {
+                      
+                      ManageTechnicians lr = new ManageTechnicians();
+                      lr.setVisible(true);
+                      this.dispose();
+                  }else {
+                      JOptionPane.showMessageDialog(this,"Invalid Crednetials!");
+                  }
+              } catch (SQLException ex) {
+                  Logger.getLogger(HomeLanding.class.getName()).log(Level.SEVERE, null, ex);
+              }
+                }
+    }//GEN-LAST:event_BtnGadSerLoginActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        CarMechanicLogin cm = new CarMechanicLogin();
+        cm.setVisible(true);
+        this.dispose();
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        BikeMechanicLogin cm = new BikeMechanicLogin();
+        cm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     /**
      * @param args the command line arguments

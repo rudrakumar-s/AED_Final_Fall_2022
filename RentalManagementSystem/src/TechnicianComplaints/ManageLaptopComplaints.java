@@ -26,6 +26,10 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
      MySQLConnection c = new MySQLConnection();
     public ManageLaptopComplaints() {
         initComponents();
+        txtTechnicianId.setEnabled(false);
+        txtProductId.setEditable(false);
+        txtBrand.setEditable(false);
+        txtModel.setEditable(false);
 //        Display();
     }
 
@@ -34,6 +38,10 @@ public class ManageLaptopComplaints extends javax.swing.JFrame {
 //        txtTechnicianId.setEditable(false);
   initComponents();
     txtTechnicianId.setText(s);
+         txtTechnicianId.setEnabled(false);
+        txtProductId.setEditable(false);
+        txtBrand.setEditable(false);
+        txtModel.setEditable(false);
     
         Display();    
     }

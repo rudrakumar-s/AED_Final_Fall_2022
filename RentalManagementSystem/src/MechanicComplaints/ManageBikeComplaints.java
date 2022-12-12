@@ -27,13 +27,21 @@ public class ManageBikeComplaints extends javax.swing.JFrame {
      MySQLConnection c = new MySQLConnection();
     public ManageBikeComplaints() {
         initComponents();
-//        Display();
+        Display();
+ txtMechanicId.setEnabled(false);
+        txtProductId.setEditable(false);
+        txtBrand.setEditable(false);
+        txtModel.setEditable(false);
     }
 
    public ManageBikeComplaints(String s) {
 //        showData(s);
 //        txtTechnicianId.setEditable(false);
   initComponents();
+  txtMechanicId.setEnabled(false);
+        txtProductId.setEditable(false);
+        txtBrand.setEditable(false);
+        txtModel.setEditable(false);
     txtMechanicId.setText(s);
     
         Display();    
