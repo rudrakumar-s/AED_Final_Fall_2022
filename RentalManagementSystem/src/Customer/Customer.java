@@ -14,7 +14,16 @@ public class Customer {
     private String id;
     private String username;
     private String password;
+    private String Address;
 
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String Address) {
+        this.Address = Address;
+    }
+    
     public String getName() {
         return name;
     }
