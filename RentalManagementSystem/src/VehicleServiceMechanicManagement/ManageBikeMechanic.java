@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -270,17 +271,54 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
         //            ResultSet rs = c.selectDatabase(sql);
         //            if(rs.next()){
             //                JOptionPane.showMessageDialog(this,"Details  Already Exists");
-
+int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                if(txtName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Name cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(txtUserName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(txtPassword.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(txtMechanicId.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Mechanic ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(flag==0){
             String sql1 = "Insert into bikemechanic (mechanicid, name,username,password ) values ('"+txtMechanicId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"','"+txtPassword.getText()+"') ";
             c.insertDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Record added!");
 
             Display();
             Reset();
+                   }else {
+                       JOptionPane optionPane = new JOptionPane("User Already Exists", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                       
+                   }
     }//GEN-LAST:event_SaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int flag = 0;
         if(txtMechanicId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to be Updated");
@@ -289,7 +327,28 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
         else
         {
             try {
-                //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+              if(txtUserName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(txtPassword.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(txtMechanicId.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Mechanic ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(flag == 0){
                 String Req = txtMechanicId.getText();
                 String Query = "Update bikemechanic set  name = '"+txtName.getText()+"',"
                 + " username = '"+txtUserName.getText()+"',password = '"+txtPassword.getText()+"'";
@@ -299,7 +358,7 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Record Updated Successfully");
                 Display();
                 Reset();
-
+                   }
             } catch (Exception e)
             {
 

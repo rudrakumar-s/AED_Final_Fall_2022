@@ -8,6 +8,7 @@ import HomeLanding.HomeLanding;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,11 +25,21 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
     public CustomerRequestJFrame() {
         initComponents();
         Display();
+        TxtCustomerID.setEditable(false);
+        TxtRegNo.setEditable(false);
+        TxtPrice.setEditable(false);
+        TxtModel.setEditable(false);
+        TxtBrand.setEditable(false);
     }
     public CustomerRequestJFrame(String s) {
         initComponents();
         showData(s);
         TxtCustomerID.setEditable(false);
+        TxtCustomerID.setEditable(false);
+        TxtRegNo.setEditable(false);
+        TxtPrice.setEditable(false);
+        TxtModel.setEditable(false);
+        TxtBrand.setEditable(false);
         Display();
     }
 
@@ -312,6 +323,18 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
     private void BtnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRequestActionPerformed
         // TODO add your handling code here:
         try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                try{
+                    formatter.parse(TxtRentDate.getText());
+                    formatter.parse(TxtReturnDate.getText());
+
+                } 
+                catch(Exception e){
+                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
+                     TxtRentDate.setText("");
+                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
+                     TxtReturnDate.setText("");
+                }
         String sql="UPDATE customers SET laptopaproove = 'Requested' ,productid = '"+TxtRegNo.getText()+"',rentdate = '"+TxtRentDate.getText()+"',returndate = '"+TxtReturnDate.getText()+"', price = '"+TxtPrice.getText()+"' WHERE customerid = '"+TxtCustomerID.getText()+"' ";
         c.updateDatabase(sql);
         JOptionPane.showMessageDialog(this," Successfully Requested");

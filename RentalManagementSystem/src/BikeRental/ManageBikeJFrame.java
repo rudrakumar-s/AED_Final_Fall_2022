@@ -4,12 +4,16 @@
  */
 package BikeRental;
 
+import MySQLConnection.MySQLConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,13 +26,12 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     /**
      * Creates new form ManageCarJFrame
      */
+    MySQLConnection c = new MySQLConnection();
     public ManageBikeJFrame() {
         initComponents();
         Display();
     }
-    Connection con = null;
-    Statement st = null;
-    ResultSet rs = null;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -305,10 +308,11 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                     .addComponent(TxtRegNo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBrand1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnReset, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnReset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblBrand1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -363,20 +367,99 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here: 
         try {
-            DefaultTableModel model = (DefaultTableModel) TblManageBikes.getModel();
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent", "root", "12345678");
-            PreparedStatement add = con.prepareStatement("insert into carslist values(?,?,?,?,?)");
-            add.setString(1, TxtRegNo.getText());
-            add.setString(2, TxtBrand.getText());
-            add.setString(3, TxtModel.getText());
-            add.setString(4, CBStatus.getSelectedItem().toString());
-            add.setInt(5, Integer.valueOf(TxtPrice.getText()));
-            int row = add.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Car Added");
-
-            Display();
-            Reset();
-
+            int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                 if(TxtRegNo.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Product ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(TxtModel.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Model cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(TxtBrand.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Brand cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(TxtPrice.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Price cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                     
+                   if(CBStatus.getSelectedItem().toString().isEmpty() || CBStatus.getSelectedItem().toString() == "Select" ){
+                    JOptionPane optionPane = new JOptionPane("Please choose the Status", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 String name7 = TxtRegNo.getText();
+                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher7 = pattern7.matcher(name7);
+                if(!matcher7.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Product ID!");
+                    flag = 1;
+                    TxtRegNo.setText("");
+                    
+                }
+                
+                 String employeeId2 = TxtBrand.getText();
+                Pattern pattern2 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher2 =pattern2.matcher(employeeId2);
+                if(!matcher2.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Valid Brand!");
+                    flag = 1;
+                    TxtRegNo.setText("");   
+                }
+                String level4 = TxtModel.getText();
+                Pattern pattern4 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher4 = pattern4.matcher(level4);
+                if(!matcher4.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Model!");
+                    flag = 1;
+                    TxtModel.setText("");
+                    
+                }
+                
+                 String cellPhoneNumber3 = TxtPrice.getText();
+                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Price!");
+                    flag = 1;
+                    TxtPrice.setText("");
+                    
+                    
+                }
+                
+                if(flag == 0)
+        if(flag == 0)
+        {
+                String sql = "INSERT INTO bike (productid,brand,model,status,price) "
+                + " VALUES ('"+TxtRegNo.getText()+"','"+TxtBrand.getText()+"','"+TxtModel.getText()+"',"
+                + "'"+CBStatus.getSelectedItem().toString()+"','"+TxtPrice.getText()+"')";     
+                c.insertDatabase(sql);
+                JOptionPane.showMessageDialog(null,"Record Added Successfully!");
+                Display();
+                Reset();
+        }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -384,21 +467,98 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
 
     private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
         // TODO add your handling code here:
-        
-         if(TxtRegNo.getText().isEmpty() )
+        int flag = 0;
+        if(TxtRegNo.getText().isEmpty() )
         {
-            JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
+            JOptionPane.showMessageDialog(this,"Select the Record to be Updated");
             
         }else {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+            if(TxtModel.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Model cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(TxtBrand.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Brand cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(TxtPrice.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Price cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                     
+                   if(CBStatus.getSelectedItem().toString().isEmpty() || CBStatus.getSelectedItem().toString() == "Select" ){
+                    JOptionPane optionPane = new JOptionPane("Please choose the Status", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 String name7 = TxtRegNo.getText();
+                Pattern pattern7 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher7 = pattern7.matcher(name7);
+                if(!matcher7.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Product ID!");
+                    flag = 1;
+                    TxtRegNo.setText("");
+                    
+                }
+                
+                 String employeeId2 = TxtBrand.getText();
+                Pattern pattern2 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher2 =pattern2.matcher(employeeId2);
+                if(!matcher2.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Valid Brand!");
+                    flag = 1;
+                    TxtRegNo.setText("");   
+                }
+                String level4 = TxtModel.getText();
+                Pattern pattern4 = Pattern.compile("^[a-zA-Z0-9- ]{1,50}$");
+                Matcher matcher4 = pattern4.matcher(level4);
+                if(!matcher4.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Model!");
+                    flag = 1;
+                    TxtModel.setText("");
+                    
+                }
+                
+                 String cellPhoneNumber3 = TxtPrice.getText();
+                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Price!");
+                    flag = 1;
+                    TxtPrice.setText("");
+                    
+                    
+                }
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+        if(flag == 0){
             String Req = TxtRegNo.getText();
-           String Query = "Update carslist set brand = '" +TxtBrand.getText()+"', model = '"+TxtModel.getText()+"', status = '"+CBStatus.getSelectedItem()+"', price = "+TxtPrice.getText()+" where regno = '"+Req+"'" ;
-            Statement Add = con.createStatement();
-            Add.executeUpdate(Query);
+            String Query = "Update bike set brand = '" +TxtBrand.getText()+"', model = '"+TxtModel.getText()+"', "
+                    + "status = '"+CBStatus.getSelectedItem()+"', price = "+TxtPrice.getText()+" where productid = '"+Req+"'" ;
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
             JOptionPane.showMessageDialog(this,"Record Updated Successfully");
             Display();
             Reset();
+}else{
+    JOptionPane.showMessageDialog(this,"Record Already Exists");
+}
         } catch (Exception e){
             
             e.printStackTrace();
@@ -421,18 +581,18 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
 
     private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
         // TODO add your handling code here:
-        if(TxtRegNo.getText().isEmpty() )
+         if(TxtRegNo.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to be deleted");
             
         }
         else {
-        try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-            String Req = TxtRegNo.getText();
-          String Query = "Delete from carslist where regno ='"+Req+"'";
-            Statement Add = con.createStatement();
-            Add.executeUpdate(Query);
+            try{
+         String Req = TxtRegNo.getText();
+            String Query = "Delete from bike where productid ='"+Req+"'";
+            c.updateDatabase(Query);
+//            Statement Add = con.createStatement();
+//            Add.executeUpdate(Query);
             JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
             Display();
             Reset();
@@ -449,7 +609,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
         
         DefaultTableModel model = (DefaultTableModel) TblManageBikes.getModel();
         int MyIndex = TblManageBikes.getSelectedRow();
-        TxtRegNo.setText(model.getValueAt(MyIndex,0).toString());
+       TxtRegNo.setText(model.getValueAt(MyIndex,0).toString());
         TxtBrand.setText(model.getValueAt(MyIndex,1).toString());
         TxtModel.setText(model.getValueAt(MyIndex,2).toString());
         CBStatus.setSelectedItem(model.getValueAt(MyIndex,3).toString());
@@ -538,9 +698,10 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     private void Display() {
        String reg,brand,carmodel,status,price;
         try{
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
-            st = con.createStatement();
-            rs = st.executeQuery("select * from carslist");
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
+//            st = con.createStatement();
+            String sql = "select * from bike";
+          ResultSet  rs = c.selectDatabase(sql);
             
             DefaultTableModel model =(DefaultTableModel) TblManageBikes.getModel();
             int rowCount = model.getRowCount();
@@ -552,12 +713,12 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
 
             while (rs.next()) {
                 reg = rs.getString(1);
-                brand = rs.getString(2);
-                carmodel = rs.getString(3);
-                status = rs.getString(4);
-                price = rs.getString(5);
+                brand = rs.getString(3);
+                carmodel = rs.getString(4);
+                status = rs.getString(5);
+                price = rs.getString(6);
                 String[] row = {reg,brand,carmodel,status,price};
-                model.addRow(row);
+                  model.addRow(row);
                                
             }
         
@@ -567,6 +728,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
             
             
         }
+        
         
     }
 

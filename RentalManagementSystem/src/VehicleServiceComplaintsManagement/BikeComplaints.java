@@ -24,6 +24,9 @@ public class BikeComplaints extends javax.swing.JFrame {
         initComponents();
          DisplayComplaints();
         DisplayMechanics();
+        txtBikeId.setEditable(false);
+        txtCustomerId.setEditable(false);
+        txtMechanicId.setEditable(false);
     }
 
     /**
@@ -226,7 +229,7 @@ public class BikeComplaints extends javax.swing.JFrame {
                 String sql1 = "Update bike set mechanicid = '"+txtMechanicId.getText()+"' where   productid = '"+txtBikeId.getText()+"'  ";
                 c.updateDatabase(Query);
 
-                JOptionPane.showMessageDialog(this,"Record Updated Successfully");
+                JOptionPane.showMessageDialog(this,"Assigned Mechanic");
                 DisplayComplaints();
                 DisplayMechanics();
                 Reset();

@@ -25,9 +25,10 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanel2" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -42,7 +43,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f5" green="f8" red="e0" type="rgb"/>
+          <Color blue="d6" green="e7" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -52,7 +53,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane3" pref="513" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="436" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel7" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
@@ -130,7 +131,7 @@
               <Font name="Times New Roman" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d4" red="bd" type="rgb"/>
+              <Color blue="a2" green="cb" red="fc" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Customer ID :"/>
@@ -147,7 +148,7 @@
               <Font name="Times New Roman" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d4" red="bd" type="rgb"/>
+              <Color blue="a2" green="cb" red="fc" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Product ID :"/>
@@ -161,7 +162,7 @@
               <Font name="Times New Roman" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d4" red="bd" type="rgb"/>
+              <Color blue="a2" green="cb" red="fc" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Rent ID :"/>
@@ -173,7 +174,7 @@
               <Font name="Times New Roman" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d4" red="bd" type="rgb"/>
+              <Color blue="a2" green="cb" red="fc" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Delay :"/>
@@ -187,7 +188,7 @@
               <Font name="Times New Roman" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d4" red="bd" type="rgb"/>
+              <Color blue="a2" green="cb" red="fc" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Fine :"/>
@@ -251,7 +252,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d1" green="d4" red="bd" type="rgb"/>
+          <Color blue="a2" green="cb" red="fd" type="rgb"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="a2" green="cb" red="fd" type="rgb"/>
@@ -269,13 +270,13 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" pref="288" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="67" max="32767" attributes="0"/>
+                  <EmptySpace pref="144" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="btnBack" min="-2" pref="135" max="-2" attributes="0"/>
-                      <EmptySpace pref="241" max="32767" attributes="0"/>
+                      <EmptySpace pref="318" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -307,7 +308,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f5" green="f8" red="e0" type="rgb"/>
+              <Color blue="d6" green="e7" red="ff" type="rgb"/>
             </Property>
           </Properties>
 
@@ -348,7 +349,7 @@
                   <Font name="Times New Roman" size="24" style="3"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d1" green="d4" red="bd" type="rgb"/>
+                  <Color blue="a2" green="cb" red="fd" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Have an issue ?"/>
               </Properties>
@@ -359,7 +360,7 @@
                   <Font name="Times New Roman" size="18" style="3"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d1" green="d4" red="bd" type="rgb"/>
+                  <Color blue="a2" green="cb" red="fc" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Raise a Complain"/>
               </Properties>
@@ -372,7 +373,7 @@
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f5" green="f8" red="e0" type="rgb"/>
+              <Color blue="d6" green="e7" red="ff" type="rgb"/>
             </Property>
           </Properties>
 
@@ -403,7 +404,7 @@
                   <Font name="Times New Roman" size="18" style="3"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d1" green="d4" red="bd" type="rgb"/>
+                  <Color blue="a2" green="cb" red="fc" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Payment"/>
               </Properties>
@@ -431,7 +432,7 @@
               <Font name="Times New Roman" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d4" red="bd" type="rgb"/>
+              <Color blue="a2" green="cb" red="fc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Logout"/>
           </Properties>
@@ -445,7 +446,7 @@
               <Font name="Times New Roman" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d4" red="bd" type="rgb"/>
+              <Color blue="a2" green="cb" red="fc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>

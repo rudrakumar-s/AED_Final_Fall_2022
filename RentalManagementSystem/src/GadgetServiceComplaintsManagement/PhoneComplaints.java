@@ -24,6 +24,9 @@ public class PhoneComplaints extends javax.swing.JFrame {
         initComponents();
          DisplayComplaints();
         DisplayTechnicians();
+        txtProductId.setEditable(false);
+        txtCustomerId.setEditable(false);
+        txtTechnicianId.setEditable(false);
     }
 
     /**

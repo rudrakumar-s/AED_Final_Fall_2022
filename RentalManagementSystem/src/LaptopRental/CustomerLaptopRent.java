@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Customers.CustomerLanding;
 import HomeLanding.HomeLanding;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -24,13 +25,24 @@ public class CustomerLaptopRent extends javax.swing.JFrame {
     MySQLConnection c = new MySQLConnection();
     public CustomerLaptopRent() {
         initComponents();
-        Display();   
+        Display(); 
+         txtCustomerId.setEditable(false);
+        txtProductID.setEditable(false);
+        txtPrice.setEditable(false);
+        txtModel.setEditable(false);
+        txtBrand.setEditable(false);
+        
     }
      public CustomerLaptopRent(String s) {
         initComponents();
         showData(s);
         txtCustomerId.setEditable(false);
-        Display();    
+        txtProductID.setEditable(false);
+        txtPrice.setEditable(false);
+        txtModel.setEditable(false);
+        txtBrand.setEditable(false);
+        Display();  
+        
     }
    
     @SuppressWarnings("unchecked")
@@ -295,6 +307,19 @@ public class CustomerLaptopRent extends javax.swing.JFrame {
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         
       try {
+          
+          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                try{
+                    formatter.parse(txtRentDate.getText());
+                    formatter.parse(txtReturnDate.getText());
+
+                } 
+                catch(Exception e){
+                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
+                     txtRentDate.setText("");
+                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
+                     txtReturnDate.setText("");
+                }
         String sql="UPDATE customers SET laptopaproove = 'Requested' ,productid = '"+txtProductID.getText()+"',rentdate = '"+txtRentDate.getText()+"',returndate = '"+txtReturnDate.getText()+"', price = '"+txtPrice.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
         c.updateDatabase(sql);
         JOptionPane.showMessageDialog(this," Successfully Requested");

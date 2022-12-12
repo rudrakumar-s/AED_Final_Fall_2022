@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -279,6 +280,7 @@ public class ManageCarMechanic extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int flag = 0;
               if(txtMechanicId.getText().isEmpty() )
         {
             JOptionPane.showMessageDialog(this,"Select the Record to be Updated");
@@ -286,9 +288,30 @@ public class ManageCarMechanic extends javax.swing.JFrame {
         }
         else 
         {
-              try {
+              try {if(txtUserName.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                  if(txtPassword.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                   if(txtMechanicId.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Mechanic ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
       //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
 //                  String Req = txtTechnicianId.getText();
+if(flag == 0){
                   String Query = "Update carmechanic set  name = '"+txtName.getText()+"',"
                           + " username = '"+txtUserName.getText()+"',password = '"+txtPassword.getText()+"'"
                           + " where mechanicid = '"+txtMechanicId.getText()+"' ";
@@ -298,7 +321,7 @@ public class ManageCarMechanic extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(this,"Record Updated Successfully");
                   Display();
                   Reset();
-
+}
               } catch (Exception e)
               {
             

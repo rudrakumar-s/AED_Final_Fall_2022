@@ -9,6 +9,7 @@ import Customers.CustomerLanding;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,12 +25,19 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
     MySQLConnection c = new MySQLConnection();
     public CustomerPhoneRent() {
         initComponents();
-        Display();   
+        Display(); 
+        txtCustomerId.setEditable(false);
+        txtProductID.setEditable(false);
+        txtPrice.setEditable(false);
+        txtModel.setEditable(false);
     }
      public CustomerPhoneRent(String s) {
         initComponents();
         showData(s);
         txtCustomerId.setEditable(false);
+        txtProductID.setEditable(false);
+        txtPrice.setEditable(false);
+        txtModel.setEditable(false);
         Display();    
     }
    
@@ -62,7 +70,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(242, 191, 202));
+        jPanel1.setBackground(new java.awt.Color(217, 161, 200));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,7 +82,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Price");
 
-        btnBack.setBackground(new java.awt.Color(250, 218, 226));
+        btnBack.setBackground(new java.awt.Color(236, 213, 227));
         btnBack.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
@@ -188,7 +196,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(250, 218, 226));
+        jPanel2.setBackground(new java.awt.Color(236, 213, 227));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,7 +218,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblLaptopList);
 
-        btnRequest.setBackground(new java.awt.Color(242, 191, 202));
+        btnRequest.setBackground(new java.awt.Color(217, 161, 200));
         btnRequest.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest.setText("Request");
@@ -220,7 +228,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(242, 191, 202));
+        btnLogout.setBackground(new java.awt.Color(217, 161, 200));
         btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
@@ -289,6 +297,19 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         
       try {
+          
+           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                try{
+                    formatter.parse(txtRentDate.getText());
+                    formatter.parse(txtReturnDate.getText());
+
+                } 
+                catch(Exception e){
+                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
+                     txtRentDate.setText("");
+                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
+                     txtReturnDate.setText("");
+                }
         String sql="UPDATE customers SET phoneaproove = 'Requested' ,productid = '"+txtProductID.getText()+"',rentdate = '"+txtRentDate.getText()+"',returndate = '"+txtReturnDate.getText()+"', price = '"+txtPrice.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
         c.updateDatabase(sql);
         JOptionPane.showMessageDialog(this," Successfully Requested");
@@ -352,6 +373,10 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CustomerPhoneRent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

@@ -24,6 +24,9 @@ public class CarComplaints extends javax.swing.JFrame {
         initComponents();
         DisplayComplaints();
         DisplayMechanics();
+        txtCarId.setEditable(false);
+        txtCustomerId.setEditable(false);
+        txtMechanicId.setEditable(false);
     }
 
     /**
@@ -211,7 +214,7 @@ public class CarComplaints extends javax.swing.JFrame {
                   c.updateDatabase(sql1);
                   
 
-                  JOptionPane.showMessageDialog(this,"Record Updated Successfully");
+                  JOptionPane.showMessageDialog(this,"Mechanic Assigned");
                   DisplayComplaints();
                   DisplayMechanics();
                   Reset();

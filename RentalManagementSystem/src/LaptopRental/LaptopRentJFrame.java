@@ -13,6 +13,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HomeLanding.HomeLanding;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
 
 /**
  *
@@ -30,6 +33,12 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
 
         DisplayLaptopOnRent();
         DisplayLaptopRentalRequest();
+        txtCustomerId.setEditable(false);
+        txtProductId.setEditable(false);
+        txtRentDate.setEditable(false);
+        txtReturnDate.setEditable(false);
+        txtEmail.setVisible(false);
+        jLabel8.setVisible(false);
     }
 
 
@@ -401,7 +410,31 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
     private void btnAprooveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAprooveActionPerformed
         // TODO add your handling code here:
         
-        try{
+       try{
+            int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                 if(txtRentID.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Rent ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String cellPhoneNumber3 = txtRentID.getText();
+                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Valid Rent ID!");
+                    flag = 1;
+                    txtRentID.setText("");
+                    
+                    
+                }
+                 
+             if(flag == 0)
+             {   
             String sql="UPDATE laptop SET customerid = '"+txtCustomerId.getText()+"', rentid = '"+txtRentID.getText()+"',status = 'Booked',rentdate = '"+txtRentDate.getText()+"' ,returndate = '"+txtReturnDate.getText()+"',price = '"+txtPrice.getText()+"' WHERE productid = '"+txtProductId.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Request Aprooved");
@@ -426,6 +459,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
             DisplayLaptopOnRent();
             DisplayLaptopRentalRequest();
             Reset();
+             }
 
         }
         catch(Exception e)

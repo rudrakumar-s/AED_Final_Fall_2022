@@ -25,7 +25,11 @@ public class CustomerLaptopComplain extends javax.swing.JFrame {
     public CustomerLaptopComplain() {
         initComponents();
         DisplayLatopOnRent();
-//        DisplaylaptopOnRent2();
+txtProductID.setEditable(false);
+        txtCustomerId.setEditable(false);
+        txtRentId.setEditable(false);
+        txtDelay.setEditable(false);
+        txtFine.setEditable(false);
     }
 public CustomerLaptopComplain(String s) {
         initComponents();
@@ -328,7 +332,8 @@ public CustomerLaptopComplain(String s) {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) tblLaptopOnRent.getModel();
         int MyIndex = tblLaptopOnRent.getSelectedRow();
-//        txtCustomerId.setText(model.getValueAt(MyIndex,2).toString());
+        txtDelay.setText(model.getValueAt(MyIndex,2).toString());
+        txtFine.setText(model.getValueAt(MyIndex,3).toString());
         txtRentId.setText(model.getValueAt(MyIndex,1).toString());
         txtProductID.setText(model.getValueAt(MyIndex,0).toString());
     }//GEN-LAST:event_tblLaptopOnRentMouseClicked

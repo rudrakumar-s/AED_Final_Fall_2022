@@ -14,6 +14,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HomeLanding.HomeLanding;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
 
 /**
  *
@@ -31,6 +34,12 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
 
         DisplayLaptopOnRent();
         DisplayLaptopRentalRequest();
+        txtCustomerId.setEditable(false);
+        txtProductId.setEditable(false);
+        txtRentDate.setEditable(false);
+        txtReturnDate.setEditable(false);
+        txtEmail.setVisible(false);
+        jLabel8.setVisible(false);
     }
 
 
@@ -418,6 +427,29 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try{
+            int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                 if(txtRentID.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Rent ID cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String cellPhoneNumber3 = txtRentID.getText();
+                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a valid Rent ID!");
+                    flag = 1;
+                    txtRentID.setText("");
+                    
+                    
+                }
+                if(flag == 0)
+             {   
             String sql="UPDATE phone SET customerid = '"+txtCustomerId.getText()+"', "
                     + "rentid = '"+txtRentID.getText()+"',status = 'Booked',rentdate = '"+txtRentDate.getText()+"' ,"
                     + "returndate = '"+txtReturnDate.getText()+"',price = '"+txtPrice.getText()+
@@ -445,7 +477,7 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
             DisplayLaptopOnRent();
             DisplayLaptopRentalRequest();
             Reset();
-
+             }
         }
         catch(Exception e)
         {
@@ -525,6 +557,14 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PhoneRentJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

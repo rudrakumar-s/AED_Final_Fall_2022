@@ -26,7 +26,11 @@ public class CustomerCarComplain extends javax.swing.JFrame {
     public CustomerCarComplain() {
         initComponents();
         DisplayCarOnRent();
-//        DisplaylaptopOnRent2();
+        txtProductID.setEditable(false);
+        txtCustomerId.setEditable(false);
+        txtRentId.setEditable(false);
+        txtDelay.setEditable(false);
+        txtFine.setEditable(false);
     }
 public CustomerCarComplain(String s) {
         initComponents();
@@ -335,7 +339,8 @@ public CustomerCarComplain(String s) {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) tblCarsOnRent.getModel();
         int MyIndex = tblCarsOnRent.getSelectedRow();
-//        txtCustomerId.setText(model.getValueAt(MyIndex,2).toString());
+        txtDelay.setText(model.getValueAt(MyIndex,2).toString());
+        txtFine.setText(model.getValueAt(MyIndex,3).toString());
         txtRentId.setText(model.getValueAt(MyIndex,1).toString());
         txtProductID.setText(model.getValueAt(MyIndex,0).toString());
     }//GEN-LAST:event_tblCarsOnRentMouseClicked

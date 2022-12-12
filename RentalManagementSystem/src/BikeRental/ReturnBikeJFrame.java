@@ -7,6 +7,9 @@ package BikeRental;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,6 +28,9 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
     public ReturnBikeJFrame() {
         initComponents();
         DisplayCarOnRent();
+         TxtRegNo.setVisible(false);
+        TxtRentID.setEditable(false);
+        TxtCustomerID.setEditable(false);
     }
 
     /**
@@ -310,13 +316,54 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
     private void BtnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConfirmActionPerformed
         // TODO add your handling code here:
         try{
+            int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                 if(TxtDelay.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Delay Field cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(TxtFine.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Fine Field cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String cellPhoneNumber3 = TxtFine.getText();
+                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Valid Fine Amount!");
+                    flag = 1;
+                    TxtFine.setText("");
+                    
+                    
+                }
+                String cellPhoneNumber2 = TxtDelay.getText();
+                Pattern pattern2 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher2 = pattern2.matcher(cellPhoneNumber2);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Valid Delay Period!");
+                    flag = 1;
+                    TxtDelay.setText("");
+                    
+                    
+                }
             String sql="UPDATE customers SET customerid = '"+TxtCustomerID.getText()+"', delay = '"+TxtDelay.getText()+"', fine= '"+TxtFine.getText()+"',carapprove = 'Returned' WHERE customerid = '"+TxtCustomerID.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Return Confirmed");
-            String sql1 ="UPDATE car SET status = 'Available', rentid = NULL  WHERE Regno = '"+TxtRegNo.getText()+"'";
+            String sql1 ="UPDATE bike SET status = 'Available', rentid = NULL  WHERE Regno = '"+TxtRegNo.getText()+"'";
             c.updateDatabase(sql1);
  
             DisplayCarOnRent();
+            TxtDelay.setText("");
+            TxtFine.setText("");
 
         }
         catch(Exception e)
@@ -404,7 +451,7 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
     private void DisplayCarOnRent() {
         String reg,brand,carmodel,status,price;
         try{
-            String sql = "select * from car where status = 'Booked' and rentid IS NOT NULL";
+            String sql = "select * from bike where status = 'Booked' and rentid IS NOT NULL";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) TblBikeOnRent.getModel();
             int rowCount = model.getRowCount();
