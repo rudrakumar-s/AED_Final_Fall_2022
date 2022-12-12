@@ -8,6 +8,7 @@ import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,6 +30,7 @@ public class CustomerBikeRequestJFrame extends javax.swing.JFrame {
         TxtModel.setEditable(false);
         TxtBrand.setEditable(false);
         Display();
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     public CustomerBikeRequestJFrame(String s) {
         initComponents();
@@ -39,6 +41,7 @@ public class CustomerBikeRequestJFrame extends javax.swing.JFrame {
         TxtModel.setEditable(false);
         TxtBrand.setEditable(false);
         Display();
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -73,155 +76,91 @@ public class CustomerBikeRequestJFrame extends javax.swing.JFrame {
         BtnRequest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(217, 161, 200));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Customer ID");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 107, 102, 31));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Brand");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 198, 102, -1));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Model");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 155, 102, -1));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Rent Date");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 231, 102, 31));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Return Date");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 274, 102, 31));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Price");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 360, 102, 31));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Reg No");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 317, 102, 31));
 
         btnBack.setBackground(new java.awt.Color(236, 213, 227));
         btnBack.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 478, 102, 40));
 
         TxtCustomerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCustomerIDActionPerformed(evt);
             }
         });
+        jPanel1.add(TxtCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 108, 167, 31));
 
         TxtModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtModelActionPerformed(evt);
             }
         });
+        jPanel1.add(TxtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 151, 167, 31));
+        jPanel1.add(TxtBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 194, 167, 31));
+        jPanel1.add(TxtRentDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 231, 167, 31));
+        jPanel1.add(TxtReturnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 274, 167, 31));
+        jPanel1.add(TxtRegNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 317, 167, 31));
 
         TxtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtPriceActionPerformed(evt);
             }
         });
+        jPanel1.add(TxtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 361, 167, 31));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(TxtBrand, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtRegNo)
-                                    .addComponent(TxtPrice)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtRentDate)
-                                    .addComponent(TxtReturnDate)
-                                    .addComponent(TxtCustomerID)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(TxtModel)))
-                .addGap(42, 42, 42))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TxtRentDate, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TxtReturnDate, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TxtRegNo, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 830));
 
         jPanel2.setBackground(new java.awt.Color(236, 213, 227));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Rent Bike");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 79, 246, 60));
 
         TblCustReq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -238,60 +177,19 @@ public class CustomerBikeRequestJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TblCustReq);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 186, 401, 185));
+
         BtnRequest.setBackground(new java.awt.Color(217, 161, 200));
         BtnRequest.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        BtnRequest.setForeground(new java.awt.Color(255, 255, 255));
         BtnRequest.setText("Request");
         BtnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRequestActionPerformed(evt);
             }
         });
+        jPanel2.add(BtnRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 468, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BtnRequest)
-                .addGap(45, 45, 45))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
-                .addComponent(BtnRequest)
-                .addGap(103, 103, 103))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 1440, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -308,10 +206,13 @@ public class CustomerBikeRequestJFrame extends javax.swing.JFrame {
         TxtModel.setText(model.getValueAt(MyIndex,2).toString());
         TxtPrice.setText(model.getValueAt(MyIndex,4).toString());
         TxtBrand.setText((model.getValueAt(MyIndex, 1).toString()));
+        
+      
     }//GEN-LAST:event_TblCustReqMouseClicked
 
     private void BtnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRequestActionPerformed
         // TODO add your handling code here:
+        int flag =0;
         try {
              DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                 try{
@@ -321,23 +222,27 @@ public class CustomerBikeRequestJFrame extends javax.swing.JFrame {
                 } 
                 catch(Exception e){
                      JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
-                     TxtRentDate.setText("");
-                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
-                     TxtReturnDate.setText("");
+//                     TxtRentDate.setText("");
+//                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
+//                     TxtReturnDate.setText("");
+                        flag = 1;
                 }
-        String sql="UPDATE customers SET laptopaproove = 'Requested' ,productid = '"+TxtRegNo.getText()+"',rentdate = '"+TxtRentDate.getText()+"',returndate = '"+TxtReturnDate.getText()+"', price = '"+TxtPrice.getText()+"' WHERE customerid = '"+TxtCustomerID.getText()+"' ";
+                if(flag == 0){
+        String sql="UPDATE customers SET bikeaproove = 'Requested' ,bikeid = '"+TxtRegNo.getText()+"',bikerentd = '"+TxtRentDate.getText()+"',bikereturnd = '"+TxtReturnDate.getText()+"', bikeprice = '"+TxtPrice.getText()+"' WHERE customerid = '"+TxtCustomerID.getText()+"' ";
         c.updateDatabase(sql);
         JOptionPane.showMessageDialog(this," Successfully Requested");
+        Reset();
          
             }
+        }
       catch (Exception ex) {
       System.out.println(ex);}
     }//GEN-LAST:event_BtnRequestActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
-        CustomerLanding lr = new CustomerLanding ();
+        String s  = TxtCustomerID.getText();
+        CustomerLanding lr = new CustomerLanding (s);
         lr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
@@ -414,7 +319,7 @@ public class CustomerBikeRequestJFrame extends javax.swing.JFrame {
         String reg,brand,carmodel,status,price;
         try{
 //           
-            String sql = "select * from laptop";
+            String sql = "select * from bike";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel) TblCustReq.getModel();
             int rowCount = model.getRowCount();
@@ -445,4 +350,14 @@ public class CustomerBikeRequestJFrame extends javax.swing.JFrame {
     private void showData(String s) {
         TxtCustomerID.setText(s);
          }
+    
+    public void Reset(){
+        TxtModel.setText("");
+        TxtRentDate.setText("");
+        TxtReturnDate.setText("");
+        TxtRegNo.setText("");
+        TxtModel.setText("");
+        TxtPrice.setText("");
+        TxtBrand.setText("");
+    }
 }

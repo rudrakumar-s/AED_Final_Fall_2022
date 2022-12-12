@@ -6,6 +6,8 @@ package GadgetServiceTechnicianManagement;
 
 import GadgetServiceComplaintsManagement.LaptopComplaints;
 import GadgetServiceComplaintsManagement.PhoneComplaints;
+import HomeLanding.HomeLanding;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,6 +20,7 @@ public class ManageTechnicians extends javax.swing.JFrame {
      */
     public ManageTechnicians() {
         initComponents();
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -36,23 +39,18 @@ public class ManageTechnicians extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 185, 12));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 24, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 393));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 185, 12));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -63,6 +61,7 @@ public class ManageTechnicians extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 188, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 185, 12));
@@ -72,10 +71,12 @@ public class ManageTechnicians extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 131, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 185, 12));
         jLabel3.setText("Technician Management");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 28, 267, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 185, 12));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -86,6 +87,7 @@ public class ManageTechnicians extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 188, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 185, 12));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -96,57 +98,20 @@ public class ManageTechnicians extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 131, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel3)
-                .addGap(74, 74, 74)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5))
-                .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
-                .addContainerGap(184, Short.MAX_VALUE))
-        );
+        btnLogout.setBackground(new java.awt.Color(255, 185, 12));
+        btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 276, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1900, 1140));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,6 +145,13 @@ public class ManageTechnicians extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        HomeLanding hl = new HomeLanding();
+        hl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,6 +189,7 @@ public class ManageTechnicians extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

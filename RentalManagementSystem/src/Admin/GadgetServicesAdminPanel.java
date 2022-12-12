@@ -53,7 +53,8 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(561, 619));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
-        jPanel2.setPreferredSize(new java.awt.Dimension(702, 622));
+        jPanel2.setPreferredSize(new java.awt.Dimension(2147483647, 2147483647));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblGadgetServicesAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,18 +71,26 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
         });
         ScrollJPane.setViewportView(tblGadgetServicesAdmin);
 
+        jPanel2.add(ScrollJPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 71, 586, 174));
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 185, 12));
         jLabel1.setText("Gadget Services Admin ID");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+        jPanel2.add(txtGadgetServicesAdminID, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 185, 12));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Username");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 330, 177, -1));
+        jPanel2.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 120, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 185, 12));
         jLabel3.setText("Password");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 120, -1));
 
         txtSave.setBackground(new java.awt.Color(255, 185, 12));
         txtSave.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -92,6 +101,7 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
                 txtSaveActionPerformed(evt);
             }
         });
+        jPanel2.add(txtSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
 
         txtEdit.setBackground(new java.awt.Color(255, 185, 12));
         txtEdit.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -102,6 +112,7 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
                 txtEditActionPerformed(evt);
             }
         });
+        jPanel2.add(txtEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, -1, -1));
 
         txtDelete.setBackground(new java.awt.Color(255, 185, 12));
         txtDelete.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -112,91 +123,25 @@ public class GadgetServicesAdminPanel extends javax.swing.JPanel {
                 txtDeleteActionPerformed(evt);
             }
         });
+        jPanel2.add(txtDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 185, 12));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Create Gadget Service Admin");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(txtSave)
-                        .addGap(66, 66, 66)
-                        .addComponent(txtEdit)
-                        .addGap(73, 73, 73)
-                        .addComponent(txtDelete))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(244, 244, 244)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(145, 145, 145)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1)))
-                        .addGap(109, 109, 109)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGadgetServicesAdminID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(ScrollJPane, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel4)
-                .addGap(28, 28, 28)
-                .addComponent(ScrollJPane, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtGadgetServicesAdminID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel2)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(54, 54, 54)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSave)
-                    .addComponent(txtEdit)
-                    .addComponent(txtDelete))
-                .addContainerGap(127, Short.MAX_VALUE))
-        );
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 24, 398, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1622, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

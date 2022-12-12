@@ -4,6 +4,7 @@
  */
 package LaptopRental;
 
+import HomeLanding.GadgetAdminLandingPage;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import HomeLanding.HomeLanding;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 /**
  *
@@ -30,6 +32,7 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
         txtProductId.setVisible(false);
         txtRentId.setEditable(false);
         txtCustomerId.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
 
@@ -46,7 +49,7 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnManageLaptop = new javax.swing.JButton();
         btnRentLaptop = new javax.swing.JButton();
-        btnlogout = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnConfirm = new javax.swing.JButton();
         txtRentId = new javax.swing.JTextField();
@@ -65,9 +68,11 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 185, 12));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnManageLaptop.setBackground(new java.awt.Color(51, 51, 0));
         btnManageLaptop.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -78,6 +83,7 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
                 btnManageLaptopActionPerformed(evt);
             }
         });
+        jPanel1.add(btnManageLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 178, -1, -1));
 
         btnRentLaptop.setBackground(new java.awt.Color(51, 51, 0));
         btnRentLaptop.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -88,45 +94,23 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
                 btnRentLaptopActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRentLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 223, 151, -1));
 
-        btnlogout.setBackground(new java.awt.Color(51, 51, 0));
-        btnlogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnlogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnlogout.setText("Logout");
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setBackground(new java.awt.Color(51, 51, 0));
+        btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Back");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 441, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnManageLaptop)
-                    .addComponent(btnRentLaptop, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnlogout)
-                .addGap(30, 30, 30))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(btnManageLaptop)
-                .addGap(18, 18, 18)
-                .addComponent(btnRentLaptop)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnlogout)
-                .addGap(138, 138, 138))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 1170));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnConfirm.setBackground(new java.awt.Color(255, 185, 12));
         btnConfirm.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -137,11 +121,18 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
                 btnConfirmActionPerformed(evt);
             }
         });
+        jPanel2.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 317, -1, 33));
+        jPanel2.add(txtRentId, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 115, 138, 34));
+        jPanel2.add(txtProductId, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 168, 138, 33));
+        jPanel2.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 221, 138, 32));
+        jPanel2.add(txtDelay, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 267, 138, 32));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 185, 12));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Fine :");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 317, 66, 32));
+        jPanel2.add(txtFine, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 319, 138, 32));
 
         tblLaptopOnRent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,125 +149,47 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tblLaptopOnRent);
 
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 398, -1, 104));
+
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 185, 12));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Customer ID :");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 219, -1, 32));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 185, 12));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Delay :");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 265, 66, 32));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 185, 12));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Rent ID :");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 167, -1, 32));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 185, 12));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Product ID :");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 114, -1, 32));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 185, 12));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Great Value Enterprises");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 6, 522, 62));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 185, 12));
         jLabel1.setText("Return Laptops");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 80, 164, 22));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtFine, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDelay, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtRentId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(57, 57, 57)
-                                .addComponent(btnConfirm))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRentId, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtProductId, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDelay, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFine, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 0, 1630, 1170));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblLaptopOnRentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLaptopOnRentMouseClicked
@@ -332,7 +245,7 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
                     
                 }
                  if(flag == 0){
-            String sql="UPDATE customers SET customerid = '"+txtCustomerId.getText()+"', delay = '"+txtDelay.getText()+"', fine= '"+txtFine.getText()+"',laptopaproove = 'Returned' WHERE customerid = '"+txtCustomerId.getText()+"' ";
+            String sql="UPDATE customers SET customerid = '"+txtCustomerId.getText()+"', laptopdelay = '"+txtDelay.getText()+"', laptopfine= '"+txtFine.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Return Confirmed");
 //***********************************************************************************************************
@@ -342,8 +255,11 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
 //************************************************************** *********************************************   
 
             DisplayLaptopOnRent();
+                  txtCustomerId.setText("");
             txtDelay.setText("");
             txtFine.setText("");
+            txtProductId.setText("");
+            txtRentId.setText("");
 
 
         }
@@ -369,12 +285,12 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnRentLaptopActionPerformed
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-         HomeLanding hl = new HomeLanding();
+        GadgetAdminLandingPage hl = new GadgetAdminLandingPage();
         hl.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnlogoutActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,9 +330,9 @@ public class LaptopReturnJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnManageLaptop;
     private javax.swing.JButton btnRentLaptop;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;

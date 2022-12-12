@@ -5,15 +5,25 @@
 package LaptopRental;
 
 
+import HomeLanding.GadgetAdminLandingPage;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HomeLanding.HomeLanding;
+import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JFrame;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -28,6 +38,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
     public LaptopManageJFrame() {
         initComponents();
           Display();
+               this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
 
@@ -64,11 +75,14 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         tblLaptopList = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        BtnUpdate1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 185, 12));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnReturnLaptop.setBackground(new java.awt.Color(51, 51, 0));
         btnReturnLaptop.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -79,6 +93,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 btnReturnLaptopActionPerformed(evt);
             }
         });
+        jPanel1.add(btnReturnLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 248, -1, -1));
 
         btnRentLaptop.setBackground(new java.awt.Color(51, 51, 0));
         btnRentLaptop.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -94,46 +109,23 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 btnRentLaptopActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRentLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 188, 148, -1));
 
         btnLogout.setBackground(new java.awt.Color(51, 51, 0));
         btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
+        btnLogout.setText("Back");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 406, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRentLaptop, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(btnLogout))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addComponent(btnReturnLaptop))))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRentLaptop)
-                .addGap(33, 33, 33)
-                .addComponent(btnReturnLaptop)
-                .addGap(131, 131, 131)
-                .addComponent(btnLogout)
-                .addGap(131, 131, 131))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 220, 1580));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSave.setBackground(new java.awt.Color(255, 185, 12));
         btnSave.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -144,6 +136,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
+        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 132, 92, 33));
 
         btnUpdate.setBackground(new java.awt.Color(255, 185, 12));
         btnUpdate.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -154,6 +147,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
+        jPanel2.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 185, 92, 29));
 
         btnReset.setBackground(new java.awt.Color(255, 185, 12));
         btnReset.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -164,6 +158,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 btnResetActionPerformed(evt);
             }
         });
+        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 235, 92, 29));
 
         btnDelete.setBackground(new java.awt.Color(255, 185, 12));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -174,34 +169,45 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 284, 92, 31));
+        jPanel2.add(txtProductId, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 133, 134, 33));
 
         lblRentId.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblRentId.setForeground(new java.awt.Color(255, 185, 12));
         lblRentId.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRentId.setText("Product Id :");
+        jPanel2.add(lblRentId, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 138, 112, -1));
+        jPanel2.add(txtBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 186, 134, 30));
 
         lblBrand.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblBrand.setForeground(new java.awt.Color(255, 185, 12));
         lblBrand.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblBrand.setText("Brand :");
+        jPanel2.add(lblBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 184, 112, 30));
+        jPanel2.add(txtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 236, 134, 30));
 
         lblModel.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblModel.setForeground(new java.awt.Color(255, 185, 12));
         lblModel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblModel.setText("Model :");
+        jPanel2.add(lblModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 234, 112, 30));
 
         cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Available", "Booked", "In Service" }));
+        jPanel2.add(cbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 285, 134, 30));
 
         lblStatus.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblStatus.setForeground(new java.awt.Color(255, 185, 12));
         lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblStatus.setText("Status :");
+        jPanel2.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 283, 112, 30));
+        jPanel2.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 335, 134, 30));
 
         lblPrice.setBackground(new java.awt.Color(255, 185, 12));
         lblPrice.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(255, 185, 12));
         lblPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPrice.setText("Price :");
+        jPanel2.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 333, 112, 30));
 
         tblLaptopList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,113 +224,34 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblLaptopList);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 396, -1, 126));
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 185, 12));
         jLabel1.setText("Manage Laptops");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 74, 253, 52));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 185, 12));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Great Value Enterprises");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 6, 522, 62));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblModel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblBrand, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblRentId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtProductId)
-                            .addComponent(txtModel)
-                            .addComponent(cbStatus, 0, 134, Short.MAX_VALUE)
-                            .addComponent(txtPrice)
-                            .addComponent(txtBrand))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(159, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRentId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblModel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
+        BtnUpdate1.setBackground(new java.awt.Color(255, 185, 12));
+        BtnUpdate1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        BtnUpdate1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnUpdate1.setText("View Chart");
+        BtnUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdate1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnUpdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, -1, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 0, 2770, 1580));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -512,18 +439,43 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
 
     private void btnReturnLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnLaptopActionPerformed
         // TODO add your handling code here:
-//        LaptopReturnJFrame  lr = new LaptopReturnJFrame();
-//        lr.setVisible(true);
+        LaptopReturnJFrame  lr = new LaptopReturnJFrame();
+        lr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReturnLaptopActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        HomeLanding hl = new HomeLanding();
+        GadgetAdminLandingPage hl = new GadgetAdminLandingPage();
         hl.setVisible(true);
         this.dispose();
         
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void BtnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdate1ActionPerformed
+        // TODO add your handling code here:
+
+        DefaultCategoryDataset dcd = new DefaultCategoryDataset();
+
+        DefaultTableModel model = (DefaultTableModel) tblLaptopList.getModel();
+        int MyIndex = tblLaptopList.getSelectedRow();
+
+        int price = Integer.parseInt(model.getValueAt(MyIndex,3).toString());
+
+        dcd.setValue(   100 , "","M1 Air");
+        dcd.setValue(   200 , "","M1 Pro");
+        dcd.setValue(   300 , "","Intel Surfaces");
+        //        dcd.setValue(   80 , "","FZ");
+        //        dcd.setValue(   90, "","Java");
+        JFreeChart jchart = ChartFactory.createBarChart("Laptop Model Price", "Laptop", "Price", dcd, PlotOrientation.VERTICAL, true, true, false);
+
+        CategoryPlot plot = jchart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+        ChartFrame chartFrame = new ChartFrame("Medicines", jchart, true);
+        chartFrame.setVisible(true);
+        chartFrame.setSize(800, 600);
+    }//GEN-LAST:event_BtnUpdate1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -609,6 +561,7 @@ public class LaptopManageJFrame extends javax.swing.JFrame {
         
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnUpdate1;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRentLaptop;

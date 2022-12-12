@@ -4,6 +4,7 @@
  */
 package TechnicianComplaints;
 
+import HomeLanding.HomeLanding;
 import MySQLConnection.MySQLConnection;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import LaptopRental.LaptopRentJFrame;
+import javax.swing.JFrame;
 /**
  *
  * @author sunilrudrakumar
@@ -30,6 +32,7 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
         txtProductId.setEditable(false);
         txtBrand.setEditable(false);
         txtModel.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -46,6 +49,8 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
         txtProductId.setEditable(false);
         txtBrand.setEditable(false);
         txtModel.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+             
     
         Display();    
     }
@@ -67,10 +72,14 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComplaints = new javax.swing.JTable();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 185, 12));
 
@@ -148,10 +157,13 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
                 .addGap(47, 47, 47))
         );
 
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+
         jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Phone Complaints");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 25, 248, 28));
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,45 +173,27 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
                 "Product ID", "Model", "Brand"
             }
         ));
+        tblComplaints.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblComplaintsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblComplaints);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(85, 85, 85))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(197, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 80, 407, 102));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        btnLogout.setBackground(new java.awt.Color(255, 185, 12));
+        btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2010, 1170));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,7 +216,7 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
             c.updateDatabase(Query);
             //            Statement Add = con.createStatement();
             //            Add.executeUpdate(Query);
-            JOptionPane.showMessageDialog(this,"Record Deleted Successfully");
+            
             Display();
             Reset();
         } catch (Exception e){
@@ -234,6 +228,23 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
     private void txtBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBrandActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBrandActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        HomeLanding hl = new HomeLanding();
+        hl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void tblComplaintsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblComplaintsMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblComplaints.getModel();
+        int MyIndex = tblComplaints.getSelectedRow();
+//        txtTechnicianId.setText(model.getValueAt(MyIndex,0).toString());
+        txtBrand.setText(model.getValueAt(MyIndex,2).toString());
+        txtModel.setText(model.getValueAt(MyIndex,1).toString());
+        txtProductId.setText((model.getValueAt(MyIndex, 0).toString()));
+    }//GEN-LAST:event_tblComplaintsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -272,6 +283,7 @@ public class ManagePhoneComplaints extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCompleteService;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

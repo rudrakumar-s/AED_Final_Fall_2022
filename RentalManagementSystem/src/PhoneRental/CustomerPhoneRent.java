@@ -10,6 +10,7 @@ import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,6 +31,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         txtProductID.setEditable(false);
         txtPrice.setEditable(false);
         txtModel.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
      public CustomerPhoneRent(String s) {
         initComponents();
@@ -38,6 +40,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         txtProductID.setEditable(false);
         txtPrice.setEditable(false);
         txtModel.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Display();    
     }
    
@@ -69,139 +72,82 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
 
         jPanel1.setBackground(new java.awt.Color(217, 161, 200));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Customer ID");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 76, 102, 31));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Price");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 119, 102, 31));
 
         btnBack.setBackground(new java.awt.Color(236, 213, 227));
         btnBack.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 482, 102, 40));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Model");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 162, 102, 31));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Brand");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 205, 102, 31));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Rent Date");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 254, 102, 31));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Return Date");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 303, 102, 31));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Product ID");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 352, 102, 31));
+        jPanel1.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 76, 162, 31));
+        jPanel1.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 119, 162, 31));
+        jPanel1.add(txtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 162, 162, 31));
+        jPanel1.add(txtBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 205, 162, 31));
 
         txtRentDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRentDateActionPerformed(evt);
             }
         });
+        jPanel1.add(txtRentDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 254, 162, 31));
+        jPanel1.add(txtReturnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 303, 162, 31));
 
         txtProductID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtProductIDActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(27, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtCustomerId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtModel)
-                    .addComponent(txtBrand)
-                    .addComponent(txtRentDate, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtReturnDate)
-                    .addComponent(txtProductID))
-                .addGap(70, 70, 70))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(txtCustomerId))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(txtPrice))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(txtModel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(txtBrand))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(txtRentDate))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(txtReturnDate))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtProductID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(97, 97, 97)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(txtProductID, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 353, 162, 32));
 
         jPanel2.setBackground(new java.awt.Color(236, 213, 227));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Rent Phones");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 78, 246, 60));
 
         tblLaptopList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,58 +164,27 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblLaptopList);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 178, 607, 124));
+
         btnRequest.setBackground(new java.awt.Color(217, 161, 200));
         btnRequest.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest.setText("Request");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequestActionPerformed(evt);
             }
         });
+        jPanel2.add(btnRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 374, 105, 39));
 
         btnLogout.setBackground(new java.awt.Color(217, 161, 200));
         btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(btnRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
-        );
+        jPanel2.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 105, 39));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -277,13 +192,13 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1535, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -295,7 +210,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRentDateActionPerformed
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
-        
+        int flag = 0 ;
       try {
           
            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
@@ -306,15 +221,17 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
                 } 
                 catch(Exception e){
                      JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
-                     txtRentDate.setText("");
-                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
-                     txtReturnDate.setText("");
+//                     txtRentDate.setText("");
+//                     JOptionPane.showMessageDialog(this,"Please enter valid date format (MM/dd/yyyy)");
+//                     txtReturnDate.setText("");
+                        flag = 1;
                 }
-        String sql="UPDATE customers SET phoneaproove = 'Requested' ,productid = '"+txtProductID.getText()+"',rentdate = '"+txtRentDate.getText()+"',returndate = '"+txtReturnDate.getText()+"', price = '"+txtPrice.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
+        if(flag == 0){        
+        String sql="UPDATE customers SET phoneaproove = 'Requested' ,phoneid = '"+txtProductID.getText()+"',phonerentd = '"+txtRentDate.getText()+"',phonereturnd = '"+txtReturnDate.getText()+"', phoneprice = '"+txtPrice.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
         c.updateDatabase(sql);
         JOptionPane.showMessageDialog(this," Successfully Requested");
-         
-            }
+         Reset();
+            }}
       catch (Exception ex) {
       System.out.println(ex);}
         
@@ -337,8 +254,8 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
-        CustomerLanding lr = new CustomerLanding ();
+        String s = txtCustomerId.getText();
+        CustomerLanding lr = new CustomerLanding (s);
         lr.setVisible(true);
         this.dispose();
 
@@ -450,6 +367,16 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
     private void showData(String s) {
          txtCustomerId.setText(s);
       }
-        
+              
+    public void Reset(){
+//    txtCustomerId.setText("");
+    txtProductID.setText("");
+    txtModel.setText("");
+    txtBrand.setText("");
+    txtPrice.setText("");
+    txtRentDate.setText("");
+    txtReturnDate.setText("");
+            }
+    
     
 }

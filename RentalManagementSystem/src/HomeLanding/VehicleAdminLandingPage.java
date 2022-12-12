@@ -6,6 +6,7 @@ package HomeLanding;
 
 import BikeRental.ManageBikeJFrame;
 import CarRental.ManageCarJFrame;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,6 +19,7 @@ public class VehicleAdminLandingPage extends javax.swing.JFrame {
      */
     public VehicleAdminLandingPage() {
         initComponents();
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -30,30 +32,31 @@ public class VehicleAdminLandingPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnManageCar = new javax.swing.JButton();
+        btnManageBike = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
 
-        jButton1.setText("Manage Car");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnManageCar.setText("Manage Car");
+        btnManageCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnManageCarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Manage Bike");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnManageBike.setText("Manage Bike");
+        btnManageBike.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnManageBikeActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Logout");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
 
@@ -63,13 +66,13 @@ public class VehicleAdminLandingPage extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(111, 111, 111)
-                .addComponent(jButton1)
+                .addComponent(btnManageCar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnManageBike)
                 .addGap(78, 78, 78))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnLogout)
                 .addGap(180, 180, 180))
         );
         jPanel1Layout.setVerticalGroup(
@@ -77,10 +80,10 @@ public class VehicleAdminLandingPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(151, 151, 151)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnManageCar)
+                    .addComponent(btnManageBike))
                 .addGap(89, 89, 89)
-                .addComponent(jButton3)
+                .addComponent(btnLogout)
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
@@ -98,28 +101,28 @@ public class VehicleAdminLandingPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnManageCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCarActionPerformed
         // TODO add your handling code here:
         ManageCarJFrame mc = new ManageCarJFrame();
         mc.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnManageCarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnManageBikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBikeActionPerformed
         // TODO add your handling code here:
         ManageBikeJFrame mc = new ManageBikeJFrame();
         mc.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnManageBikeActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
         HomeLanding h = new HomeLanding();
         h.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,9 +160,9 @@ public class VehicleAdminLandingPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnManageBike;
+    private javax.swing.JButton btnManageCar;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

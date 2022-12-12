@@ -4,7 +4,10 @@
  */
 package BikeRental;
 
+import HomeLanding.HomeLanding;
+import HomeLanding.VehicleAdminLandingPage;
 import MySQLConnection.MySQLConnection;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,8 +17,15 @@ import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -30,6 +40,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     public ManageBikeJFrame() {
         initComponents();
         Display();
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
 
@@ -65,15 +76,19 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
         BtnDelete = new javax.swing.JButton();
         BtnReset = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        BtnUpdate1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonsPanel1.setBackground(new java.awt.Color(255, 185, 12));
+        ButtonsPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnReturnCar1.setBackground(new java.awt.Color(51, 51, 0));
         BtnReturnCar1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnReturnCar1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnReturnCar1.setText("Login");
+        BtnReturnCar1.setText("Back");
         BtnReturnCar1.setBorder(null);
         BtnReturnCar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnReturnCar1.addActionListener(new java.awt.event.ActionListener() {
@@ -81,11 +96,12 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                 BtnReturnCar1ActionPerformed(evt);
             }
         });
+        ButtonsPanel1.add(BtnReturnCar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 415, 115, 29));
 
         BtnRentBike.setBackground(new java.awt.Color(51, 51, 0));
         BtnRentBike.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnRentBike.setForeground(new java.awt.Color(255, 255, 255));
-        BtnRentBike.setText("Rent Bike");
+        BtnRentBike.setText("Manage Rents");
         BtnRentBike.setBorder(null);
         BtnRentBike.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnRentBike.addActionListener(new java.awt.event.ActionListener() {
@@ -93,11 +109,12 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                 BtnRentBikeActionPerformed(evt);
             }
         });
+        ButtonsPanel1.add(BtnRentBike, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 140, 29));
 
         BtnReturnBike.setBackground(new java.awt.Color(51, 51, 0));
         BtnReturnBike.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnReturnBike.setForeground(new java.awt.Color(255, 255, 255));
-        BtnReturnBike.setText("Return Car");
+        BtnReturnBike.setText("Manage Returns");
         BtnReturnBike.setBorder(null);
         BtnReturnBike.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnReturnBike.addActionListener(new java.awt.event.ActionListener() {
@@ -105,90 +122,81 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                 BtnReturnBikeActionPerformed(evt);
             }
         });
+        ButtonsPanel1.add(BtnReturnBike, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, 29));
 
-        javax.swing.GroupLayout ButtonsPanel1Layout = new javax.swing.GroupLayout(ButtonsPanel1);
-        ButtonsPanel1.setLayout(ButtonsPanel1Layout);
-        ButtonsPanel1Layout.setHorizontalGroup(
-            ButtonsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ButtonsPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(ButtonsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtnReturnCar1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnReturnBike, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnRentBike, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-        ButtonsPanel1Layout.setVerticalGroup(
-            ButtonsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonsPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnRentBike, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(BtnReturnBike, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
-                .addComponent(BtnReturnCar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
-        );
+        getContentPane().add(ButtonsPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 1130));
 
         ManageCarPanel.setBackground(new java.awt.Color(51, 51, 0));
+        ManageCarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 185, 12));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Great Value Enterprises");
+        ManageCarPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 6, 522, 62));
 
         lblBrand.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblBrand.setForeground(new java.awt.Color(255, 185, 12));
         lblBrand.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblBrand.setText("Reg No :");
+        ManageCarPanel.add(lblBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 152, 102, 30));
 
         lblModel.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblModel.setForeground(new java.awt.Color(255, 185, 12));
         lblModel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblModel.setText("Model :");
+        ManageCarPanel.add(lblModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 251, 102, 30));
 
         lblStatus.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblStatus.setForeground(new java.awt.Color(255, 185, 12));
         lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblStatus.setText("Status :");
+        ManageCarPanel.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 298, 102, 30));
 
         lblPrice.setBackground(new java.awt.Color(255, 185, 12));
         lblPrice.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(255, 185, 12));
         lblPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPrice.setText("Price :");
+        ManageCarPanel.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 344, 102, 30));
 
         lblBrand1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblBrand1.setForeground(new java.awt.Color(255, 185, 12));
         lblBrand1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblBrand1.setText("Brand :");
+        ManageCarPanel.add(lblBrand1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 201, 102, 30));
 
         TxtRegNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtRegNoActionPerformed(evt);
             }
         });
+        ManageCarPanel.add(TxtRegNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 154, 140, 29));
 
         TxtBrand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtBrandActionPerformed(evt);
             }
         });
+        ManageCarPanel.add(TxtBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 203, 140, 30));
 
         TxtModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtModelActionPerformed(evt);
             }
         });
+        ManageCarPanel.add(TxtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 253, 140, 29));
 
         CBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "Available", "Booked", "In Service" }));
+        ManageCarPanel.add(CBStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 298, 140, 30));
 
         TxtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtPriceActionPerformed(evt);
             }
         });
+        ManageCarPanel.add(TxtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 346, 140, 29));
 
         TblManageBikes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         TblManageBikes.setModel(new javax.swing.table.DefaultTableModel(
@@ -208,6 +216,8 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TblManageBikes);
 
+        ManageCarPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 405, -1, 125));
+
         BtnSave.setBackground(new java.awt.Color(255, 185, 12));
         BtnSave.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnSave.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,6 +227,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                 BtnSaveActionPerformed(evt);
             }
         });
+        ManageCarPanel.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 152, 83, 31));
 
         BtnUpdate.setBackground(new java.awt.Color(255, 185, 12));
         BtnUpdate.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -227,6 +238,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                 BtnUpdateActionPerformed(evt);
             }
         });
+        ManageCarPanel.add(BtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 298, -1, 30));
 
         BtnDelete.setBackground(new java.awt.Color(255, 185, 12));
         BtnDelete.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -237,6 +249,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                 BtnDeleteActionPerformed(evt);
             }
         });
+        ManageCarPanel.add(BtnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 251, 83, 34));
 
         BtnReset.setBackground(new java.awt.Color(255, 185, 12));
         BtnReset.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -247,117 +260,41 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
                 BtnResetActionPerformed(evt);
             }
         });
+        ManageCarPanel.add(BtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 201, 83, 32));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 185, 12));
         jLabel1.setText("Manage Bikes");
+        ManageCarPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 86, 253, 52));
 
-        javax.swing.GroupLayout ManageCarPanelLayout = new javax.swing.GroupLayout(ManageCarPanel);
-        ManageCarPanel.setLayout(ManageCarPanelLayout);
-        ManageCarPanelLayout.setHorizontalGroup(
-            ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageCarPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
-            .addGroup(ManageCarPanelLayout.createSequentialGroup()
-                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ManageCarPanelLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ManageCarPanelLayout.createSequentialGroup()
-                                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(ManageCarPanelLayout.createSequentialGroup()
-                                        .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lblStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblBrand, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                                            .addComponent(lblModel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblBrand1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(29, 29, 29))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ManageCarPanelLayout.createSequentialGroup()
-                                        .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TxtRegNo)
-                                    .addComponent(TxtBrand)
-                                    .addComponent(TxtModel)
-                                    .addComponent(CBStatus, 0, 140, Short.MAX_VALUE)
-                                    .addComponent(TxtPrice))))
-                        .addGap(105, 105, 105)
-                        .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BtnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(ManageCarPanelLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        ManageCarPanelLayout.setVerticalGroup(
-            ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ManageCarPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtRegNo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnReset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblBrand1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TxtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblModel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TxtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CBStatus))
-                .addGap(16, 16, 16)
-                .addGroup(ManageCarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
-        );
+        BtnUpdate1.setBackground(new java.awt.Color(255, 185, 12));
+        BtnUpdate1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        BtnUpdate1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnUpdate1.setText("View Chart");
+        BtnUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdate1ActionPerformed(evt);
+            }
+        });
+        ManageCarPanel.add(BtnUpdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 548, -1, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(ButtonsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ManageCarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 555, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ButtonsPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ManageCarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(ManageCarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1470, 1130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnReturnBikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnBikeActionPerformed
         // TODO add your handling code here:
+        ReturnBikeJFrame r =new ReturnBikeJFrame();
+        r.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnReturnBikeActionPerformed
 
     private void BtnRentBikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRentBikeActionPerformed
         // TODO add your handling code here:
+        RentBikeJFrame rc = new RentBikeJFrame();
+        rc.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnRentBikeActionPerformed
 
     private void TxtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPriceActionPerformed
@@ -619,6 +556,9 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
 
     private void BtnReturnCar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnCar1ActionPerformed
         // TODO add your handling code here:
+        VehicleAdminLandingPage hl = new VehicleAdminLandingPage();
+        hl.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnReturnCar1ActionPerformed
 
     private void TxtModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModelActionPerformed
@@ -632,6 +572,33 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     private void TxtRegNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtRegNoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtRegNoActionPerformed
+
+    private void BtnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdate1ActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultCategoryDataset dcd = new DefaultCategoryDataset();
+        
+        DefaultTableModel model = (DefaultTableModel) TblManageBikes.getModel();
+        int MyIndex = TblManageBikes.getSelectedRow();
+        
+        int price = Integer.parseInt(model.getValueAt(MyIndex,4).toString());
+       
+        
+        dcd.setValue(   100 , "","Bullet");
+        dcd.setValue(   200 , "","InterCepter");
+        dcd.setValue(   300 , "","RX");
+//        dcd.setValue(   80 , "","FZ");
+//        dcd.setValue(   90, "","Java");
+        JFreeChart jchart = ChartFactory.createBarChart("Bike Model Price", "Bike", "Price", dcd, PlotOrientation.VERTICAL, true, true, false);
+
+        CategoryPlot plot = jchart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+        ChartFrame chartFrame = new ChartFrame("Medicines", jchart, true);
+        chartFrame.setVisible(true);
+        chartFrame.setSize(800, 600);
+       
+    }//GEN-LAST:event_BtnUpdate1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -677,6 +644,7 @@ public class ManageBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JButton BtnReturnCar1;
     private javax.swing.JButton BtnSave;
     private javax.swing.JButton BtnUpdate;
+    private javax.swing.JButton BtnUpdate1;
     private javax.swing.JPanel ButtonsPanel1;
     private javax.swing.JComboBox<String> CBStatus;
     private javax.swing.JPanel ManageCarPanel;

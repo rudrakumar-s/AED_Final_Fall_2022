@@ -11,6 +11,7 @@ import HomeLanding.HomeLanding;
 import LaptopRental.CustomerLaptopComplain;
 import LaptopRental.CustomerLaptopRent;
 import PhoneRental.CustomerPhoneRent;
+import javax.swing.JFrame;
 
 /**
  *
@@ -25,6 +26,7 @@ public class CustomerLanding extends javax.swing.JFrame {
         initComponents();
          txtCustomerId.setEditable(false);
         txtCustomerId1.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
        public CustomerLanding(String s) {
         initComponents();
@@ -32,6 +34,7 @@ public class CustomerLanding extends javax.swing.JFrame {
         txtCustomerId1.setText(s);
         txtCustomerId.setEditable(false);
         txtCustomerId1.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     /**
@@ -86,21 +89,22 @@ public class CustomerLanding extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PaneOptions.setBackground(new java.awt.Color(204, 221, 252));
         PaneOptions.setBorder(new javax.swing.border.MatteBorder(null));
-        PaneOptions.setForeground(new java.awt.Color(255, 185, 12));
         PaneOptions.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         PaneOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         PaneOptions.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
 
         PaneVehRent.setBackground(new java.awt.Color(204, 217, 245));
+        PaneVehRent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PaneVehRent.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(964, 167, -1, 27));
 
         ButtonPane1.setBackground(new java.awt.Color(249, 213, 198));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Government ID :");
 
         txtCustomerId1.addActionListener(new java.awt.event.ActionListener() {
@@ -145,17 +149,18 @@ public class CustomerLanding extends javax.swing.JFrame {
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
+        PaneVehRent.add(ButtonPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 131, -1, -1));
+
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Vehicles");
+        PaneVehRent.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 43, 187, 70));
 
         jPanel5.setBackground(new java.awt.Color(217, 161, 200));
 
         LblAvailableCar.setBackground(new java.awt.Color(255, 255, 255));
         LblAvailableCar.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        LblAvailableCar.setForeground(new java.awt.Color(255, 255, 255));
         LblAvailableCar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblAvailableCar.setText("Rent a Car");
 
@@ -179,7 +184,7 @@ public class CustomerLanding extends javax.swing.JFrame {
                 .addComponent(LblAvailableCar, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(lblCarIcon)
                 .addGap(38, 38, 38))
         );
@@ -193,11 +198,12 @@ public class CustomerLanding extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        PaneVehRent.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 54, 298, -1));
+
         jPanel6.setBackground(new java.awt.Color(242, 191, 202));
 
         LblAvailableBike.setBackground(new java.awt.Color(255, 255, 255));
         LblAvailableBike.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        LblAvailableBike.setForeground(new java.awt.Color(255, 255, 255));
         LblAvailableBike.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblAvailableBike.setText("Rent a Bike");
 
@@ -232,13 +238,14 @@ public class CustomerLanding extends javax.swing.JFrame {
                 .addComponent(LblAvailableBike, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblRentBike, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
+
+        PaneVehRent.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 54, -1, 241));
 
         jPanel7.setBackground(new java.awt.Color(255, 231, 214));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Manage Car Rents");
 
         lblManageCar.setForeground(new java.awt.Color(255, 185, 12));
@@ -270,13 +277,14 @@ public class CustomerLanding extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblManageCar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
+
+        PaneVehRent.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 301, -1, 259));
 
         jPanel8.setBackground(new java.awt.Color(189, 212, 209));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Manage Bike Rents");
 
         lblManageBike.setForeground(new java.awt.Color(255, 185, 12));
@@ -292,7 +300,7 @@ public class CustomerLanding extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(lblManageBike)
                 .addGap(47, 47, 47))
             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -310,55 +318,7 @@ public class CustomerLanding extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout PaneVehRentLayout = new javax.swing.GroupLayout(PaneVehRent);
-        PaneVehRent.setLayout(PaneVehRentLayout);
-        PaneVehRentLayout.setHorizontalGroup(
-            PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PaneVehRentLayout.createSequentialGroup()
-                .addGroup(PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PaneVehRentLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(ButtonPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PaneVehRentLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
-        );
-        PaneVehRentLayout.setVerticalGroup(
-            PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PaneVehRentLayout.createSequentialGroup()
-                .addGroup(PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PaneVehRentLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PaneVehRentLayout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PaneVehRentLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(ButtonPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(PaneVehRentLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PaneVehRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(137, Short.MAX_VALUE))
-        );
+        PaneVehRent.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 301, 292, -1));
 
         PaneOptions.addTab("Vechicle Rent", PaneVehRent);
 
@@ -623,55 +583,23 @@ public class CustomerLanding extends javax.swing.JFrame {
                         .addGroup(PaneElecRentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 138, Short.MAX_VALUE))))
+                        .addGap(0, 498, Short.MAX_VALUE))))
         );
 
         PaneOptions.addTab("Electronics Rent", PaneElecRent);
 
+        getContentPane().add(PaneOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 118, 1770, 1090));
+
         HeadingPane.setBackground(new java.awt.Color(176, 194, 212));
+        HeadingPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Great Value Enterprises");
+        HeadingPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 6, 418, 100));
 
-        javax.swing.GroupLayout HeadingPaneLayout = new javax.swing.GroupLayout(HeadingPane);
-        HeadingPane.setLayout(HeadingPaneLayout);
-        HeadingPaneLayout.setHorizontalGroup(
-            HeadingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeadingPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(301, 301, 301))
-        );
-        HeadingPaneLayout.setVerticalGroup(
-            HeadingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HeadingPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HeadingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PaneOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 972, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(HeadingPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PaneOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(HeadingPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1780, -1));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblLaptopIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLaptopIconMouseClicked

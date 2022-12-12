@@ -4,9 +4,12 @@
  */
 package VehicleServiceComplaintsManagement;
 
+import HomeLanding.HomeLanding;
 import MySQLConnection.MySQLConnection;
+import VehicleServiceMechanicManagement.ManageMechanics;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,6 +30,7 @@ public class BikeComplaints extends javax.swing.JFrame {
         txtBikeId.setEditable(false);
         txtCustomerId.setEditable(false);
         txtMechanicId.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -51,10 +55,13 @@ public class BikeComplaints extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,6 +78,8 @@ public class BikeComplaints extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblComplaints);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 146, 429, 152));
+
         tblMechanic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -86,6 +95,11 @@ public class BikeComplaints extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblMechanic);
 
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 361, 429, 147));
+        jPanel1.add(txtBikeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(672, 233, 163, -1));
+        jPanel1.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(672, 289, 163, -1));
+        jPanel1.add(txtMechanicId, new org.netbeans.lib.awtextra.AbsoluteConstraints(672, 330, 163, -1));
+
         btnAssign.setBackground(new java.awt.Color(255, 185, 12));
         btnAssign.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnAssign.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,98 +109,42 @@ public class BikeComplaints extends javax.swing.JFrame {
                 btnAssignActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(709, 399, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 185, 12));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Bike ID");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 233, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 185, 12));
         jLabel2.setText("CustomerID");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 289, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 185, 12));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Mechanic ID");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 330, 120, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 185, 12));
         jLabel3.setText("Bike Complaints");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 41, 229, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtBikeId, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                            .addComponent(txtCustomerId, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtMechanicId, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAssign)
-                        .addGap(88, 88, 88))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtBikeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtMechanicId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(btnAssign)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86))))
-        );
+        btnLogout.setBackground(new java.awt.Color(255, 185, 12));
+        btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Back");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 505, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2080, 1300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,11 +182,10 @@ public class BikeComplaints extends javax.swing.JFrame {
             try {
                 //            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rent","root","12345678");
                 String Req = txtMechanicId.getText();
-                String Query = "Update bikemechanic set  productid = '"+txtBikeId.getText()+"',"
-                + " where mechanicid = '"+txtMechanicId.getText()+"' ";
+                String Query = "Update bikemechanic set  productid = '"+txtBikeId.getText()+"'  where mechanicid = '"+txtMechanicId.getText()+"' ";
                 String sql1 = "Update bike set mechanicid = '"+txtMechanicId.getText()+"' where   productid = '"+txtBikeId.getText()+"'  ";
                 c.updateDatabase(Query);
-
+                c.updateDatabase(sql1);
                 JOptionPane.showMessageDialog(this,"Assigned Mechanic");
                 DisplayComplaints();
                 DisplayMechanics();
@@ -242,6 +199,13 @@ public class BikeComplaints extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnAssignActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        ManageMechanics hl = new ManageMechanics();
+        hl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,6 +247,7 @@ public class BikeComplaints extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssign;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

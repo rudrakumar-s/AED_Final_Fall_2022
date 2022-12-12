@@ -4,12 +4,14 @@
  */
 package VehicleServiceMechanicManagement;
 import GadgetServiceTechnicianManagement.*;
+import HomeLanding.HomeLanding;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,6 +27,8 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
      MySQLConnection c = new MySQLConnection();
     public ManageBikeMechanic() {
         initComponents();
+        Display();
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -40,7 +44,6 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txtName = new javax.swing.JTextField();
-        txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         txtMechanicId = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
@@ -49,38 +52,30 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMechanicList = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 185, 12));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Bike Mechanic");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 18, 338, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1630, 80));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 69, 135, -1));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 199, 135, -1));
+        jPanel2.add(txtMechanicId, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 132, 135, -1));
 
         btnDelete.setBackground(new java.awt.Color(255, 185, 12));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -91,6 +86,7 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 259, -1, -1));
 
         Save.setBackground(new java.awt.Color(255, 185, 12));
         Save.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -101,6 +97,7 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
                 SaveActionPerformed(evt);
             }
         });
+        jPanel2.add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 259, -1, -1));
 
         btnUpdate.setBackground(new java.awt.Color(255, 185, 12));
         btnUpdate.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -111,13 +108,14 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
+        jPanel2.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 259, -1, -1));
 
         tblMechanicList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mechanic Id", "Name", "UserName", "Password"
+                "Mechanic Id", "Name", "Password"
             }
         ));
         tblMechanicList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -127,100 +125,35 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblMechanicList);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 319, -1, 112));
+
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 185, 12));
         jLabel2.setText("Name");
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 185, 12));
-        jLabel3.setText("UserName");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 70, -1, 19));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 185, 12));
         jLabel1.setText("Mechanic ID");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 133, -1, 19));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 185, 12));
         jLabel4.setText("Password");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 200, -1, 19));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(Save)
-                    .addComponent(jLabel3))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnUpdate)
-                        .addGap(52, 52, 52)
-                        .addComponent(btnDelete)
-                        .addGap(227, 227, 227))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(txtUserName)
-                            .addComponent(txtMechanicId)
-                            .addComponent(txtPassword))
-                        .addGap(238, 238, 238))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMechanicId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Save)
-                            .addComponent(btnUpdate)
-                            .addComponent(btnDelete))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        btnLogout.setBackground(new java.awt.Color(255, 185, 12));
+        btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Back");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 445, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 83, 1630, 1080));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -231,9 +164,9 @@ public class ManageBikeMechanic extends javax.swing.JFrame {
         int MyIndex = tblMechanicList.getSelectedRow();
         txtMechanicId.setText(model.getValueAt(MyIndex,0).toString());
         txtName.setText(model.getValueAt(MyIndex,1).toString());
-        txtUserName.setText(model.getValueAt(MyIndex,2).toString());
-        txtPassword.setText((model.getValueAt(MyIndex, 3).toString()));
-        TextEdit();
+//        txtUserName.setText(model.getValueAt(MyIndex,2).toString());
+        txtPassword.setText((model.getValueAt(MyIndex, 2).toString()));
+//        TextEdit();
         //        txtPrice.setText((model.getValueAt(MyIndex, 4).toString()));
     }//GEN-LAST:event_tblMechanicListMouseClicked
 
@@ -281,13 +214,13 @@ int flag = 0;
                     dialog.setVisible(true);
                     flag = 1;
                 }
-                 if(txtUserName.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
+//                 if(txtUserName.getText().isEmpty()){
+//                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+//                    JDialog dialog = optionPane.createDialog("Error Message");
+//                    dialog.setAlwaysOnTop(true);
+//                    dialog.setVisible(true);
+//                    flag = 1;
+//                }
                   if(txtPassword.getText().isEmpty()){
                     JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
                     JDialog dialog = optionPane.createDialog("Error Message");
@@ -303,7 +236,7 @@ int flag = 0;
                     flag = 1;
                 }
                    if(flag==0){
-            String sql1 = "Insert into bikemechanic (mechanicid, name,username,password ) values ('"+txtMechanicId.getText()+"','"+txtName.getText()+"','"+txtUserName.getText()+"','"+txtPassword.getText()+"') ";
+            String sql1 = "Insert into bikemechanic (mechanicid, name,password,productid ) values ('"+txtMechanicId.getText()+"','"+txtName.getText()+"','"+txtPassword.getText()+"','Not Assigned') ";
             c.insertDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Record added!");
 
@@ -327,13 +260,13 @@ int flag = 0;
         else
         {
             try {
-              if(txtUserName.getText().isEmpty()){
-                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
-                    JDialog dialog = optionPane.createDialog("Error Message");
-                    dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);
-                    flag = 1;
-                }
+//              if(txtUserName.getText().isEmpty()){
+//                    JOptionPane optionPane = new JOptionPane("UserName cannot be empty", JOptionPane.ERROR_MESSAGE);
+//                    JDialog dialog = optionPane.createDialog("Error Message");
+//                    dialog.setAlwaysOnTop(true);
+//                    dialog.setVisible(true);
+//                    flag = 1;
+//                }
                   if(txtPassword.getText().isEmpty()){
                     JOptionPane optionPane = new JOptionPane("Password cannot be empty", JOptionPane.ERROR_MESSAGE);
                     JDialog dialog = optionPane.createDialog("Error Message");
@@ -350,8 +283,7 @@ int flag = 0;
                 }
                    if(flag == 0){
                 String Req = txtMechanicId.getText();
-                String Query = "Update bikemechanic set  name = '"+txtName.getText()+"',"
-                + " username = '"+txtUserName.getText()+"',password = '"+txtPassword.getText()+"'";
+                String Query = "Update bikemechanic set  name = '"+txtName.getText()+"',password = '"+txtPassword.getText()+"' where mechanicid = '"+txtMechanicId.getText()+"' ";
                 c.updateDatabase(Query);
                 //            Statement Add = con.createStatement();
                 //            Add.executeUpdate(Query);
@@ -367,6 +299,13 @@ int flag = 0;
 
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        ManageMechanics hl = new ManageMechanics();
+        hl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -394,13 +333,7 @@ int flag = 0;
             java.util.logging.Logger.getLogger(ManageBikeMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+      
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -413,10 +346,10 @@ int flag = 0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Save;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -426,12 +359,11 @@ int flag = 0;
     private javax.swing.JTextField txtMechanicId;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
     private void TextEdit() {
 
-txtMechanicId.setEditable(false);  
+//txtMechanicId.setEditable(false);  
     }
 
     private void Display() {
@@ -452,12 +384,12 @@ txtMechanicId.setEditable(false);
 
 
             while (rs.next()) {
-                reg = rs.getString(7);
+                reg = rs.getString(4);
                 brand = rs.getString(1);
                 carmodel = rs.getString(3);
-                status = rs.getString(4);
+//                status = rs.getString(4);
 //                price = rs.getString(6);
-                String[] row = {reg,brand,carmodel,status};
+                String[] row = {reg,brand,carmodel};
                   model.addRow(row);
                                
             }
@@ -473,7 +405,7 @@ txtMechanicId.setEditable(false);
     private void Reset() {
 txtMechanicId.setText("");
         txtName.setText("");
-       txtUserName.setText("");
+//       txtUserName.setText("");
         txtPassword.setText("");   
     }
 }

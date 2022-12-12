@@ -4,12 +4,15 @@
  */
 package BikeRental;
 
+import HomeLanding.HomeLanding;
+import HomeLanding.VehicleAdminLandingPage;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,9 +31,10 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
     public ReturnBikeJFrame() {
         initComponents();
         DisplayCarOnRent();
-         TxtRegNo.setVisible(false);
+        TxtRegNo.setEditable(false);
         TxtRentID.setEditable(false);
         TxtCustomerID.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -46,7 +50,7 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
         ButtonsPanel = new javax.swing.JPanel();
         BtnRentBike = new javax.swing.JButton();
         BtnManageBike = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
+        BtnReturnCar1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         TblBikeOnRent = new javax.swing.JTable();
         TxtCustomerID = new javax.swing.JTextField();
@@ -64,15 +68,19 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ReturnBikePanel.setBackground(new java.awt.Color(51, 51, 0));
+        ReturnBikePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonsPanel.setBackground(new java.awt.Color(255, 185, 12));
+        ButtonsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnRentBike.setBackground(new java.awt.Color(51, 51, 0));
         BtnRentBike.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnRentBike.setForeground(new java.awt.Color(255, 255, 255));
-        BtnRentBike.setText("Rent Bike");
+        BtnRentBike.setText("Manage Rents");
         BtnRentBike.setBorder(null);
         BtnRentBike.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnRentBike.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +88,7 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                 BtnRentBikeActionPerformed(evt);
             }
         });
+        ButtonsPanel.add(BtnRentBike, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 319, 128, 29));
 
         BtnManageBike.setBackground(new java.awt.Color(51, 51, 0));
         BtnManageBike.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -92,42 +101,22 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                 BtnManageBikeActionPerformed(evt);
             }
         });
+        ButtonsPanel.add(BtnManageBike, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 236, 128, 29));
 
-        btnLogout.setBackground(new java.awt.Color(51, 51, 0));
-        btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.setBorder(null);
-        btnLogout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        BtnReturnCar1.setBackground(new java.awt.Color(51, 51, 0));
+        BtnReturnCar1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        BtnReturnCar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnReturnCar1.setText("Back");
+        BtnReturnCar1.setBorder(null);
+        BtnReturnCar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnReturnCar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                BtnReturnCar1ActionPerformed(evt);
             }
         });
+        ButtonsPanel.add(BtnReturnCar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 455, 115, 29));
 
-        javax.swing.GroupLayout ButtonsPanelLayout = new javax.swing.GroupLayout(ButtonsPanel);
-        ButtonsPanel.setLayout(ButtonsPanelLayout);
-        ButtonsPanelLayout.setHorizontalGroup(
-            ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonsPanelLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnManageBike, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnRentBike, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
-        );
-        ButtonsPanelLayout.setVerticalGroup(
-            ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnManageBike, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(BtnRentBike, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(201, 201, 201))
-        );
+        ReturnBikePanel.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 1080));
 
         TblBikeOnRent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,17 +133,21 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(TblBikeOnRent);
 
+        ReturnBikePanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 409, 535, 139));
+
         TxtCustomerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCustomerIDActionPerformed(evt);
             }
         });
+        ReturnBikePanel.add(TxtCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 148, 150, 32));
 
         TxtRentID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtRentIDActionPerformed(evt);
             }
         });
+        ReturnBikePanel.add(TxtRentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 198, 150, 32));
 
         BtnConfirm.setBackground(new java.awt.Color(255, 185, 12));
         BtnConfirm.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -165,12 +158,17 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                 BtnConfirmActionPerformed(evt);
             }
         });
+        ReturnBikePanel.add(BtnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 342, -1, -1));
+        ReturnBikePanel.add(TxtDelay, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 295, 150, 32));
+        ReturnBikePanel.add(TxtRegNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 251, 150, 30));
+        ReturnBikePanel.add(TxtFine, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 341, 150, 32));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 185, 12));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Great Value Enterprises");
+        ReturnBikePanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 16, -1, -1));
 
         LblReturnCarHeading.setBackground(new java.awt.Color(161, 215, 215));
         LblReturnCarHeading.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
@@ -178,119 +176,39 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
         LblReturnCarHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblReturnCarHeading.setText("Return Bikes");
         LblReturnCarHeading.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ReturnBikePanel.add(LblReturnCarHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 90, 243, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 185, 12));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Customer ID :");
+        ReturnBikePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 144, -1, 32));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 185, 12));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Rent ID :");
+        ReturnBikePanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 198, -1, 32));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 185, 12));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Reg No :");
+        ReturnBikePanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 248, -1, 32));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 185, 12));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Delay :");
+        ReturnBikePanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 293, -1, 32));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 185, 12));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Fine :");
+        ReturnBikePanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 339, 66, 32));
 
-        javax.swing.GroupLayout ReturnBikePanelLayout = new javax.swing.GroupLayout(ReturnBikePanel);
-        ReturnBikePanel.setLayout(ReturnBikePanelLayout);
-        ReturnBikePanelLayout.setHorizontalGroup(
-            ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                .addComponent(ButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                                .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(3, 3, 3))
-                            .addComponent(jLabel8))
-                        .addGap(47, 47, 47)
-                        .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TxtFine, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(TxtCustomerID, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtRentID, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtDelay, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtRegNo, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(40, 40, 40)
-                        .addComponent(BtnConfirm))
-                    .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel11))
-                    .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(LblReturnCarHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
-        ReturnBikePanelLayout.setVerticalGroup(
-            ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ButtonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel11)
-                .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(LblReturnCarHeading)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ReturnBikePanelLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(TxtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TxtRentID, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TxtRegNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TxtDelay, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ReturnBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TxtFine, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnConfirm))))
-                .addGap(36, 36, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ReturnBikePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(ReturnBikePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(ReturnBikePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1490, 1090));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -355,16 +273,22 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                     
                     
                 }
-            String sql="UPDATE customers SET customerid = '"+TxtCustomerID.getText()+"', delay = '"+TxtDelay.getText()+"', fine= '"+TxtFine.getText()+"',carapprove = 'Returned' WHERE customerid = '"+TxtCustomerID.getText()+"' ";
+                if(flag == 0){
+            String sql="UPDATE customers SET customerid = '"+TxtCustomerID.getText()+"', bikedelay = '"+TxtDelay.getText()+"', bikefine= '"+TxtFine.getText()+"' WHERE customerid = '"+TxtCustomerID.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Return Confirmed");
-            String sql1 ="UPDATE bike SET status = 'Available', rentid = NULL  WHERE Regno = '"+TxtRegNo.getText()+"'";
+            String sql1 ="UPDATE bike SET status = 'Available', rentid = NULL  WHERE productid = '"+TxtRegNo.getText()+"'";
             c.updateDatabase(sql1);
  
             DisplayCarOnRent();
             TxtDelay.setText("");
             TxtFine.setText("");
+            TxtCustomerID.setText("");
+            TxtRegNo.setText("");
+            TxtRentID.setText("");
+            
 
+        }
         }
         catch(Exception e)
         {
@@ -385,9 +309,12 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtRentIDActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void BtnReturnCar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnCar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogoutActionPerformed
+        VehicleAdminLandingPage hl = new VehicleAdminLandingPage();
+        hl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnReturnCar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -429,6 +356,7 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JButton BtnConfirm;
     private javax.swing.JButton BtnManageBike;
     private javax.swing.JButton BtnRentBike;
+    private javax.swing.JButton BtnReturnCar1;
     private javax.swing.JPanel ButtonsPanel;
     private javax.swing.JLabel LblReturnCarHeading;
     private javax.swing.JPanel ReturnBikePanel;
@@ -438,7 +366,6 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TxtFine;
     private javax.swing.JTextField TxtRegNo;
     private javax.swing.JTextField TxtRentID;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel4;
@@ -463,7 +390,8 @@ public class ReturnBikeJFrame extends javax.swing.JFrame {
                 brand = rs.getString(9);
                 carmodel = rs.getString(6);
                 status = rs.getString(1);
-                String[] row = {status,reg,brand,carmodel};
+                price = rs.getString(3);
+                String[] row = {status,reg,brand,carmodel,price};
                 model.addRow(row);                  
             }
         } 

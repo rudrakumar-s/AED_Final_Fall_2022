@@ -4,12 +4,17 @@
  */
 package PhoneRental;
 
+import HomeLanding.GadgetAdminLandingPage;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HomeLanding.HomeLanding;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 /**
  *
@@ -27,6 +32,7 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
         txtProductId.setVisible(false);
         txtRentId.setEditable(false);
         txtCustomerId.setEditable(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
 
@@ -43,7 +49,7 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnManageLaptop = new javax.swing.JButton();
         btnRentLaptop = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnLogout1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -62,8 +68,11 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
         btnConfirm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 185, 12));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnManageLaptop.setBackground(new java.awt.Color(51, 51, 0));
         btnManageLaptop.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -74,6 +83,7 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
                 btnManageLaptopActionPerformed(evt);
             }
         });
+        jPanel1.add(btnManageLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 195, -1, -1));
 
         btnRentLaptop.setBackground(new java.awt.Color(51, 51, 0));
         btnRentLaptop.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -84,78 +94,65 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
                 btnRentLaptopActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRentLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 259, 144, -1));
 
-        jButton3.setBackground(new java.awt.Color(51, 51, 0));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Logout");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout1.setBackground(new java.awt.Color(51, 51, 0));
+        btnLogout1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnLogout1.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout1.setText("Back");
+        btnLogout1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnLogout1ActionPerformed(evt);
             }
         });
+        jPanel1.add(btnLogout1, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 446, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnManageLaptop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRentLaptop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(195, 195, 195)
-                .addComponent(btnManageLaptop)
-                .addGap(37, 37, 37)
-                .addComponent(btnRentLaptop)
-                .addGap(109, 109, 109)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 1300));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 185, 12));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Fine :");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 316, 66, 32));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 185, 12));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Customer ID :");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 214, -1, 32));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 185, 12));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Delay :");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 266, 66, 32));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 185, 12));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Rent ID :");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 164, -1, 32));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 185, 12));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Product ID :");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 114, -1, 32));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 185, 12));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Great Value Enterprises");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 6, 522, 62));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 185, 12));
         jLabel1.setText("Return Phones");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 80, 164, 22));
 
         tblLaptopOnRent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,6 +169,13 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tblLaptopOnRent);
 
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 418, -1, 123));
+        jPanel2.add(txtProductId, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 114, 138, 32));
+        jPanel2.add(txtRentId, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 164, 138, 31));
+        jPanel2.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 216, 138, 32));
+        jPanel2.add(txtDelay, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 266, 138, 32));
+        jPanel2.add(txtFine, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 318, 138, 32));
+
         btnConfirm.setBackground(new java.awt.Color(255, 185, 12));
         btnConfirm.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,96 +185,9 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
                 btnConfirmActionPerformed(evt);
             }
         });
+        jPanel2.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 319, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtProductId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtRentId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDelay, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFine, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(50, 50, 50)
-                                .addComponent(btnConfirm))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtProductId, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtRentId, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtDelay, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFine, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConfirm))
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 0, 1750, 1300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -288,9 +205,48 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
 
         try{
-
-            String sql="UPDATE customers SET customerid = '"+txtCustomerId.getText()+"', delay = '"+txtDelay.getText()+"', "
-                    + "fine= '"+txtFine.getText()+"',phoneaproove = 'Returned' WHERE customerid = '"+txtCustomerId.getText()+"' ";
+int flag = 0;
+                
+                //*************************************** Validation of Empty Name Field ***************************************//
+                 if(txtDelay.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Delay Field cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                 if(txtFine.getText().isEmpty()){
+                    JOptionPane optionPane = new JOptionPane("Fine Field cannot be empty", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Error Message");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    flag = 1;
+                }
+                String cellPhoneNumber3 = txtFine.getText();
+                Pattern pattern3 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher3 = pattern3.matcher(cellPhoneNumber3);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Valid Fine Amount!");
+                    flag = 1;
+                    txtFine.setText("");
+                    
+                    
+                }
+                String cellPhoneNumber2 = txtDelay.getText();
+                Pattern pattern2 = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher2 = pattern2.matcher(cellPhoneNumber2);
+                if(!matcher3.matches())
+                {
+                    JOptionPane.showMessageDialog(this,"Enter a Valid Delay Period!");
+                    flag = 1;
+                    txtDelay.setText("");
+                    
+                    
+                }
+                 if(flag == 0){
+            String sql="UPDATE customers SET customerid = '"+txtCustomerId.getText()+"', phonedelay = '"+txtDelay.getText()+"', "
+                    + "phonefine= '"+txtFine.getText()+"' WHERE customerid = '"+txtCustomerId.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Return Confirmed");
 //***********************************************************************************************************
@@ -300,8 +256,14 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
 //************************************************************** *********************************************   
 
             DisplayLaptopOnRent();
+            txtCustomerId.setText("");
+            txtDelay.setText("");
+            txtFine.setText("");
+            txtProductId.setText("");
+            txtRentId.setText("");
+            
 
-
+                 }
         }
         catch(Exception e)
         {
@@ -324,9 +286,12 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnRentLaptopActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogout1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        GadgetAdminLandingPage hl = new GadgetAdminLandingPage();
+        hl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogout1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,9 +345,9 @@ public class PhoneReturnJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnLogout1;
     private javax.swing.JButton btnManageLaptop;
     private javax.swing.JButton btnRentLaptop;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;

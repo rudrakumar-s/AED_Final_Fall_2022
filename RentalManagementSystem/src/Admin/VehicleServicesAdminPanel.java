@@ -52,7 +52,9 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(561, 619));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 0));
-        jPanel2.setPreferredSize(new java.awt.Dimension(702, 622));
+        jPanel2.setMinimumSize(new java.awt.Dimension(2147483647, 2147483647));
+        jPanel2.setPreferredSize(new java.awt.Dimension(2147483647, 2147483647));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblVehicleServicesAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,6 +71,11 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblVehicleServicesAdmin);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 590, 174));
+        jPanel2.add(txtVehicleServicesAdminID, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 120, -1));
+        jPanel2.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 120, -1));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 120, -1));
+
         btnSave.setBackground(new java.awt.Color(255, 185, 12));
         btnSave.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
@@ -78,6 +85,7 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
+        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
 
         btnEdit.setBackground(new java.awt.Color(255, 185, 12));
         btnEdit.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -88,6 +96,7 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
                 btnEditActionPerformed(evt);
             }
         });
+        jPanel2.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
 
         btnDelete.setBackground(new java.awt.Color(255, 185, 12));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -98,90 +107,35 @@ public class VehicleServicesAdminPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 185, 12));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Create Vehicle Service Admin");
+        jLabel4.setText("Manage Vehicle Service Admin");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 18, 398, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 185, 12));
         jLabel1.setText("Vechicle ServiceAdmin ID ");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 185, 12));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Username");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 185, 12));
         jLabel3.setText("Password");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(168, 168, 168))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(62, 62, 62)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtVehicleServicesAdminID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(btnSave)
-                        .addGap(66, 66, 66)
-                        .addComponent(btnEdit)
-                        .addGap(84, 84, 84)
-                        .addComponent(btnDelete))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtVehicleServicesAdminID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave)
-                    .addComponent(btnEdit)
-                    .addComponent(btnDelete))
-                .addContainerGap(123, Short.MAX_VALUE))
-        );
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 712, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

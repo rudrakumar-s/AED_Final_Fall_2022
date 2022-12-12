@@ -5,6 +5,8 @@
 package BikeRental;
 
 
+import HomeLanding.HomeLanding;
+import HomeLanding.VehicleAdminLandingPage;
 import Rental.Notification.Email;
 import MySQLConnection.MySQLConnection;
 import java.sql.Connection;
@@ -16,6 +18,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -42,7 +45,8 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         TxtPrice.setEditable(false);
 //     ss   TxtProductId.setEditable(false);
         TxtEmail.setVisible(false);
-        jLabel8.setVisible(false);
+        jLabel9.setVisible(false);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     /**
@@ -58,7 +62,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         ButtonsPanel = new javax.swing.JPanel();
         BtnReturnBike = new javax.swing.JButton();
         BtnManageBike = new javax.swing.JButton();
-        BtnReturnBike1 = new javax.swing.JButton();
+        BtnReturnCar1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         TblBikeOnRent = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -86,11 +90,13 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RentBikePanel.setBackground(new java.awt.Color(51, 51, 0));
+        RentBikePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonsPanel.setBackground(new java.awt.Color(255, 185, 12));
+        ButtonsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnReturnBike.setBackground(new java.awt.Color(51, 51, 0));
         BtnReturnBike.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -103,6 +109,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                 BtnReturnBikeActionPerformed(evt);
             }
         });
+        ButtonsPanel.add(BtnReturnBike, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 283, 115, 29));
 
         BtnManageBike.setBackground(new java.awt.Color(51, 51, 0));
         BtnManageBike.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -115,42 +122,22 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                 BtnManageBikeActionPerformed(evt);
             }
         });
+        ButtonsPanel.add(BtnManageBike, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 206, 115, 29));
 
-        BtnReturnBike1.setBackground(new java.awt.Color(51, 51, 0));
-        BtnReturnBike1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        BtnReturnBike1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnReturnBike1.setText("Logout");
-        BtnReturnBike1.setBorder(null);
-        BtnReturnBike1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnReturnBike1.addActionListener(new java.awt.event.ActionListener() {
+        BtnReturnCar1.setBackground(new java.awt.Color(51, 51, 0));
+        BtnReturnCar1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        BtnReturnCar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnReturnCar1.setText("Back");
+        BtnReturnCar1.setBorder(null);
+        BtnReturnCar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnReturnCar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnReturnBike1ActionPerformed(evt);
+                BtnReturnCar1ActionPerformed(evt);
             }
         });
+        ButtonsPanel.add(BtnReturnCar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 390, 115, 29));
 
-        javax.swing.GroupLayout ButtonsPanelLayout = new javax.swing.GroupLayout(ButtonsPanel);
-        ButtonsPanel.setLayout(ButtonsPanelLayout);
-        ButtonsPanelLayout.setHorizontalGroup(
-            ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonsPanelLayout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addGroup(ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnReturnBike1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnManageBike, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnReturnBike, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
-        );
-        ButtonsPanelLayout.setVerticalGroup(
-            ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonsPanelLayout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
-                .addComponent(BtnManageBike, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(BtnReturnBike, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
-                .addComponent(BtnReturnBike1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(371, 371, 371))
-        );
+        RentBikePanel.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 1040));
 
         TblBikeOnRent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -167,6 +154,8 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TblBikeOnRent);
 
+        RentBikePanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 209, 430, 129));
+
         TblBikeRentalRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -182,6 +171,8 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(TblBikeRentalRequest);
 
+        RentBikePanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 431, 430, 139));
+
         BtnApprove.setBackground(new java.awt.Color(255, 185, 12));
         BtnApprove.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnApprove.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,6 +182,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                 BtnApproveActionPerformed(evt);
             }
         });
+        RentBikePanel.add(BtnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(579, 605, -1, -1));
 
         BtnDeny.setBackground(new java.awt.Color(255, 185, 12));
         BtnDeny.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -201,14 +193,17 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                 BtnDenyActionPerformed(evt);
             }
         });
+        RentBikePanel.add(BtnDeny, new org.netbeans.lib.awtextra.AbsoluteConstraints(579, 666, 94, -1));
 
         LblCarsOnRent1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         LblCarsOnRent1.setForeground(new java.awt.Color(255, 185, 12));
         LblCarsOnRent1.setText("Bikes On Rent");
+        RentBikePanel.add(LblCarsOnRent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 182, 125, -1));
 
         LblCarsOnRent.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         LblCarsOnRent.setForeground(new java.awt.Color(255, 185, 12));
         LblCarsOnRent.setText("Rental Request");
+        RentBikePanel.add(LblCarsOnRent, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 375, 125, -1));
 
         LblRentCarHeading.setBackground(new java.awt.Color(255, 185, 12));
         LblRentCarHeading.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
@@ -216,12 +211,14 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         LblRentCarHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblRentCarHeading.setText("Rent Bikes");
         LblRentCarHeading.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        RentBikePanel.add(LblRentCarHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 107, 185, 53));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 185, 12));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Great Value Enterprises");
+        RentBikePanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 33, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 0));
 
@@ -290,13 +287,15 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(TxtEmail)
                     .addComponent(TxtPrice)
                     .addComponent(TxtRegNo)
                     .addComponent(TxtRentDate)
                     .addComponent(TxtReturnDate)
-                    .addComponent(TxtCustomerID)
-                    .addComponent(TxtRentID))
+                    .addComponent(TxtRentID)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(TxtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -337,87 +336,11 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                 .addGap(146, 146, 146))
         );
 
-        javax.swing.GroupLayout RentBikePanelLayout = new javax.swing.GroupLayout(RentBikePanel);
-        RentBikePanel.setLayout(RentBikePanelLayout);
-        RentBikePanelLayout.setHorizontalGroup(
-            RentBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RentBikePanelLayout.createSequentialGroup()
-                .addComponent(ButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(RentBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RentBikePanelLayout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(jLabel10)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(RentBikePanelLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(RentBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RentBikePanelLayout.createSequentialGroup()
-                                .addComponent(LblRentCarHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(RentBikePanelLayout.createSequentialGroup()
-                                .addComponent(LblCarsOnRent1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(RentBikePanelLayout.createSequentialGroup()
-                                .addGroup(RentBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LblCarsOnRent, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(RentBikePanelLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(RentBikePanelLayout.createSequentialGroup()
-                                        .addGap(326, 326, 326)
-                                        .addGroup(RentBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(BtnDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(BtnApprove))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26))))))
-        );
-        RentBikePanelLayout.setVerticalGroup(
-            RentBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RentBikePanelLayout.createSequentialGroup()
-                .addGroup(RentBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(RentBikePanelLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addComponent(LblRentCarHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(LblCarsOnRent1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(RentBikePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(RentBikePanelLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(LblCarsOnRent)
-                                .addGap(35, 35, 35)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(BtnApprove)
-                                .addGap(34, 34, 34)
-                                .addComponent(BtnDeny)))))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        RentBikePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(RentBikePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(RentBikePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
+        getContentPane().add(RentBikePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 1870, 1050));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnReturnBikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnBikeActionPerformed
@@ -464,10 +387,11 @@ public class RentBikeJFrame extends javax.swing.JFrame {
                     
                     
                 }
-            String sql="UPDATE bike SET customerid = '"+TxtCustomerID.getText()+"', rentid = '"+TxtRentID.getText()+"',status = 'Booked',rentdate = '"+TxtRentDate.getText()+"' ,returndate = '"+TxtReturnDate.getText()+"',price = '"+TxtPrice.getText()+"' WHERE Regno = '"+TxtRegNo.getText()+"' ";
+                if(flag == 0){
+            String sql="UPDATE bike SET customerid = '"+TxtCustomerID.getText()+"', rentid = '"+TxtRentID.getText()+"',status = 'Booked',rentdate = '"+TxtRentDate.getText()+"' ,returndate = '"+TxtReturnDate.getText()+"',price = '"+TxtPrice.getText()+"' WHERE productid = '"+TxtRegNo.getText()+"' ";
             c.updateDatabase(sql);
             JOptionPane.showMessageDialog(this,"Request Aprooved");  
-            String sql1 ="UPDATE customers SET carapproved = 'Booked'  WHERE customerid = '"+TxtCustomerID.getText()+"' ";
+            String sql1 ="UPDATE customers SET bikeaproove = 'Booked', bikerentid  = '"+TxtRentID.getText()+"'  WHERE customerid = '"+TxtCustomerID.getText()+"' ";
             c.updateDatabase(sql1);          
 
             String sql2 = "SELECT email From customers WHERE customerid = '"+TxtCustomerID.getText()+"'";
@@ -487,7 +411,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
             DisplayCarOnRent();
             DisplayCarRentalRequest();
             Reset();
-
+                }
         }
         catch(Exception e)
         {
@@ -514,7 +438,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            String sql1 ="UPDATE customers SET carapprove = NULL  WHERE customerid = '"+TxtCustomerID.getText()+"' ";
+            String sql1 ="UPDATE customers SET bikeaproove = NULL  WHERE customerid = '"+TxtCustomerID.getText()+"' ";
             c.updateDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Request Denied");
             String msg = "Your Rental request has been Denied";
@@ -529,13 +453,16 @@ public class RentBikeJFrame extends javax.swing.JFrame {
             Reset();
     }//GEN-LAST:event_BtnDenyActionPerformed
 
-    private void BtnReturnBike1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnBike1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnReturnBike1ActionPerformed
-
     private void TxtRegNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtRegNoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtRegNoActionPerformed
+
+    private void BtnReturnCar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnCar1ActionPerformed
+        // TODO add your handling code here:
+        VehicleAdminLandingPage hl = new VehicleAdminLandingPage();
+        hl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnReturnCar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -580,7 +507,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
     private javax.swing.JButton BtnDeny;
     private javax.swing.JButton BtnManageBike;
     private javax.swing.JButton BtnReturnBike;
-    private javax.swing.JButton BtnReturnBike1;
+    private javax.swing.JButton BtnReturnCar1;
     private javax.swing.JPanel ButtonsPanel;
     private javax.swing.JLabel LblCarsOnRent;
     private javax.swing.JLabel LblCarsOnRent1;
@@ -646,7 +573,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
     private void DisplayCarRentalRequest() {
         String reg,brand,status,price,carmodel;
         try{
-            String sql = "SELECT * FROM customers where bikeapprove = 'Requested' ";
+            String sql = "SELECT * FROM customers where bikeaproove = 'Requested' ";
             ResultSet rs = c.selectDatabase(sql);
             DefaultTableModel model =(DefaultTableModel)TblBikeRentalRequest.getModel();
             int rowCount = model.getRowCount();
@@ -658,11 +585,11 @@ public class RentBikeJFrame extends javax.swing.JFrame {
 
             while (rs.next()) {
                 reg = rs.getString(1);
-                brand = rs.getString(7);
+                brand = rs.getString(35);
                 
-                status = rs.getString(6);
-                price = rs.getString(5);
-                carmodel = rs.getString(15);
+                status = rs.getString(44);
+                price = rs.getString(48);
+                carmodel = rs.getString(40);
                 String[] row = {reg,brand,status,price,carmodel};
                 model.addRow(row);
                                

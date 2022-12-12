@@ -5,6 +5,7 @@
 package Admin;
 
 import HomeLanding.HomeLanding;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,7 +18,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
      */
     public AdminLandingJFrame() {
         initComponents();
-     
+     this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -40,16 +41,17 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(885, 885));
+        setPreferredSize(new java.awt.Dimension(1300, 800));
 
         jSplitPane2.setBackground(new java.awt.Color(51, 51, 0));
 
         jPanel3.setBackground(new java.awt.Color(255, 185, 12));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Manage Admins");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 81, -1, -1));
 
         btnVehicleAdmin3.setBackground(new java.awt.Color(51, 51, 0));
         btnVehicleAdmin3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
@@ -60,6 +62,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
                 btnVehicleAdminActionPerformed(evt);
             }
         });
+        jPanel3.add(btnVehicleAdmin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 197, 166, -1));
 
         btnGadgetAdmin3.setBackground(new java.awt.Color(51, 51, 0));
         btnGadgetAdmin3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
@@ -70,6 +73,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
                 btnGadgetAdminActionPerformed(evt);
             }
         });
+        jPanel3.add(btnGadgetAdmin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 250, 166, -1));
 
         btnVehicleServicesAdmin3.setBackground(new java.awt.Color(51, 51, 0));
         btnVehicleServicesAdmin3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
@@ -80,6 +84,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
                 btnVehicleServicesAdminActionPerformed(evt);
             }
         });
+        jPanel3.add(btnVehicleServicesAdmin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 316, -1, -1));
 
         btnGadgetServicesAdmin3.setBackground(new java.awt.Color(51, 51, 51));
         btnGadgetServicesAdmin3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
@@ -90,6 +95,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
                 btnGadgetServicesAdminActionPerformed(evt);
             }
         });
+        jPanel3.add(btnGadgetServicesAdmin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 378, 166, -1));
 
         Logout.setBackground(new java.awt.Color(51, 51, 0));
         Logout.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
@@ -100,48 +106,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
                 LogoutbtnGadgetAdminActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnVehicleAdmin3)
-                                .addComponent(btnGadgetAdmin3))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnGadgetServicesAdmin3))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVehicleServicesAdmin3))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jLabel5)
-                .addGap(114, 114, 114)
-                .addComponent(btnVehicleAdmin3)
-                .addGap(30, 30, 30)
-                .addComponent(btnGadgetAdmin3)
-                .addGap(43, 43, 43)
-                .addComponent(btnVehicleServicesAdmin3)
-                .addGap(39, 39, 39)
-                .addComponent(btnGadgetServicesAdmin3)
-                .addGap(89, 89, 89)
-                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
+        jPanel3.add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 490, 99, 33));
 
         jSplitPane2.setLeftComponent(jPanel3);
 
@@ -164,7 +129,7 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 885, Short.MAX_VALUE)
+            .addComponent(jSplitPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +137,6 @@ public class AdminLandingJFrame extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGadgetServicesAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGadgetServicesAdminActionPerformed

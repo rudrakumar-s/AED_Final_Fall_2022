@@ -5,6 +5,8 @@
 package HomeLanding;
 
 import Admin.AdminLandingJFrame;
+import Customers.CustomerLoginJFrame;
+import Customers.CustomerSignUpJFrame;
 import GadgetServiceTechnicianManagement.ManageTechnicians;
 import MySQLConnection.MySQLConnection;
 import java.sql.ResultSet;
@@ -25,6 +27,7 @@ import VehicleServiceMechanicManagement.ManageMechanics;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -41,9 +44,13 @@ public class HomeLanding extends javax.swing.JFrame {
  
     public HomeLanding() {
         initComponents();
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+             
     }
        public HomeLanding(String s) {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+             this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        txtCustomerId.setText(s);
     }
     
@@ -57,7 +64,6 @@ public class HomeLanding extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel16 = new javax.swing.JPanel();
-        HeadingPane = new javax.swing.JPanel();
         TabbedPane = new javax.swing.JTabbedPane();
         SysAdPane = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -156,20 +162,7 @@ public class HomeLanding extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setUndecorated(true);
-
-        HeadingPane.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout HeadingPaneLayout = new javax.swing.GroupLayout(HeadingPane);
-        HeadingPane.setLayout(HeadingPaneLayout);
-        HeadingPaneLayout.setHorizontalGroup(
-            HeadingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        HeadingPaneLayout.setVerticalGroup(
-            HeadingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 323, Short.MAX_VALUE)
-        );
+        setPreferredSize(new java.awt.Dimension(1300, 800));
 
         TabbedPane.setBackground(new java.awt.Color(51, 51, 0));
         TabbedPane.setForeground(new java.awt.Color(255, 185, 12));
@@ -255,7 +248,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76)
                 .addComponent(jLabel6)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,7 +350,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69)
                 .addComponent(jLabel7)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,7 +451,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(jLabel38)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,7 +653,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96)
                 .addComponent(jLabel2)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,7 +736,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(217, 217, 217)
                 .addComponent(jLabel41)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -820,7 +813,7 @@ public class HomeLanding extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 887, Short.MAX_VALUE)
+            .addGap(0, 920, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -861,7 +854,7 @@ public class HomeLanding extends javax.swing.JFrame {
         MechPane.setLayout(MechPaneLayout);
         MechPaneLayout.setHorizontalGroup(
             MechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE)
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
         );
         MechPaneLayout.setVerticalGroup(
             MechPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -880,11 +873,21 @@ public class HomeLanding extends javax.swing.JFrame {
         BtnCusLogin1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnCusLogin1.setForeground(new java.awt.Color(255, 255, 255));
         BtnCusLogin1.setText("Login Here");
+        BtnCusLogin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCusLogin1ActionPerformed(evt);
+            }
+        });
 
         BtnCusLogin.setBackground(new java.awt.Color(255, 185, 12));
         BtnCusLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnCusLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnCusLogin.setText("Sign up..!");
+        BtnCusLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCusLoginActionPerformed(evt);
+            }
+        });
 
         jLabel27.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 185, 12));
@@ -1010,7 +1013,7 @@ public class HomeLanding extends javax.swing.JFrame {
         CusPane.setLayout(CusPaneLayout);
         CusPaneLayout.setHorizontalGroup(
             CusPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 892, Short.MAX_VALUE)
+            .addGap(0, 920, Short.MAX_VALUE)
             .addGroup(CusPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(CusPaneLayout.createSequentialGroup()
                     .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1110,17 +1113,12 @@ public class HomeLanding extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HeadingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(HeadingPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(512, 512, 512))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1131,7 +1129,6 @@ public class HomeLanding extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnVehLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehLoginActionPerformed
@@ -1226,7 +1223,7 @@ public class HomeLanding extends javax.swing.JFrame {
                 }
                 if(flag == 0){
                 // TODO add your handling code here:
-                String sql = " SELECT username,password FROM gadgetadmin WHERE id = '"+TxtVehAdUID.getText()+"' and password = '"+TxtVehAdPwd.getText()+"' ";
+                String sql = " SELECT username,password FROM gadgetadmin WHERE id = '"+TxtGadAdUID.getText()+"' and password = '"+TxtGadAdPwd.getText()+"' ";
                 ResultSet rs = c.selectDatabase(sql);
                 if(rs.next() == true)
                 {
@@ -1385,6 +1382,20 @@ public class HomeLanding extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void BtnCusLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCusLoginActionPerformed
+        // TODO add your handling code here:
+        CustomerSignUpJFrame c = new CustomerSignUpJFrame();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnCusLoginActionPerformed
+
+    private void BtnCusLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCusLogin1ActionPerformed
+        // TODO add your handling code here:
+        CustomerLoginJFrame c = new CustomerLoginJFrame();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnCusLogin1ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -1447,7 +1458,6 @@ public class HomeLanding extends javax.swing.JFrame {
     private javax.swing.JPanel CusPane;
     private javax.swing.JPanel GadAdPane;
     private javax.swing.JPanel GadSerPane;
-    private javax.swing.JPanel HeadingPane;
     private javax.swing.JPanel MechPane;
     private javax.swing.JPanel SysAdPane;
     private javax.swing.JTabbedPane TabbedPane;
