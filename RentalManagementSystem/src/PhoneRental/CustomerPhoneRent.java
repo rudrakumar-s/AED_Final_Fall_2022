@@ -62,7 +62,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(217, 161, 200));
+        jPanel1.setBackground(new java.awt.Color(242, 191, 202));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,7 +74,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Price");
 
-        btnBack.setBackground(new java.awt.Color(236, 213, 227));
+        btnBack.setBackground(new java.awt.Color(250, 218, 226));
         btnBack.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
@@ -188,7 +188,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(236, 213, 227));
+        jPanel2.setBackground(new java.awt.Color(250, 218, 226));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,7 +210,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblLaptopList);
 
-        btnRequest.setBackground(new java.awt.Color(217, 161, 200));
+        btnRequest.setBackground(new java.awt.Color(242, 191, 202));
         btnRequest.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest.setText("Request");
@@ -220,7 +220,7 @@ public class CustomerPhoneRent extends javax.swing.JFrame {
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(217, 161, 200));
+        btnLogout.setBackground(new java.awt.Color(242, 191, 202));
         btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");

@@ -61,10 +61,11 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TblCustReq = new javax.swing.JTable();
         BtnRequest = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(217, 161, 200));
+        jPanel1.setBackground(new java.awt.Color(242, 191, 202));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,7 +102,7 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Reg No");
 
-        btnBack.setBackground(new java.awt.Color(236, 213, 227));
+        btnBack.setBackground(new java.awt.Color(250, 218, 226));
         btnBack.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
@@ -206,7 +207,7 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
                 .addGap(80, 80, 80))
         );
 
-        jPanel2.setBackground(new java.awt.Color(236, 213, 227));
+        jPanel2.setBackground(new java.awt.Color(250, 218, 226));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,7 +229,7 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TblCustReq);
 
-        BtnRequest.setBackground(new java.awt.Color(217, 161, 200));
+        BtnRequest.setBackground(new java.awt.Color(242, 191, 202));
         BtnRequest.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BtnRequest.setForeground(new java.awt.Color(255, 255, 255));
         BtnRequest.setText("Request");
@@ -237,6 +238,11 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
                 BtnRequestActionPerformed(evt);
             }
         });
+
+        jButton1.setBackground(new java.awt.Color(242, 191, 202));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Logout");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -253,8 +259,10 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BtnRequest)
-                .addGap(45, 45, 45))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,9 +271,11 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
+                .addGap(48, 48, 48)
                 .addComponent(BtnRequest)
-                .addGap(103, 103, 103))
+                .addGap(30, 30, 30)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -374,6 +384,7 @@ public class CustomerRequestJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TxtRentDate;
     private javax.swing.JTextField TxtReturnDate;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

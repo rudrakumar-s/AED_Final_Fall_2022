@@ -67,10 +67,10 @@ public CustomerPhoneComplain(String s) {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 231, 214));
+        jPanel1.setBackground(new java.awt.Color(224, 248, 245));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(252, 203, 162));
+        jLabel1.setForeground(new java.awt.Color(189, 212, 209));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Customer ID :");
 
@@ -81,22 +81,22 @@ public CustomerPhoneComplain(String s) {
         });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(252, 203, 162));
+        jLabel7.setForeground(new java.awt.Color(189, 212, 209));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Product ID :");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(252, 203, 162));
+        jLabel2.setForeground(new java.awt.Color(189, 212, 209));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Rent ID :");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(252, 203, 162));
+        jLabel3.setForeground(new java.awt.Color(189, 212, 209));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Delay :");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(252, 203, 162));
+        jLabel4.setForeground(new java.awt.Color(189, 212, 209));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Fine :");
 
@@ -122,7 +122,7 @@ public CustomerPhoneComplain(String s) {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,18 +174,18 @@ public CustomerPhoneComplain(String s) {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(253, 203, 162));
+        jPanel2.setBackground(new java.awt.Color(189, 212, 209));
         jPanel2.setForeground(new java.awt.Color(253, 203, 162));
 
-        jPanel3.setBackground(new java.awt.Color(255, 231, 214));
+        jPanel3.setBackground(new java.awt.Color(224, 248, 245));
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setBackground(new java.awt.Color(224, 248, 245));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(253, 203, 162));
+        jLabel5.setForeground(new java.awt.Color(189, 212, 209));
         jLabel5.setText("Have an issue ?");
 
         btnRaiseComplaint.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnRaiseComplaint.setForeground(new java.awt.Color(252, 203, 162));
+        btnRaiseComplaint.setForeground(new java.awt.Color(189, 212, 209));
         btnRaiseComplaint.setText("Raise a Complain");
         btnRaiseComplaint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,10 +216,10 @@ public CustomerPhoneComplain(String s) {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 231, 214));
+        jPanel4.setBackground(new java.awt.Color(224, 248, 245));
 
         btnPayment.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnPayment.setForeground(new java.awt.Color(252, 203, 162));
+        btnPayment.setForeground(new java.awt.Color(189, 212, 209));
         btnPayment.setText("Payment");
         btnPayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +250,7 @@ public CustomerPhoneComplain(String s) {
         jLabel6.setText("Manage Phone Rent");
 
         btnLogout.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(252, 203, 162));
+        btnLogout.setForeground(new java.awt.Color(189, 212, 209));
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,7 +259,7 @@ public CustomerPhoneComplain(String s) {
         });
 
         btnBack.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(252, 203, 162));
+        btnBack.setForeground(new java.awt.Color(189, 212, 209));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,7 +278,7 @@ public CustomerPhoneComplain(String s) {
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(45, 45, 45)
@@ -310,7 +310,7 @@ public CustomerPhoneComplain(String s) {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
