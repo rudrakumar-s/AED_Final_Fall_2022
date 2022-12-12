@@ -72,6 +72,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
@@ -335,6 +336,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblLaptopRentalRequestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLaptopRentalRequestMouseClicked
