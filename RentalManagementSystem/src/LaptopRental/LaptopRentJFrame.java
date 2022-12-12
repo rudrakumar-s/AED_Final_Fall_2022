@@ -373,7 +373,7 @@ public class LaptopRentJFrame extends javax.swing.JFrame {
             c.updateDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Request Denied");
             String msg = "Your Rental request has been Denied";
-            e.sendMail(msg,"Laptop" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
+//            e.sendMail(msg,"Laptop" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
             
         } catch (Exception ex) {
             Logger.getLogger(LaptopRentJFrame.class.getName()).log(Level.SEVERE, null, ex);

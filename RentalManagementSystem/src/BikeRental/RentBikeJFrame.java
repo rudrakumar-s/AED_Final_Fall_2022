@@ -442,7 +442,7 @@ public class RentBikeJFrame extends javax.swing.JFrame {
             c.updateDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Request Denied");
             String msg = "Your Rental request has been Denied";
-            e.sendMail(msg,"Car" ,TxtCustomerID.getText(), TxtRegNo.getText(), TxtRentID.getText(), TxtPrice.getText(),TxtRentDate.getText(), TxtReturnDate.getText(), TxtEmail.getText());
+//            e.sendMail(msg,"Car" ,TxtCustomerID.getText(), TxtRegNo.getText(), TxtRentID.getText(), TxtPrice.getText(),TxtRentDate.getText(), TxtReturnDate.getText(), TxtEmail.getText());
             
         } catch (Exception ex) {
             Logger.getLogger(RentBikeJFrame.class.getName()).log(Level.SEVERE, null, ex);

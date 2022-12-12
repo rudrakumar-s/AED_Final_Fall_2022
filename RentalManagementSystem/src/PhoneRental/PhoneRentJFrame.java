@@ -430,7 +430,7 @@ public class PhoneRentJFrame extends javax.swing.JFrame {
             c.updateDatabase(sql1);
             JOptionPane.showMessageDialog(this,"Request Denied");
             String msg = "Your Rental request has been Denied";
-            e.sendMail(msg,"Phone" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
+//            e.sendMail(msg,"Phone" ,txtCustomerId.getText(), txtProductId.getText(), txtRentID.getText(), txtPrice.getText(),txtRentDate.getText(), txtReturnDate.getText(), txtEmail.getText());
             
         } catch (Exception ex) {
             Logger.getLogger(PhoneRentJFrame.class.getName()).log(Level.SEVERE, null, ex);
